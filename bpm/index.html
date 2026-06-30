@@ -11,8 +11,9 @@
   <script src="../assets/js/config.js" defer></script>
   <script src="../assets/js/components.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/i18n.js" defer></script>
 </head>
-<body>
+<body data-page="bpm">
   <site-header base=".."></site-header>
 
   <main>
@@ -22,7 +23,7 @@
           <img src="../assets/icons/music-3.svg" width="48" height="48" alt="" aria-hidden="true" class="icon-accent">
         </div>
         <h1>BURNING PIZZA METHODS</h1>
-        <p>jocarium を音で満たす、インハウス・レーベル。</p>
+        <p data-i18n="bpm.header.desc">jocarium を音で満たす、インハウス・レーベル。</p>
       </div>
     </section>
 
@@ -32,19 +33,19 @@
         <div class="services-grid">
           <article class="service-card" data-animate>
             <h3>Original Music</h3>
-            <p>プロジェクトのビジョンに合わせた、オーダーメイドの楽曲制作。</p>
+            <p data-i18n="bpm.services.original.desc">プロジェクトのビジョンに合わせた、オーダーメイドの楽曲制作。</p>
           </article>
           <article class="service-card" data-animate>
             <h3>BGM</h3>
-            <p>映像・ゲームの世界観を深める背景音楽。</p>
+            <p data-i18n="bpm.services.bgm.desc">映像・ゲームの世界観を深める背景音楽。</p>
           </article>
           <article class="service-card" data-animate>
             <h3>Sound Effects</h3>
-            <p>UI音・環境音・インタラクティブ音響のデザイン。</p>
+            <p data-i18n="bpm.services.sfx.desc">UI音・環境音・インタラクティブ音響のデザイン。</p>
           </article>
           <article class="service-card" data-animate>
             <h3>Audio Production</h3>
-            <p>録音・ミックス・マスタリングまで、一気通貫の音響制作。</p>
+            <p data-i18n="bpm.services.production.desc">録音・ミックス・マスタリングまで、一気通貫の音響制作。</p>
           </article>
         </div>
       </div>
@@ -55,20 +56,20 @@
         <h2>Philosophy</h2>
         <div class="philosophy-points">
           <article class="philosophy-point" data-animate>
-            <h3>一体性</h3>
-            <p>ビジュアルとサウンドが溶け合う体験をつくる。</p>
+            <h3 data-i18n="bpm.philosophy.p1.title">一体性</h3>
+            <p data-i18n="bpm.philosophy.p1.desc">ビジュアルとサウンドが溶け合う体験をつくる。</p>
           </article>
           <article class="philosophy-point" data-animate>
-            <h3>感情的な深さ</h3>
-            <p>和音・テンポ・音色が、感情に直接届く。</p>
+            <h3 data-i18n="bpm.philosophy.p2.title">感情的な深さ</h3>
+            <p data-i18n="bpm.philosophy.p2.desc">和音・テンポ・音色が、感情に直接届く。</p>
           </article>
           <article class="philosophy-point" data-animate>
-            <h3>職人技</h3>
-            <p>各音・各フレーズに、意図と意味がある。</p>
+            <h3 data-i18n="bpm.philosophy.p3.title">職人技</h3>
+            <p data-i18n="bpm.philosophy.p3.desc">各音・各フレーズに、意図と意味がある。</p>
           </article>
           <article class="philosophy-point" data-animate>
-            <h3>多様性</h3>
-            <p>クラシックからエレクトロニック、実験音響まで。ジャンルに縛られない。</p>
+            <h3 data-i18n="bpm.philosophy.p4.title">多様性</h3>
+            <p data-i18n="bpm.philosophy.p4.desc">クラシックからエレクトロニック、実験音響まで。ジャンルに縛られない。</p>
           </article>
         </div>
       </div>
@@ -78,9 +79,9 @@
       <div class="container">
         <h2>Collaborations</h2>
         <ul class="collaboration-list">
-          <li><strong>kokimiza</strong> — アニメーション・ビジュアルへの音楽付け</li>
-          <li><strong>Gutzgutz</strong> — ゲームのサウンドデザイン</li>
-          <li><strong>jocarium Systems</strong> — 技術的な音響実装</li>
+          <li><strong>kokimiza</strong> — <span data-i18n="bpm.collaborations.kokimiza">アニメーション・ビジュアルへの音楽付け</span></li>
+          <li><strong>Gutzgutz</strong> — <span data-i18n="bpm.collaborations.gutzgutz">ゲームのサウンドデザイン</span></li>
+          <li><strong>jocarium Systems</strong> — <span data-i18n="bpm.collaborations.systems">技術的な音響実装</span></li>
         </ul>
       </div>
     </section>
@@ -88,16 +89,16 @@
     <section class="content-section">
       <div class="container">
         <h2>Catalog</h2>
-        <p class="section-note">カタログ・プレイリスト準備中</p>
+        <p class="section-note" data-i18n="bpm.catalog.note">カタログ・プレイリスト準備中</p>
       </div>
     </section>
 
     <section class="cta">
       <div class="container">
-        <h2>Sound Good?</h2>
+        <h2 data-i18n="bpm.cta.heading">Sound Good?</h2>
         <div class="cta-buttons">
-          <a href="../contact/index.html" class="btn btn-primary">Get in Touch</a>
-          <a href="../press/index.html" class="btn btn-secondary">Press</a>
+          <a href="../contact/index.html" class="btn btn-primary" data-i18n="shared.getInTouch">Get in Touch</a>
+          <a href="../press/index.html" class="btn btn-secondary" data-i18n="shared.press">Press</a>
         </div>
       </div>
     </section>

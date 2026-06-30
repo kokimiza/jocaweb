@@ -11,15 +11,16 @@
   <script src="./assets/js/config.js" defer></script>
   <script src="./assets/js/components.js" defer></script>
   <script src="./assets/js/main.js" defer></script>
+  <script src="./assets/js/i18n.js" defer></script>
 </head>
-<body>
+<body data-page="index">
   <site-header base="."></site-header>
 
   <main>
     <section class="hero">
       <div class="container">
         <h1>jocarium</h1>
-        <p class="tagline">内発的動機から生まれるクリエイティブ・エコシステム</p>
+        <p class="tagline" data-i18n="index.hero.tagline">内発的動機から生まれるクリエイティブ・エコシステム</p>
       </div>
     </section>
 
@@ -32,21 +33,21 @@
               <img src="./assets/icons/heart.svg" width="24" height="24" alt="" aria-hidden="true" class="icon-accent">
             </div>
             <h3>Cultivate Veiled VIRTUE</h3>
-            <p>曖昧さの中に美徳を見出す</p>
+            <p data-i18n="index.values.virtue.desc">曖昧さの中に美徳を見出す</p>
           </article>
           <article class="value-card" data-animate>
             <div class="value-card-icon">
               <img src="./assets/icons/owl.svg" width="24" height="24" alt="" aria-hidden="true" class="icon-accent">
             </div>
             <h3>Clothe Form in WISDOM</h3>
-            <p>知恵で形に意味を与える</p>
+            <p data-i18n="index.values.wisdom.desc">知恵で形に意味を与える</p>
           </article>
           <article class="value-card" data-animate>
             <div class="value-card-icon">
               <img src="./assets/icons/party-popper.svg" width="24" height="24" alt="" aria-hidden="true" class="icon-accent">
             </div>
             <h3>SPARK Pavilion</h3>
-            <p>才能と創造性が発火する場をつくる</p>
+            <p data-i18n="index.values.spark.desc">才能と創造性が発火する場をつくる</p>
           </article>
         </div>
       </div>
@@ -63,13 +64,13 @@
             </div>
             <h3><a href="./kokimiza/index.html">kokimiza</a></h3>
             <p class="brand-tagline">Animation &amp; Visual</p>
-            <p>意図あるビジュアルと、意味あるモーション。</p>
+            <p data-i18n="index.brands.kokimiza.desc">意図あるビジュアルと、意味あるモーション。</p>
             <ul class="brand-services">
               <li>Animation</li>
               <li>Short Films</li>
               <li>Motion Design</li>
             </ul>
-            <a href="./kokimiza/index.html" class="btn-learn-more">詳細 →</a>
+            <a href="./kokimiza/index.html" class="btn-learn-more" data-i18n="shared.learnMore">詳細 →</a>
           </article>
 
           <article class="brand-card" data-animate>
@@ -78,13 +79,13 @@
             </div>
             <h3><a href="./gutzgutz/index.html">Gutzgutz</a></h3>
             <p class="brand-tagline">Game Development</p>
-            <p>何度でも遊びたくなる、ゲームプレイ中心の体験。</p>
+            <p data-i18n="index.brands.gutzgutz.desc">何度でも遊びたくなる、ゲームプレイ中心の体験。</p>
             <ul class="brand-services">
               <li>Gameplay Systems</li>
               <li>Racing Games</li>
               <li>Experimental Mechanics</li>
             </ul>
-            <a href="./gutzgutz/index.html" class="btn-learn-more">詳細 →</a>
+            <a href="./gutzgutz/index.html" class="btn-learn-more" data-i18n="shared.learnMore">詳細 →</a>
           </article>
 
           <article class="brand-card" data-animate>
@@ -93,13 +94,13 @@
             </div>
             <h3><a href="./bpm/index.html">BURNING PIZZA METHODS</a></h3>
             <p class="brand-tagline">Music Label</p>
-            <p>エコシステム全体を音で満たす、インハウス・レーベル。</p>
+            <p data-i18n="index.brands.bpm.desc">エコシステム全体を音で満たす、インハウス・レーベル。</p>
             <ul class="brand-services">
               <li>Original Music</li>
               <li>BGM / SE</li>
               <li>Audio Production</li>
             </ul>
-            <a href="./bpm/index.html" class="btn-learn-more">詳細 →</a>
+            <a href="./bpm/index.html" class="btn-learn-more" data-i18n="shared.learnMore">詳細 →</a>
           </article>
 
           <article class="brand-card" data-animate>
@@ -108,13 +109,13 @@
             </div>
             <h3><a href="./systems/index.html">jocarium Systems</a></h3>
             <p class="brand-tagline">Software Engineering</p>
-            <p>クリエイティブを支える、見えない技術基盤。</p>
+            <p data-i18n="index.brands.systems.desc">クリエイティブを支える、見えない技術基盤。</p>
             <ul class="brand-services">
               <li>Internal Systems</li>
               <li>Dev Infrastructure</li>
               <li>DevSecOps</li>
             </ul>
-            <a href="./systems/index.html" class="btn-learn-more">詳細 →</a>
+            <a href="./systems/index.html" class="btn-learn-more" data-i18n="shared.learnMore">詳細 →</a>
           </article>
 
         </div>
@@ -124,11 +125,10 @@
     <section class="philosophy">
       <div class="container">
         <h2>One Ecosystem</h2>
-        <p class="philosophy-lead">
-          kokimiza がビジュアルを、Gutzgutz がゲームを、BPM がサウンドを。<br>
-          Systems がその全てを支える。
+        <p class="philosophy-lead" data-i18n="index.ecosystem.lead">
+          kokimiza がビジュアルを、Gutzgutz がゲームを、BPM がサウンドを。Systems がその全てを支える。
         </p>
-        <p class="philosophy-conclusion">
+        <p class="philosophy-conclusion" data-i18n="index.ecosystem.conclusion">
           工芸性・好奇心・創造の自由。この3つが jocarium の根幹です。
         </p>
       </div>
@@ -137,7 +137,7 @@
     <section class="content-section" id="organization">
       <div class="container">
         <h2>Organization</h2>
-        <p>
+        <p data-i18n="index.org.desc">
           jocarium は、クライアントワークや市場トレンドとは無関係に、
           内発的動機だけを原動力とするクリエイティブ・ベンチャーです。
         </p>
@@ -158,7 +158,7 @@
           </div>
           <div class="org-item" data-animate>
             <h3>Administration &amp; Strategy</h3>
-            <p>組織全体の管理・戦略機能</p>
+            <p data-i18n="index.org.adminDesc">組織全体の管理・戦略機能</p>
           </div>
         </div>
       </div>
@@ -167,10 +167,10 @@
     <section class="cta">
       <div class="container">
         <h2>Latest News</h2>
-        <p>各ブランドのお知らせは Press ページにて随時公開しています。</p>
+        <p data-i18n="index.cta.desc">各ブランドのお知らせは Press ページにて随時公開しています。</p>
         <div class="cta-buttons">
-          <a href="./press/index.html" class="btn btn-primary">Press</a>
-          <a href="./contact/index.html" class="btn btn-secondary">Get in Touch</a>
+          <a href="./press/index.html" class="btn btn-primary" data-i18n="shared.press">Press</a>
+          <a href="./contact/index.html" class="btn btn-secondary" data-i18n="shared.getInTouch">Get in Touch</a>
         </div>
       </div>
     </section>

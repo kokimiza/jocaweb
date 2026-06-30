@@ -14,15 +14,16 @@
   <script src="../assets/js/components.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
   <script src="../assets/js/press.js" defer></script>
+  <script src="../assets/js/i18n.js" defer></script>
 </head>
-<body>
+<body data-page="press">
   <site-header base=".."></site-header>
 
   <main>
     <section class="page-header">
       <div class="container">
-        <h1>Press</h1>
-        <p>jocarium および各ブランドからのお知らせ</p>
+        <h1 data-i18n="press.header.title">Press</h1>
+        <p data-i18n="press.header.desc">jocarium および各ブランドからのお知らせ</p>
       </div>
     </section>
 
@@ -30,7 +31,7 @@
       <div class="container">
 
         <!-- ジャンルフィルター -->
-        <div class="press-filter" role="group" aria-label="ジャンルで絞り込む">
+        <div class="press-filter" role="group" data-i18n-label="press.filter.label" aria-label="ジャンルで絞り込む">
           <label class="filter-btn">
             <input type="radio" name="genre-filter" value="all" checked>
             <span>All</span>
@@ -55,7 +56,7 @@
 
         <!-- ニュースリスト（JS で描画） -->
         <div id="news-list" class="news-list" aria-live="polite">
-          <p class="section-note" id="news-loading">読み込み中…</p>
+          <p class="section-note" id="news-loading" data-i18n="press.loading">読み込み中…</p>
         </div>
 
       </div>
@@ -73,6 +74,7 @@
         <h2 id="modal-title" class="news-modal-title"></h2>
         <button
           class="news-modal-close"
+          data-i18n-label="shared.modalClose"
           aria-label="閉じる"
           command="close"
           commandfor="news-modal"
