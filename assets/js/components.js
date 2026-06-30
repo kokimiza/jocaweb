@@ -214,33 +214,29 @@
 			wrapper.append(toggle, menu);
 			return wrapper;
 		}
-	}
 
-	// ==========================================================================
-	// theme toggle builder
-	// ==========================================================================
+		/** sun/moon アイコンでテーマを切り替えるボタンを生成 */
+		#buildThemeToggle(base) {
+			const btn = el("button", {
+				class: "navbar-theme-toggle",
+				"aria-label": "ダークモードに切り替え",
+				"data-theme-toggle": "",
+			});
 
-	/** sun/moon アイコンでテーマを切り替えるボタンを生成 */
-	#buildThemeToggle(base) {
-		const btn = el("button", {
-			class: "navbar-theme-toggle",
-			"aria-label": "ダークモードに切り替え",
-			"data-theme-toggle": "",
-		});
+			const sunImg = createIcon(`${base}/assets/icons/${icons.sun}`, 18);
+			sunImg.classList.add("icon-theme", "icon-sun");
 
-		const sunImg = createIcon(`${base}/assets/icons/${icons.sun}`, 18);
-		sunImg.classList.add("icon-theme", "icon-sun");
+			const moonImg = createIcon(`${base}/assets/icons/${icons.moon}`, 18);
+			moonImg.classList.add("icon-theme", "icon-moon");
 
-		const moonImg = createIcon(`${base}/assets/icons/${icons.moon}`, 18);
-		moonImg.classList.add("icon-theme", "icon-moon");
+			btn.append(sunImg, moonImg);
 
-		btn.append(sunImg, moonImg);
+			btn.addEventListener("click", () => {
+				window.dispatchEvent(new CustomEvent("jocarium:theme-toggle"));
+			});
 
-		btn.addEventListener("click", () => {
-			window.dispatchEvent(new CustomEvent("jocarium:theme-toggle"));
-		});
-
-		return btn;
+			return btn;
+		}
 	}
 
 	// ==========================================================================
