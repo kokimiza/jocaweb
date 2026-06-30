@@ -1,0 +1,822 @@
+/* ==========================================================================
+   テーマ・コンポーネント
+   ========================================================================== */
+
+/* =========================================================================
+   Buttons
+   ========================================================================= */
+
+.btn {
+	display: inline-block;
+	padding: var(--spacing-sm) var(--spacing-lg);
+	font-size: 1rem;
+	font-weight: var(--font-weight-semibold);
+	border-radius: var(--radius-md);
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: all var(--transition-fast);
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+	position: relative;
+	overflow: hidden;
+}
+
+.btn:hover {
+	text-decoration: none;
+}
+
+/* Ripple effect */
+.btn::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(255, 255, 255, 0.25);
+	border-radius: inherit;
+	scale: 0;
+	opacity: 0;
+	transition:
+		scale 0.5s ease,
+		opacity 0.5s ease;
+}
+
+.btn:hover::before {
+	scale: 1;
+	opacity: 1;
+}
+
+.btn-primary {
+	background-color: var(--color-accent);
+	color: #ffffff;
+}
+
+.btn-primary:hover {
+	background-color: color-mix(in srgb, var(--color-accent) 80%, black);
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+	color: #ffffff;
+}
+
+.btn-primary:active {
+	transform: translateY(0);
+}
+
+.btn-secondary {
+	background-color: transparent;
+	color: var(--color-accent);
+	border-color: var(--color-accent);
+}
+
+.btn-secondary:hover {
+	background-color: var(--color-accent);
+	color: #ffffff;
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+}
+
+/* Button groups */
+.cta-buttons {
+	display: flex;
+	gap: var(--spacing-md);
+	flex-wrap: wrap;
+	margin-top: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+	.cta-buttons {
+		flex-direction: column;
+	}
+
+	.btn {
+		width: 100%;
+	}
+}
+
+/* =========================================================================
+   Cards — Container Queries 対応
+   ========================================================================= */
+
+/* カード共通の container コンテキスト */
+.card,
+.value-card,
+.brand-card,
+.service-card,
+.responsibility-card {
+	container-type: inline-size;
+	container-name: card;
+}
+
+.card {
+	background-color: var(--color-bg);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-lg);
+	transition: all var(--transition-base);
+}
+
+.card:hover {
+	box-shadow: var(--shadow-lg);
+	transform: translateY(-4px);
+}
+
+/* Value cards */
+.value-card {
+	background-color: var(--color-bg);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-xl);
+	text-align: center;
+	transition: all var(--transition-base);
+}
+
+.value-card h3 {
+	font-size: 1.25rem;
+	margin-bottom: var(--spacing-md);
+	color: var(--color-accent);
+}
+
+.value-card:hover {
+	box-shadow: var(--shadow-lg);
+	transform: translateY(-4px);
+	border-color: var(--color-accent);
+}
+
+/* Brand cards */
+.brand-card {
+	background-color: var(--color-bg);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-xl);
+	transition: all var(--transition-base);
+	display: flex;
+	flex-direction: column;
+}
+
+.brand-card h3 {
+	margin-bottom: var(--spacing-sm);
+}
+
+.brand-card h3 a {
+	color: var(--color-text);
+	transition: color var(--transition-fast);
+}
+
+.brand-card h3 a:hover {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+
+.brand-tagline {
+	font-weight: var(--font-weight-semibold);
+	color: var(--color-accent);
+	margin-bottom: var(--spacing-md);
+}
+
+.brand-services {
+	flex: 1;
+	list-style: none;
+	padding: 0;
+	margin: var(--spacing-md) 0;
+}
+
+.brand-services li {
+	padding: var(--spacing-sm) 0;
+	padding-left: var(--spacing-lg);
+	position: relative;
+	color: var(--color-text);
+}
+
+.brand-services li::before {
+	content: "→";
+	position: absolute;
+	left: 0;
+	color: var(--color-accent);
+}
+
+.btn-learn-more {
+	margin-top: auto;
+	display: inline-block;
+	color: var(--color-accent);
+	font-weight: var(--font-weight-semibold);
+	transition: color var(--transition-fast);
+}
+
+.btn-learn-more:hover {
+	color: var(--color-accent-alt);
+	text-decoration: underline;
+}
+
+.brand-card:hover {
+	box-shadow: var(--shadow-lg);
+	transform: translateY(-4px);
+	border-color: var(--color-accent);
+}
+
+/* Service cards */
+.service-card {
+	background-color: var(--color-bg);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-lg);
+	transition: all var(--transition-base);
+}
+
+.service-card h3 {
+	font-size: 1.25rem;
+	margin-bottom: var(--spacing-md);
+	color: var(--color-accent);
+}
+
+.service-card:hover {
+	box-shadow: var(--shadow-lg);
+	transform: translateY(-4px);
+	border-color: var(--color-accent);
+}
+
+/* =========================================================================
+   Grid layouts — Container Queries
+   ========================================================================= */
+
+.brands-grid,
+.values-grid,
+.services-grid,
+.game-categories,
+.responsibilities-grid {
+	display: grid;
+	gap: var(--spacing-lg);
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+@media (min-width: 768px) {
+	.brands-grid,
+	.services-grid,
+	.responsibilities-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* =========================================================================
+   Philosophy section
+   ========================================================================= */
+
+.philosophy-grid {
+	display: grid;
+	gap: var(--spacing-md);
+	grid-template-columns: 1fr;
+	text-align: center;
+}
+
+.philosophy-grid .philosophy-item {
+	font-size: 1.1rem;
+	line-height: 1.8;
+}
+
+.philosophy-detailed {
+	background-color: var(--color-bg-light);
+	padding: var(--spacing-xl);
+	border-radius: var(--radius-lg);
+	border-left: 4px solid var(--color-accent);
+	font-size: 1.05rem;
+	line-height: 1.8;
+}
+
+.philosophy-points {
+	display: grid;
+	gap: var(--spacing-lg);
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	margin-top: var(--spacing-xl);
+}
+
+.philosophy-point {
+	background-color: var(--color-bg-light);
+	padding: var(--spacing-lg);
+	border-radius: var(--radius-md);
+	border-left: 4px solid var(--color-accent);
+}
+
+.philosophy-point h3 {
+	color: var(--color-accent);
+	margin-bottom: var(--spacing-md);
+}
+
+/* =========================================================================
+   CTA Section — light-dark() でダークモード対応
+   ========================================================================= */
+
+.cta {
+	background: linear-gradient(
+		135deg,
+		light-dark(var(--color-primary), #ffffff),
+		light-dark(#2a2a2a, #e0e0e0)
+	);
+	color: light-dark(#ffffff, var(--color-primary));
+	padding: var(--spacing-4xl) 0;
+	text-align: center;
+}
+
+.cta h2 {
+	color: inherit;
+	margin-bottom: var(--spacing-lg);
+}
+
+.cta p {
+	color: inherit;
+	margin-bottom: var(--spacing-lg);
+	font-size: 1.1rem;
+	opacity: 0.9;
+}
+
+/* =========================================================================
+   Hero section
+   ========================================================================= */
+
+.hero {
+	padding: var(--spacing-4xl) 0;
+	text-align: center;
+	background: linear-gradient(135deg, var(--color-bg-light), var(--color-bg));
+}
+
+.hero h1 {
+	margin-bottom: var(--spacing-md);
+}
+
+.tagline {
+	font-size: 1.5rem;
+	color: var(--color-accent);
+	font-weight: var(--font-weight-semibold);
+	margin-bottom: var(--spacing-lg);
+}
+
+.description {
+	font-size: 1.1rem;
+	color: var(--color-text-light);
+	max-width: 600px;
+	margin: 0 auto;
+	line-height: 1.8;
+}
+
+/* =========================================================================
+   Forms
+   ========================================================================= */
+
+.contact-form {
+	max-width: 600px;
+	margin: var(--spacing-xl) auto;
+	display: grid;
+	gap: var(--spacing-lg);
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group label {
+	font-weight: var(--font-weight-semibold);
+	margin-bottom: var(--spacing-sm);
+	color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+	padding: var(--spacing-md);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	font-family: var(--font-family-sans);
+	font-size: 1rem;
+}
+
+/* =========================================================================
+   Organization structure
+   ========================================================================= */
+
+.org-structure {
+	display: grid;
+	gap: var(--spacing-lg);
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	margin-top: var(--spacing-xl);
+}
+
+.org-item {
+	background-color: var(--color-bg-light);
+	padding: var(--spacing-lg);
+	border-radius: var(--radius-md);
+	border-left: 4px solid var(--color-accent);
+}
+
+.org-item h3 {
+	color: var(--color-accent);
+	margin-bottom: var(--spacing-md);
+}
+
+.org-item ul {
+	margin: 0;
+	padding-left: var(--spacing-lg);
+}
+
+/* =========================================================================
+   FAQ — <details> / :open 疑似クラス
+   ========================================================================= */
+
+.faq-items {
+	display: grid;
+	gap: var(--spacing-md);
+}
+
+.faq-item {
+	background-color: var(--color-bg-light);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	transition: border-color var(--transition-fast);
+}
+
+.faq-item:open {
+	border-color: var(--color-accent);
+}
+
+.faq-item summary {
+	padding: var(--spacing-lg);
+	cursor: pointer;
+	font-weight: var(--font-weight-semibold);
+	color: var(--color-text);
+	transition: background-color var(--transition-fast);
+	user-select: none;
+	list-style: none; /* デフォルトの▼を非表示 */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--spacing-md);
+}
+
+.faq-item summary::after {
+	content: "+";
+	font-size: 1.25rem;
+	color: var(--color-accent);
+	flex-shrink: 0;
+	transition: rotate var(--transition-fast);
+}
+
+.faq-item:open summary::after {
+	rotate: 45deg;
+}
+
+.faq-item summary:hover {
+	background-color: var(--color-bg-dark);
+}
+
+.faq-item:open summary {
+	background-color: var(--color-bg-dark);
+}
+
+.faq-item p {
+	margin: 0;
+	padding: var(--spacing-md) var(--spacing-lg);
+	color: var(--color-text-light);
+}
+
+/* =========================================================================
+   Misc components
+   ========================================================================= */
+
+.section-note {
+	color: var(--color-text-light);
+	font-style: italic;
+	text-align: center;
+	padding: var(--spacing-lg);
+}
+
+.collaboration-list {
+	list-style: none;
+	padding: 0;
+}
+
+.collaboration-list li {
+	padding: var(--spacing-md) 0;
+	padding-left: var(--spacing-lg);
+	position: relative;
+}
+
+.collaboration-list li::before {
+	content: "♪";
+	position: absolute;
+	left: 0;
+	color: var(--color-accent);
+	font-size: 1.25rem;
+}
+
+.tech-focus-list {
+	list-style: none;
+	padding: 0;
+	display: grid;
+	gap: var(--spacing-md);
+}
+
+.tech-focus-list li {
+	padding: var(--spacing-md);
+	background-color: var(--color-bg-light);
+	border-radius: var(--radius-md);
+	border-left: 4px solid var(--color-accent);
+}
+
+.responsibility-card {
+	background-color: var(--color-bg);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	padding: var(--spacing-lg);
+	transition: all var(--transition-base);
+}
+
+.responsibility-card h3 {
+	color: var(--color-accent);
+	margin-bottom: var(--spacing-md);
+}
+
+.responsibility-card:hover {
+	box-shadow: var(--shadow-lg);
+	transform: translateY(-4px);
+	border-color: var(--color-accent);
+}
+
+.brand-contacts {
+	display: grid;
+	gap: var(--spacing-lg);
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	margin-top: var(--spacing-xl);
+}
+
+.brand-contact {
+	background-color: var(--color-bg-light);
+	padding: var(--spacing-lg);
+	border-radius: var(--radius-md);
+	border-left: 4px solid var(--color-accent);
+}
+
+.brand-contact h3 {
+	color: var(--color-accent);
+	margin-bottom: var(--spacing-md);
+}
+
+.values-section {
+	display: grid;
+	gap: var(--spacing-lg);
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	margin-top: var(--spacing-xl);
+}
+
+.value-item {
+	background-color: var(--color-bg-light);
+	padding: var(--spacing-lg);
+	border-radius: var(--radius-md);
+	border-left: 4px solid var(--color-accent);
+}
+
+.value-item h3 {
+	color: var(--color-accent);
+	margin-bottom: var(--spacing-md);
+}
+
+/* =========================================================================
+   アニメーション
+   ========================================================================= */
+
+/* スクロール時フェードイン */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes inputFocus {
+	from {
+		box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 20%, transparent);
+	}
+	to {
+		box-shadow: 0 0 0 3px
+			color-mix(in srgb, var(--color-accent) 20%, transparent);
+	}
+}
+
+/* スクロールアニメーション対象 — JS側で .is-visible を付与 */
+.card,
+.brand-card,
+.service-card,
+.value-card,
+.value-item,
+.org-item,
+.philosophy-point,
+.responsibility-card,
+.brand-contact,
+.animate-on-scroll {
+	will-change: opacity, transform;
+}
+
+[data-animate]:not(.is-visible) {
+	opacity: 0;
+	transform: translateY(20px);
+}
+
+[data-animate].is-visible {
+	animation: fadeInUp 0.55s ease-out forwards;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	animation: inputFocus 0.3s ease forwards;
+}
+
+/* =========================================================================
+   アクセシビリティ
+   ========================================================================= */
+
+/* キーボードフォーカス — マウス時は非表示 */
+:focus-visible {
+	outline: 3px solid var(--color-accent);
+	outline-offset: 3px;
+	border-radius: var(--radius-md);
+}
+
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* disabled */
+.btn:disabled {
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+
+/* =========================================================================
+   モーション削減
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+
+	[data-animate]:not(.is-visible) {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+/* =========================================================================
+   Icons
+   ========================================================================= */
+
+/* stroke="currentColor" のSVGはCSSのcolorで色が変わる */
+.icon-accent {
+	color: var(--color-accent);
+	/* SVG img 要素にはcolorが直接効かないため、filter で着色 */
+	filter: invert(30%) sepia(80%) saturate(800%) hue-rotate(190deg)
+		brightness(95%);
+}
+
+@media (prefers-color-scheme: dark) {
+	.icon-accent {
+		filter: invert(60%) sepia(60%) saturate(600%) hue-rotate(190deg)
+			brightness(120%);
+	}
+}
+
+/* ブランドカード内アイコン */
+.brand-card-icon {
+	margin-bottom: var(--spacing-md);
+}
+
+/* value-card 内アイコン */
+.value-card-icon {
+	display: flex;
+	justify-content: center;
+	margin-bottom: var(--spacing-sm);
+}
+
+/* インラインアイコン（テキスト行内の小アイコン） */
+.icon-inline {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	top: -1px;
+	margin-right: 4px;
+}
+
+.icon-muted {
+	filter: invert(45%) sepia(0%) saturate(0%) brightness(65%);
+}
+
+@media (prefers-color-scheme: dark) {
+	.icon-muted {
+		filter: invert(70%) sepia(0%) saturate(0%) brightness(80%);
+	}
+}
+
+/* tech-focus-list — アイコン付きリストの内部レイアウト */
+.tech-focus-list li {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+}
+
+.tech-focus-list li .icon-inline {
+	flex-shrink: 0;
+	margin-right: 0;
+}
+
+/* ページヘッダーアイコン */
+.page-header-icon {
+	display: flex;
+	justify-content: center;
+	margin-bottom: var(--spacing-md);
+}
+
+/* ボタンにアイコンを添える */
+.btn-with-icon {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+}
+
+.icon-btn {
+	flex-shrink: 0;
+	/* ボタン内アイコンは白（btn-primary 想定） */
+	filter: brightness(0) invert(1);
+}
+
+/* 送信中ローダースピン */
+@keyframes spin {
+	to {
+		rotate: 360deg;
+	}
+}
+
+.icon-btn[src*="loader-pinwheel"] {
+	animation: spin 1s linear infinite;
+}
+
+/* Philosophy セクション — index.html 用リード文 */
+.philosophy-lead {
+	font-size: 1.15rem;
+	line-height: 1.9;
+	color: var(--color-text-light);
+	margin-bottom: var(--spacing-lg);
+}
+
+/* =========================================================================
+   Responsive
+   ========================================================================= */
+
+@media (max-width: 768px) {
+	.brands-grid,
+	.values-grid,
+	.services-grid,
+	.game-categories,
+	.philosophy-points,
+	.responsibilities-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.cta-buttons {
+		flex-direction: column;
+	}
+
+	.btn {
+		width: 100%;
+	}
+
+	.contact-form {
+		padding: 0 var(--spacing-md);
+	}
+}

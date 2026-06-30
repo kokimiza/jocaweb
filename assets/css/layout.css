@@ -1,0 +1,377 @@
+/* ==========================================================================
+   レイアウト・グリッドシステム
+   ========================================================================== */
+
+/* Container */
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+	.container {
+		padding: 0 var(--spacing-xl);
+	}
+}
+
+/* Grid system */
+.grid {
+	display: grid;
+	gap: var(--spacing-md);
+}
+
+.grid-2 {
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-4 {
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media (min-width: 768px) {
+	.grid {
+		gap: var(--spacing-lg);
+	}
+
+	.grid-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.grid-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.grid-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* Flexbox utilities */
+.flex {
+	display: flex;
+}
+.flex-col {
+	flex-direction: column;
+}
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.flex-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.flex-gap-sm {
+	gap: var(--spacing-sm);
+}
+.flex-gap {
+	gap: var(--spacing-md);
+}
+.flex-gap-lg {
+	gap: var(--spacing-lg);
+}
+
+/* Spacing utilities */
+.m-0 {
+	margin: 0;
+}
+.mt {
+	margin-top: var(--spacing-md);
+}
+.mb {
+	margin-bottom: var(--spacing-md);
+}
+.my {
+	margin-block: var(--spacing-md);
+}
+.p-md {
+	padding: var(--spacing-md);
+}
+.p-lg {
+	padding: var(--spacing-lg);
+}
+.p-xl {
+	padding: var(--spacing-xl);
+}
+.px {
+	padding-inline: var(--spacing-md);
+}
+.py {
+	padding-block: var(--spacing-md);
+}
+
+/* =========================================================================
+   Header / Navbar
+   ========================================================================= */
+
+header,
+site-header {
+	position: sticky;
+	top: 0;
+	z-index: var(--z-sticky);
+	border-bottom: 1px solid var(--color-border);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	background-color: color-mix(in srgb, var(--color-bg) 88%, transparent);
+}
+
+/* Web Component ラッパーを透過させて内側の <header> に干渉しないようにする */
+site-header {
+	display: contents;
+}
+
+site-footer {
+	display: contents;
+}
+
+.navbar {
+	padding: var(--spacing-md) 0;
+}
+
+.navbar .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbar-brand {
+	font-weight: var(--font-weight-bold);
+	font-size: 1.5rem;
+}
+
+.navbar-brand a {
+	color: var(--color-text);
+	transition: color var(--transition-fast);
+}
+
+.navbar-brand a:hover {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+
+/* -------------------------------------------------------------------------
+   デスクトップ nav — デフォルト
+   ------------------------------------------------------------------------- */
+
+.navbar-menu {
+	display: flex;
+	list-style: none;
+	gap: var(--spacing-xl);
+	margin: 0;
+	padding: 0;
+}
+
+.navbar-menu a {
+	color: var(--color-text);
+	font-weight: var(--font-weight-medium);
+	transition: color var(--transition-fast);
+	position: relative;
+}
+
+.navbar-menu a:hover {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+
+.navbar-menu a::after {
+	content: "";
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--color-accent);
+	transition: width var(--transition-fast);
+}
+
+.navbar-menu a:hover::after,
+.navbar-menu a.is-active::after {
+	width: 100%;
+}
+
+.navbar-menu a.is-active {
+	color: var(--color-accent);
+}
+
+/* -------------------------------------------------------------------------
+   モバイル nav — クラストグル (.is-open)
+   ------------------------------------------------------------------------- */
+
+.navbar-toggle {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 6px;
+	border-radius: var(--radius-sm);
+	transition: background-color var(--transition-fast);
+}
+
+.navbar-toggle:hover {
+	background-color: var(--color-bg-dark);
+}
+
+.navbar-toggle img {
+	/* SVG の stroke="currentColor" は img では効かないため、
+	   icon-accent フィルタではなくデフォルト(=テキスト色)に合わせた filter を使う */
+	filter: invert(20%) sepia(0%) saturate(0%) brightness(40%);
+}
+
+@media (prefers-color-scheme: dark) {
+	.navbar-toggle img {
+		filter: invert(90%) sepia(0%) saturate(0%) brightness(100%);
+	}
+}
+
+@media (max-width: 768px) {
+	.navbar-toggle {
+		display: flex;
+	}
+
+	.navbar-menu {
+		position: absolute;
+		inset-block-start: 100%;
+		inset-inline: 0;
+		width: 100%;
+		flex-direction: column;
+		gap: 0;
+		background-color: var(--color-bg);
+		border-bottom: 1px solid var(--color-border);
+		padding: var(--spacing-md);
+		list-style: none;
+		z-index: var(--z-dropdown);
+
+		/* 閉じた状態 */
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(-8px);
+		transition:
+			opacity var(--transition-fast),
+			transform var(--transition-fast);
+	}
+
+	.navbar-menu.is-open {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+	}
+
+	.navbar-menu li {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.navbar-menu li:last-child {
+		border-bottom: none;
+	}
+
+	.navbar-menu a {
+		display: block;
+		padding: var(--spacing-md) 0;
+	}
+
+	.navbar-menu a::after {
+		display: none;
+	}
+
+	.navbar-menu a:hover::after {
+		width: 0;
+	}
+}
+
+/* =========================================================================
+   Main content
+   ========================================================================= */
+
+main {
+	flex: 1;
+}
+
+/* =========================================================================
+   Footer
+   ========================================================================= */
+
+footer {
+	margin-top: var(--spacing-4xl);
+	padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+	border-top: 1px solid var(--color-border);
+	background-color: var(--color-bg-light);
+}
+
+footer .container {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-lg);
+}
+
+.footer-links {
+	display: flex;
+	gap: var(--spacing-xl);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-links a {
+	color: var(--color-text-light);
+	transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+	color: var(--color-accent);
+	text-decoration: none;
+}
+
+footer p {
+	color: var(--color-text-light);
+	margin: 0;
+}
+
+/* =========================================================================
+   Sections
+   ========================================================================= */
+
+section {
+	padding: var(--spacing-3xl) 0;
+}
+
+section:nth-child(even) {
+	background-color: var(--color-bg-light);
+}
+
+.page-header {
+	padding: var(--spacing-4xl) 0 var(--spacing-3xl);
+	text-align: center;
+}
+
+.page-header h1 {
+	margin-bottom: var(--spacing-md);
+}
+
+.content-section {
+	padding: var(--spacing-3xl) 0;
+}
+
+@media (max-width: 768px) {
+	section {
+		padding: var(--spacing-2xl) 0;
+	}
+
+	.page-header {
+		padding: var(--spacing-2xl) 0 var(--spacing-xl);
+	}
+
+	.content-section {
+		padding: var(--spacing-2xl) 0;
+	}
+}

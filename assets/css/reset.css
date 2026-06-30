@@ -1,0 +1,112 @@
+/* ==========================================================================
+   ブラウザ差異の吸収
+   ========================================================================== */
+
+/* Box model */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Document */
+
+html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	min-height: 100dvh;
+	line-height: 1.5;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Lists */
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+}
+
+/* Media */
+
+img,
+picture,
+svg,
+canvas,
+video {
+	display: block;
+	max-width: 100%;
+}
+
+/* Tables */
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Forms */
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+/* Links */
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* Text */
+
+strong {
+	font-weight: bolder;
+}
+
+em {
+	font-style: italic;
+}
+
+/* hidden="until-found" 対応 — display:none を上書きしない */
+
+[hidden]:not([hidden="until-found"]) {
+	display: none !important;
+}
+
+/* Popover reset */
+
+[popover] {
+	border: none;
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	color: inherit;
+}

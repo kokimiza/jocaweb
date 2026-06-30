@@ -1,0 +1,11 @@
+{
+  "name": "jocaweb",
+  "private": true,
+  "scripts": {
+    "build": "node build-news.js",
+    "dev": "node build-news.js --watch"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

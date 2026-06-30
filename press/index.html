@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Press – jocarium</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/press.css">
+  <script src="../assets/news/news-data.js" defer></script>
+  <script src="../assets/js/config.js" defer></script>
+  <script src="../assets/js/components.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/press.js" defer></script>
+</head>
+<body>
+  <site-header base=".."></site-header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Press</h1>
+        <p>jocarium および各ブランドからのお知らせ</p>
+      </div>
+    </section>
+
+    <section class="content-section press-section">
+      <div class="container">
+
+        <!-- ジャンルフィルター -->
+        <div class="press-filter" role="group" aria-label="ジャンルで絞り込む">
+          <label class="filter-btn">
+            <input type="radio" name="genre-filter" value="all" checked>
+            <span>All</span>
+          </label>
+          <label class="filter-btn">
+            <input type="radio" name="genre-filter" value="kokimiza">
+            <span>kokimiza</span>
+          </label>
+          <label class="filter-btn">
+            <input type="radio" name="genre-filter" value="Gutzgutz">
+            <span>Gutzgutz</span>
+          </label>
+          <label class="filter-btn">
+            <input type="radio" name="genre-filter" value="BPM">
+            <span>BPM</span>
+          </label>
+          <label class="filter-btn">
+            <input type="radio" name="genre-filter" value="Systems">
+            <span>Systems</span>
+          </label>
+        </div>
+
+        <!-- ニュースリスト（JS で描画） -->
+        <div id="news-list" class="news-list" aria-live="polite">
+          <p class="section-note" id="news-loading">読み込み中…</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- モーダル（<dialog>） -->
+  <dialog id="news-modal" class="news-modal" aria-modal="true">
+    <div class="news-modal-inner">
+      <header class="news-modal-header">
+        <div class="news-modal-meta">
+          <span id="modal-genre" class="news-genre-badge"></span>
+          <time id="modal-date" class="news-date"></time>
+        </div>
+        <h2 id="modal-title" class="news-modal-title"></h2>
+        <button
+          class="news-modal-close"
+          aria-label="閉じる"
+          command="close"
+          commandfor="news-modal"
+        >&#x2715;</button>
+      </header>
+      <div id="modal-body" class="news-modal-body"></div>
+    </div>
+  </dialog>
+
+  <site-footer base=".."></site-footer>
+</body>
+</html>
