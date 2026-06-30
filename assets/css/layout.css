@@ -326,6 +326,102 @@
 		}
 	}
 
+	/* -------------------------------------------------------------------------
+	   テーマ切り替えトグル
+	   ------------------------------------------------------------------------- */
+
+	.navbar-theme-toggle {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 30px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		border-radius: var(--radius-sm);
+		flex-shrink: 0;
+		transition: background-color var(--transition-fast);
+
+		&:hover {
+			background-color: var(--color-bg-dark);
+		}
+	}
+
+	.icon-theme {
+		position: absolute;
+		inset: 0;
+		margin: auto;
+		width: 18px;
+		height: 18px;
+		/* black SVG → warm dark gray (light mode) */
+		filter: invert(20%) sepia(5%) saturate(200%) brightness(38%);
+		transition:
+			opacity 0.28s ease,
+			transform 0.38s ease;
+		will-change: opacity, transform;
+	}
+
+	/* ライトモード: 太陽を表示、月を隠す */
+	.icon-sun {
+		opacity: 1;
+		transform: scale(1) rotate(0deg);
+	}
+
+	.icon-moon {
+		opacity: 0;
+		transform: scale(0.5) rotate(40deg);
+	}
+
+	/* OS preference によるダーク（JS未実行 / 初期レンダリング） */
+	@media (prefers-color-scheme: dark) {
+		html:not([data-theme="light"]) .icon-theme {
+			filter: invert(88%) sepia(4%) saturate(200%) brightness(98%);
+		}
+
+		html:not([data-theme="light"]) .icon-sun {
+			opacity: 0;
+			transform: scale(0.5) rotate(-40deg);
+		}
+
+		html:not([data-theme="light"]) .icon-moon {
+			opacity: 1;
+			transform: scale(1) rotate(0deg);
+		}
+	}
+
+	/* JS によるダーク上書き */
+	html[data-theme="dark"] .icon-theme {
+		filter: invert(88%) sepia(4%) saturate(200%) brightness(98%);
+	}
+
+	html[data-theme="dark"] .icon-sun {
+		opacity: 0;
+		transform: scale(0.5) rotate(-40deg);
+	}
+
+	html[data-theme="dark"] .icon-moon {
+		opacity: 1;
+		transform: scale(1) rotate(0deg);
+	}
+
+	/* JS によるライト上書き（OS がダーク設定の場合に必要） */
+	html[data-theme="light"] .icon-theme {
+		filter: invert(20%) sepia(5%) saturate(200%) brightness(38%);
+	}
+
+	html[data-theme="light"] .icon-sun {
+		opacity: 1;
+		transform: scale(1) rotate(0deg);
+	}
+
+	html[data-theme="light"] .icon-moon {
+		opacity: 0;
+		transform: scale(0.5) rotate(40deg);
+	}
+
 	.navbar-toggle {
 		display: none;
 		align-items: center;
