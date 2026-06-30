@@ -117,6 +117,7 @@
 	:root {
 		color-scheme: light dark;
 
+		--color-primary: light-dark(#1a1917, #e8e3d9);
 		--color-text: light-dark(#2e2c28, #e4dfd6);
 		--color-text-light: light-dark(#78746e, #8a8580);
 		--color-bg: light-dark(#f7f5f0, #111009);
