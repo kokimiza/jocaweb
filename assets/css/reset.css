@@ -2,111 +2,116 @@
    ブラウザ差異の吸収
    ========================================================================== */
 
-/* Box model */
+/* カスケードレイヤー順序の宣言 — 最初に読み込まれるこのファイルで確定させる */
+@layer reset, base, layout, theme, press;
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
+@layer reset {
+	/* Box model */
 
-/* Document */
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
 
-html {
-	-webkit-text-size-adjust: 100%;
-	text-size-adjust: 100%;
-}
+	/* Document */
 
-body {
-	margin: 0;
-	min-height: 100dvh;
-	line-height: 1.5;
-}
+	html {
+		-webkit-text-size-adjust: 100%;
+		text-size-adjust: 100%;
+	}
 
-/* Headings */
+	body {
+		margin: 0;
+		min-height: 100dvh;
+		line-height: 1.5;
+	}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-figure,
-blockquote,
-dl,
-dd {
-	margin: 0;
-}
+	/* Headings */
 
-/* Lists */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	figure,
+	blockquote,
+	dl,
+	dd {
+		margin: 0;
+	}
 
-ul,
-ol {
-	margin: 0;
-	padding: 0;
-}
+	/* Lists */
 
-/* Media */
+	ul,
+	ol {
+		margin: 0;
+		padding: 0;
+	}
 
-img,
-picture,
-svg,
-canvas,
-video {
-	display: block;
-	max-width: 100%;
-}
+	/* Media */
 
-/* Tables */
+	img,
+	picture,
+	svg,
+	canvas,
+	video {
+		display: block;
+		max-width: 100%;
+	}
 
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+	/* Tables */
 
-/* Forms */
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
 
-input,
-button,
-textarea,
-select {
-	font: inherit;
-}
+	/* Forms */
 
-button {
-	cursor: pointer;
-}
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
 
-/* Links */
+	button {
+		cursor: pointer;
+	}
 
-a {
-	color: inherit;
-	text-decoration: none;
-}
+	/* Links */
 
-/* Text */
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
 
-strong {
-	font-weight: bolder;
-}
+	/* Text */
 
-em {
-	font-style: italic;
-}
+	strong {
+		font-weight: bolder;
+	}
 
-/* hidden="until-found" 対応 — display:none を上書きしない */
+	em {
+		font-style: italic;
+	}
 
-[hidden]:not([hidden="until-found"]) {
-	display: none !important;
-}
+	/* hidden="until-found" 対応 — display:none を上書きしない */
 
-/* Popover reset */
+	[hidden]:not([hidden="until-found"]) {
+		display: none !important;
+	}
 
-[popover] {
-	border: none;
-	padding: 0;
-	margin: 0;
-	background: transparent;
-	color: inherit;
+	/* Popover reset */
+
+	[popover] {
+		border: none;
+		padding: 0;
+		margin: 0;
+		background: transparent;
+		color: inherit;
+	}
 }

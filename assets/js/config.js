@@ -37,6 +37,15 @@ window.JOCARIUM_CONFIG = {
 	],
 
 	/**
+	 * 対応言語 — i18n.js / components.js が参照
+	 * code: BCP 47 言語タグ, short: ナビ表示用略称
+	 */
+	languages: [
+		{ code: "ja", label: "日本語", short: "JA" },
+		{ code: "en", label: "English", short: "EN" },
+	],
+
+	/**
 	 * コンポーネントが使うアイコンファイル名
 	 * パスは `${base}/assets/icons/${icons.xxx}` で解決します。
 	 */

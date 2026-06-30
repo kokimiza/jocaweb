@@ -18,7 +18,7 @@
 		return;
 	}
 
-	const { site, navLinks, footerLinks, icons } = CFG;
+	const { site, navLinks, footerLinks, icons, languages = [] } = CFG;
 
 	// ==========================================================================
 	// ユーティリティ
@@ -122,12 +122,10 @@
 			}
 
 			const openMenu = () => {
-				menu.classList.add("is-open");
 				toggle.setAttribute("aria-expanded", "true");
 				toggle.setAttribute("aria-label", "メニューを閉じる");
 			};
 			const closeMenu = () => {
-				menu.classList.remove("is-open");
 				toggle.setAttribute("aria-expanded", "false");
 				toggle.setAttribute("aria-label", "メニューを開く");
 			};
@@ -147,12 +145,73 @@
 				if (!e.target.closest(".navbar")) closeMenu();
 			});
 
-			container.append(brand, toggle, menu);
+			// 言語スイッチャー
+			const langSwitcher = this.#buildLangSwitcher(base);
+
+			container.append(brand, langSwitcher, toggle, menu);
 			nav.append(container);
 			header.append(nav);
 			this.append(header);
 		}
 	}
+
+		#buildLangSwitcher(base) {
+			const wrapper = el("div", { class: "navbar-lang" });
+
+			const toggle = el("button", {
+				class: "navbar-lang-toggle",
+				"aria-label": "言語を選択",
+				"aria-expanded": "false",
+				"aria-controls": "lang-menu",
+				"aria-haspopup": "listbox",
+				"data-i18n-label": "nav.langToggle",
+			});
+			toggle.append(createIcon(`${base}/assets/icons/${icons.earth}`, 18));
+			const current = el("span", { class: "navbar-lang-current", "aria-hidden": "true" });
+			current.textContent = "JA";
+			toggle.append(current);
+
+			const menu = el("ul", {
+				id: "lang-menu",
+				class: "navbar-lang-menu",
+				role: "listbox",
+				"aria-label": "言語を選択",
+				"data-i18n-label": "nav.langToggle",
+			});
+
+			for (const lang of languages) {
+				const li = document.createElement("li");
+				li.setAttribute("role", "presentation");
+				const btn = el("button", {
+					class: "navbar-lang-option",
+					role: "option",
+					"data-lang": lang.code,
+					"aria-selected": "false",
+				}, lang.label);
+				li.append(btn);
+				menu.append(li);
+			}
+
+			// ドロップダウン開閉
+			toggle.addEventListener("click", (e) => {
+				e.stopPropagation();
+				const expanded = toggle.getAttribute("aria-expanded") === "true";
+				toggle.setAttribute("aria-expanded", String(!expanded));
+			});
+
+			menu.addEventListener("click", () => {
+				toggle.setAttribute("aria-expanded", "false");
+			});
+
+			document.addEventListener("click", (e) => {
+				if (!e.target.closest(".navbar-lang")) {
+					toggle.setAttribute("aria-expanded", "false");
+				}
+			});
+
+			wrapper.append(toggle, menu);
+			return wrapper;
+		}
 
 	// ==========================================================================
 	// <site-footer>

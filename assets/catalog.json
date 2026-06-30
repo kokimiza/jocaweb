@@ -1,0 +1,399 @@
+{
+  "_comment": "jocarium 表示原稿カタログ — 多言語対応のマスターデータ",
+  "languages": [
+    { "code": "ja", "label": "日本語", "short": "JA" },
+    { "code": "en", "label": "English", "short": "EN" }
+  ],
+
+  "ja": {
+    "meta": {
+      "index":    { "title": "jocarium – クリエイティブ・エコシステム" },
+      "press":    { "title": "Press – jocarium" },
+      "contact":  { "title": "Contact – jocarium" },
+      "kokimiza": { "title": "kokimiza – Animation & Visual | jocarium" },
+      "gutzgutz": { "title": "Gutzgutz – Game Development | jocarium" },
+      "bpm":      { "title": "BURNING PIZZA METHODS – Music Label | jocarium" },
+      "systems":  { "title": "jocarium Systems – Engineering | jocarium" }
+    },
+
+    "nav": {
+      "langToggle": "言語を選択",
+      "menuOpen":   "メニューを開く",
+      "menuClose":  "メニューを閉じる"
+    },
+
+    "footer": {
+      "copyright": "2026 jocarium."
+    },
+
+    "shared": {
+      "learnMore":    "詳細 →",
+      "getInTouch":   "Get in Touch",
+      "press":        "Press",
+      "wip":          "準備中",
+      "modalClose":   "閉じる"
+    },
+
+    "index": {
+      "hero": {
+        "tagline": "内発的動機から生まれるクリエイティブ・エコシステム"
+      },
+      "values": {
+        "virtue": { "desc": "曖昧さの中に美徳を見出す" },
+        "wisdom": { "desc": "知恵で形に意味を与える" },
+        "spark":  { "desc": "才能と創造性が発火する場をつくる" }
+      },
+      "brands": {
+        "kokimiza": { "desc": "意図あるビジュアルと、意味あるモーション。" },
+        "gutzgutz": { "desc": "何度でも遊びたくなる、ゲームプレイ中心の体験。" },
+        "bpm":      { "desc": "エコシステム全体を音で満たす、インハウス・レーベル。" },
+        "systems":  { "desc": "クリエイティブを支える、見えない技術基盤。" }
+      },
+      "ecosystem": {
+        "lead":       "kokimiza がビジュアルを、Gutzgutz がゲームを、BPM がサウンドを。\nSystems がその全てを支える。",
+        "conclusion": "工芸性・好奇心・創造の自由。この3つが jocarium の根幹です。"
+      },
+      "org": {
+        "desc":        "jocarium は、クライアントワークや市場トレンドとは無関係に、内発的動機だけを原動力とするクリエイティブ・ベンチャーです。",
+        "adminDesc":   "組織全体の管理・戦略機能"
+      },
+      "cta": {
+        "desc":      "各ブランドのお知らせは Press ページにて随時公開しています。"
+      }
+    },
+
+    "press": {
+      "header": {
+        "title": "Press",
+        "desc":  "jocarium および各ブランドからのお知らせ"
+      },
+      "filter": {
+        "label": "ジャンルで絞り込む"
+      },
+      "empty": "該当するお知らせはありません。",
+      "loading": "読み込み中…"
+    },
+
+    "contact": {
+      "header": {
+        "title": "Contact",
+        "desc":  "お問い合わせ・コラボレーションのご相談はこちら"
+      },
+      "form": {
+        "name":        "Name",
+        "email":       "Email",
+        "subject":     "Subject",
+        "brand":       "Brand",
+        "brandSelect": "選択してください",
+        "brandOther":  "その他",
+        "message":     "Message",
+        "required":    "必須",
+        "submit":      "Send Message",
+        "sending":     "Sending…",
+        "sent":        "Sent!",
+        "error":       "Error. Try again."
+      },
+      "faq": {
+        "heading": "FAQ",
+        "q1": "返信にどれくらいかかりますか？",
+        "a1": "通常 3〜5 営業日以内にご返信します。",
+        "q2": "コラボレーションは受け付けていますか？",
+        "a2": "はい。クリエイティブ・技術両面のパートナーシップを常に歓迎しています。",
+        "q3": "カスタム制作は対応できますか？",
+        "a3": "各ブランドでニーズに合わせたカスタムソリューションを提供できます。詳細はフォームからご相談ください。",
+        "q4": "オープンソースへのコントリビューションは？",
+        "a4": "jocarium Systems のプロジェクトへのコントリビューションを歓迎しています。各リポジトリをご確認ください。"
+      }
+    },
+
+    "kokimiza": {
+      "header": {
+        "desc": "意図あるビジュアル、意味あるモーション。"
+      },
+      "services": {
+        "animation":   { "desc": "各フレームに意図を込めた、キャラクター・UI・環境のアニメーション制作。" },
+        "shortFilms":  { "desc": "視覚的インパクトと感情的な深さを持つ、完結した短編映像。" },
+        "motionDesign":{ "desc": "UI・ブランド・空間のための、動きの美学。" },
+        "storytelling":{ "desc": "映像言語で複雑なアイデアと感情を伝える。" }
+      },
+      "philosophy": {
+        "p1": { "title": "満足度",  "desc": "磨き抜かれた、完成度の高い作品だけを出す。" },
+        "p2": { "title": "表現力",  "desc": "技術と芸術のバランスの中で、感情と意図を映像に宿す。" },
+        "p3": { "title": "心地よさ","desc": "テンポ・色彩・タイミング、すべてが調和した体験。" }
+      },
+      "works":  { "note": "ポートフォリオ準備中" },
+      "cta":    { "heading": "Let's Make Something." }
+    },
+
+    "gutzgutz": {
+      "header": {
+        "desc": "ゲームプレイが、すべての根幹。"
+      },
+      "services": {
+        "gameplay":     { "desc": "プレイヤーの行動と世界の相互作用を、丁寧に設計する。" },
+        "racing":       { "desc": "速さとコントロールの爽快感を突き詰める。" },
+        "experimental": { "desc": "慣例にとらわれない、未知のゲーム体験を探求する。" },
+        "fullCycle":    { "desc": "コンセプトからリリースまで、すべてを担う。" }
+      },
+      "philosophy": {
+        "p1": { "title": "興奮",    "desc": "チャレンジと報酬のバランスが生む、心躍る体験。" },
+        "p2": { "title": "再遊性",  "desc": "プレイするたびに新しい発見がある設計。" },
+        "p3": { "title": "没入感",  "desc": "時間を忘れてプレイし続けられる世界。" },
+        "p4": { "title": "革新",    "desc": "誰も見たことのない体験を、常に探求する。" }
+      },
+      "portfolio": { "note": "ゲームプロジェクト準備中" },
+      "cta":       { "heading": "Play With Us." }
+    },
+
+    "bpm": {
+      "header": {
+        "desc": "jocarium を音で満たす、インハウス・レーベル。"
+      },
+      "services": {
+        "original":    { "desc": "プロジェクトのビジョンに合わせた、オーダーメイドの楽曲制作。" },
+        "bgm":         { "desc": "映像・ゲームの世界観を深める背景音楽。" },
+        "sfx":         { "desc": "UI音・環境音・インタラクティブ音響のデザイン。" },
+        "production":  { "desc": "録音・ミックス・マスタリングまで、一気通貫の音響制作。" }
+      },
+      "philosophy": {
+        "p1": { "title": "一体性",      "desc": "ビジュアルとサウンドが溶け合う体験をつくる。" },
+        "p2": { "title": "感情的な深さ","desc": "和音・テンポ・音色が、感情に直接届く。" },
+        "p3": { "title": "職人技",      "desc": "各音・各フレーズに、意図と意味がある。" },
+        "p4": { "title": "多様性",      "desc": "クラシックからエレクトロニック、実験音響まで。ジャンルに縛られない。" }
+      },
+      "collaborations": {
+        "kokimiza": "アニメーション・ビジュアルへの音楽付け",
+        "gutzgutz": "ゲームのサウンドデザイン",
+        "systems":  "技術的な音響実装"
+      },
+      "catalog": { "note": "カタログ・プレイリスト準備中" },
+      "cta":     { "heading": "Sound Good?" }
+    },
+
+    "systems": {
+      "header": {
+        "desc": "クリエイティブを支える、見えない技術基盤。"
+      },
+      "responsibilities": {
+        "internal":  { "desc": "プロジェクト管理・資産管理・財務システムなど、事業基盤の構築・運用。" },
+        "software":  { "desc": "各ブランドが使うソフトウェア・ツールの設計・実装・保守。" },
+        "infra":     { "desc": "CI/CD・テスト環境・デプロイ基盤の構築と管理。" },
+        "devsecops": { "desc": "自動化・セキュリティ強化・信頼性向上の継続的な推進。" },
+        "oss":       { "desc": "内部成果のオープンソース化による、コミュニティへの還元。" }
+      },
+      "philosophy": {
+        "p1": { "title": "技術は手段",      "desc": "クリエイターのビジョンを実現するために存在する。邪魔をしない。" },
+        "p2": { "title": "長期的な視点",    "desc": "保守性・拡張性・持続性を重視した、長く使えるシステムを作る。" },
+        "p3": { "title": "信頼性と安全性",  "desc": "クリエイティブ作業を止めない。セキュリティと可用性が最優先。" },
+        "p4": { "title": "シンプルさ",      "desc": "複雑さを排除し、理解しやすい設計を追求する。" }
+      },
+      "techFocus": {
+        "cloud":           "スケーラブルで信頼性の高い環境",
+        "containerization":"Docker / Kubernetes",
+        "cicd":            "高速で安定したデプロイメント",
+        "data":            "DB・キャッシング・分析",
+        "api":             "サービス間統合",
+        "security":        "暗号化・認証・アクセス管理",
+        "observability":   "監視・ロギング・障害検出"
+      },
+      "projects": { "note": "プロジェクト一覧準備中" },
+      "cta":      { "heading": "Build Together." }
+    }
+  },
+
+  "en": {
+    "meta": {
+      "index":    { "title": "jocarium – Creative Ecosystem" },
+      "press":    { "title": "Press – jocarium" },
+      "contact":  { "title": "Contact – jocarium" },
+      "kokimiza": { "title": "kokimiza – Animation & Visual | jocarium" },
+      "gutzgutz": { "title": "Gutzgutz – Game Development | jocarium" },
+      "bpm":      { "title": "BURNING PIZZA METHODS – Music Label | jocarium" },
+      "systems":  { "title": "jocarium Systems – Engineering | jocarium" }
+    },
+
+    "nav": {
+      "langToggle": "Select language",
+      "menuOpen":   "Open menu",
+      "menuClose":  "Close menu"
+    },
+
+    "footer": {
+      "copyright": "2026 jocarium."
+    },
+
+    "shared": {
+      "learnMore":  "Learn more →",
+      "getInTouch": "Get in Touch",
+      "press":      "Press",
+      "wip":        "Coming soon",
+      "modalClose": "Close"
+    },
+
+    "index": {
+      "hero": {
+        "tagline": "A creative ecosystem born from intrinsic motivation"
+      },
+      "values": {
+        "virtue": { "desc": "Finding virtue within ambiguity" },
+        "wisdom": { "desc": "Giving form meaning through wisdom" },
+        "spark":  { "desc": "Creating a space where talent and creativity ignite" }
+      },
+      "brands": {
+        "kokimiza": { "desc": "Intentional visuals. Meaningful motion." },
+        "gutzgutz": { "desc": "Gameplay-first experiences you'll want to play again and again." },
+        "bpm":      { "desc": "The in-house label filling the entire ecosystem with sound." },
+        "systems":  { "desc": "The invisible technical foundation supporting creativity." }
+      },
+      "ecosystem": {
+        "lead":       "kokimiza brings visuals. Gutzgutz brings games. BPM brings sound.\nSystems supports it all.",
+        "conclusion": "Craftsmanship, curiosity, and creative freedom — the three pillars of jocarium."
+      },
+      "org": {
+        "desc":      "jocarium is a creative venture driven solely by intrinsic motivation, independent of client work or market trends.",
+        "adminDesc": "Management and strategic functions across the organization"
+      },
+      "cta": {
+        "desc": "News from each brand is published regularly on the Press page."
+      }
+    },
+
+    "press": {
+      "header": {
+        "title": "Press",
+        "desc":  "News and announcements from jocarium and its brands"
+      },
+      "filter": {
+        "label": "Filter by brand"
+      },
+      "empty":   "No announcements found.",
+      "loading": "Loading…"
+    },
+
+    "contact": {
+      "header": {
+        "title": "Contact",
+        "desc":  "Inquiries and collaboration proposals"
+      },
+      "form": {
+        "name":        "Name",
+        "email":       "Email",
+        "subject":     "Subject",
+        "brand":       "Brand",
+        "brandSelect": "Select…",
+        "brandOther":  "Other",
+        "message":     "Message",
+        "required":    "required",
+        "submit":      "Send Message",
+        "sending":     "Sending…",
+        "sent":        "Sent!",
+        "error":       "Error. Try again."
+      },
+      "faq": {
+        "heading": "FAQ",
+        "q1": "How long does it take to get a reply?",
+        "a1": "We typically reply within 3–5 business days.",
+        "q2": "Do you accept collaboration proposals?",
+        "a2": "Yes. We welcome creative and technical partnerships at any time.",
+        "q3": "Can you handle custom production requests?",
+        "a3": "Each brand can provide custom solutions tailored to your needs. Please reach out via the form for details.",
+        "q4": "Can I contribute to open-source projects?",
+        "a4": "Contributions to jocarium Systems projects are welcome. Check the individual repositories for details."
+      }
+    },
+
+    "kokimiza": {
+      "header": {
+        "desc": "Intentional visuals. Meaningful motion."
+      },
+      "services": {
+        "animation":   { "desc": "Character, UI, and environment animation crafted with intention in every frame." },
+        "shortFilms":  { "desc": "Self-contained short-form films with visual impact and emotional depth." },
+        "motionDesign":{ "desc": "The aesthetics of movement for UI, branding, and space." },
+        "storytelling":{ "desc": "Communicating complex ideas and emotions through the language of film." }
+      },
+      "philosophy": {
+        "p1": { "title": "Satisfaction",   "desc": "Only polished, fully realized work goes out." },
+        "p2": { "title": "Expressiveness", "desc": "Embedding emotion and intent in visuals at the intersection of technique and art." },
+        "p3": { "title": "Comfort",        "desc": "An experience where tempo, color, and timing all converge in harmony." }
+      },
+      "works":  { "note": "Portfolio coming soon" },
+      "cta":    { "heading": "Let's Make Something." }
+    },
+
+    "gutzgutz": {
+      "header": {
+        "desc": "Gameplay is everything."
+      },
+      "services": {
+        "gameplay":     { "desc": "Carefully designing the interactions between player action and world response." },
+        "racing":       { "desc": "Pushing the thrill of speed and precision control to its limit." },
+        "experimental": { "desc": "Exploring unknown game experiences unconstrained by convention." },
+        "fullCycle":    { "desc": "Taking full ownership from concept through release." }
+      },
+      "philosophy": {
+        "p1": { "title": "Excitement",    "desc": "Exhilarating experiences born from the balance of challenge and reward." },
+        "p2": { "title": "Replayability", "desc": "Designs that reveal something new every time you play." },
+        "p3": { "title": "Immersion",     "desc": "A world you can lose yourself in for hours." },
+        "p4": { "title": "Innovation",    "desc": "Always exploring experiences no one has ever seen before." }
+      },
+      "portfolio": { "note": "Game projects coming soon" },
+      "cta":       { "heading": "Play With Us." }
+    },
+
+    "bpm": {
+      "header": {
+        "desc": "The in-house label filling jocarium with sound."
+      },
+      "services": {
+        "original":   { "desc": "Bespoke music composed to match the vision of each project." },
+        "bgm":        { "desc": "Background music that deepens the world of film and games." },
+        "sfx":        { "desc": "UI sounds, ambient audio, and interactive sound design." },
+        "production": { "desc": "End-to-end audio production from recording through mixing and mastering." }
+      },
+      "philosophy": {
+        "p1": { "title": "Unity",           "desc": "Creating experiences where visuals and sound dissolve into one." },
+        "p2": { "title": "Emotional Depth", "desc": "Harmony, tempo, and timbre that speak directly to emotion." },
+        "p3": { "title": "Craftsmanship",   "desc": "Every note, every phrase carries intention and meaning." },
+        "p4": { "title": "Versatility",     "desc": "From classical to electronic, experimental to ambient — never bound by genre." }
+      },
+      "collaborations": {
+        "kokimiza": "Scoring animation and visual projects",
+        "gutzgutz": "Sound design for games",
+        "systems":  "Technical audio implementation"
+      },
+      "catalog": { "note": "Catalog and playlist coming soon" },
+      "cta":     { "heading": "Sound Good?" }
+    },
+
+    "systems": {
+      "header": {
+        "desc": "The invisible technical foundation supporting creativity."
+      },
+      "responsibilities": {
+        "internal":  { "desc": "Building and operating the business foundation: project management, asset management, financial systems." },
+        "software":  { "desc": "Designing, implementing, and maintaining software and tools used across brands." },
+        "infra":     { "desc": "Building and managing CI/CD pipelines, test environments, and deployment infrastructure." },
+        "devsecops": { "desc": "Continuously advancing automation, security hardening, and reliability." },
+        "oss":       { "desc": "Giving back to the community by open-sourcing internal work." }
+      },
+      "philosophy": {
+        "p1": { "title": "Technology as a Tool",  "desc": "It exists to realize the creator's vision. Nothing more." },
+        "p2": { "title": "Long-Term Thinking",    "desc": "Building systems that last, with maintainability, scalability, and sustainability in mind." },
+        "p3": { "title": "Reliability & Safety",  "desc": "Creative work must never stop. Security and availability come first." },
+        "p4": { "title": "Simplicity",             "desc": "Eliminating complexity and pursuing designs that are easy to understand." }
+      },
+      "techFocus": {
+        "cloud":           "Scalable and reliable environments",
+        "containerization":"Docker / Kubernetes",
+        "cicd":            "Fast and stable deployments",
+        "data":            "Databases, caching, and analytics",
+        "api":             "Inter-service integration",
+        "security":        "Encryption, authentication, and access control",
+        "observability":   "Monitoring, logging, and incident detection"
+      },
+      "projects": { "note": "Project list coming soon" },
+      "cta":      { "heading": "Build Together." }
+    }
+  }
+}

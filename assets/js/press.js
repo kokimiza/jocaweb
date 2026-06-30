@@ -105,6 +105,11 @@ function initModal() {
   if (closeBtn && !('command' in closeBtn)) {
     closeBtn.addEventListener('click', () => modal.close());
   }
+
+  // モーダル close イベントで inert を解除（Escape キー含む全パス対応）
+  modal.addEventListener('close', () => {
+    document.querySelector('main')?.removeAttribute('inert');
+  });
 }
 
 function openModal(item) {
@@ -121,6 +126,7 @@ function openModal(item) {
   titleEl.textContent = item.title;
   bodyEl.innerHTML    = parseMarkdown(item.body ?? '');
 
+  document.querySelector('main')?.setAttribute('inert', '');
   modal.showModal();
 }
 

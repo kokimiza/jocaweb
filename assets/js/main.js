@@ -206,29 +206,6 @@ function initPageLoad() {
 }
 
 // ============================================================================
-// 遅延画像読み込み — loading="lazy" が標準なのでカスタム実装は最小限
-// data-src 属性を持つ画像のみ処理（後方互換）
-// ============================================================================
-
-function initLazyLoad() {
-	const images = document.querySelectorAll("img[data-src]");
-	if (!images.length) return;
-
-	const observer = new IntersectionObserver((entries) => {
-		for (const entry of entries) {
-			if (entry.isIntersecting) {
-				const img = entry.target;
-				img.src = img.dataset.src;
-				img.removeAttribute("data-src");
-				observer.unobserve(img);
-			}
-		}
-	});
-
-	images.forEach((img) => observer.observe(img));
-}
-
-// ============================================================================
 // 初期化
 // ============================================================================
 
@@ -236,7 +213,6 @@ function initialize() {
 	initScrollAnimation();
 	initSmoothScroll();
 	initPageLoad();
-	initLazyLoad();
 	new DarkModeToggle();
 	new ContactForm();
 }
