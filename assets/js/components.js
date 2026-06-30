@@ -132,7 +132,7 @@
 
 			toggle.addEventListener("click", (e) => {
 				e.stopPropagation();
-				menu.classList.contains("is-open") ? closeMenu() : openMenu();
+				toggle.getAttribute("aria-expanded") === "true" ? closeMenu() : openMenu();
 			});
 
 			// メニュー内リンクをクリックしたら閉じる
@@ -153,7 +153,6 @@
 			header.append(nav);
 			this.append(header);
 		}
-	}
 
 		#buildLangSwitcher(base) {
 			const wrapper = el("div", { class: "navbar-lang" });
@@ -212,6 +211,7 @@
 			wrapper.append(toggle, menu);
 			return wrapper;
 		}
+	}
 
 	// ==========================================================================
 	// <site-footer>
@@ -236,7 +236,7 @@
 			const copy = document.createElement("p");
 			const icon = createIcon(`${base}/assets/icons/${icons.earth}`, 14);
 			icon.classList.add("icon-inline", "icon-muted");
-			copy.append(icon, document.createTextNode(` \u00A9 ${site.copyright}`));
+			copy.append(icon, document.createTextNode(` © ${site.copyright}`));
 
 			// フッターリンク
 			const linkList = el("ul", { class: "footer-links" });
