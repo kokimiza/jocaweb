@@ -132,7 +132,9 @@
 
 			toggle.addEventListener("click", (e) => {
 				e.stopPropagation();
-				toggle.getAttribute("aria-expanded") === "true" ? closeMenu() : openMenu();
+				toggle.getAttribute("aria-expanded") === "true"
+					? closeMenu()
+					: openMenu();
 			});
 
 			// メニュー内リンクをクリックしたら閉じる
@@ -169,7 +171,10 @@
 				"data-i18n-label": "nav.langToggle",
 			});
 			toggle.append(createIcon(`${base}/assets/icons/${icons.earth}`, 18));
-			const current = el("span", { class: "navbar-lang-current", "aria-hidden": "true" });
+			const current = el("span", {
+				class: "navbar-lang-current",
+				"aria-hidden": "true",
+			});
 			current.textContent = "JA";
 			toggle.append(current);
 
@@ -184,12 +189,16 @@
 			for (const lang of languages) {
 				const li = document.createElement("li");
 				li.setAttribute("role", "presentation");
-				const btn = el("button", {
-					class: "navbar-lang-option",
-					role: "option",
-					"data-lang": lang.code,
-					"aria-selected": "false",
-				}, lang.label);
+				const btn = el(
+					"button",
+					{
+						class: "navbar-lang-option",
+						role: "option",
+						"data-lang": lang.code,
+						"aria-selected": "false",
+					},
+					lang.label,
+				);
 				li.append(btn);
 				menu.append(li);
 			}

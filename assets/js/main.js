@@ -39,7 +39,9 @@ class DarkModeToggle {
 	}
 
 	#apply() {
-		document.documentElement.style.colorScheme = this.#isDark ? "dark" : "light";
+		document.documentElement.style.colorScheme = this.#isDark
+			? "dark"
+			: "light";
 		document.documentElement.dataset.theme = this.#isDark ? "dark" : "light";
 
 		// テーマトグルボタンのラベルを更新
