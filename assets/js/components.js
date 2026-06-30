@@ -148,7 +148,10 @@
 			// 言語スイッチャー
 			const langSwitcher = this.#buildLangSwitcher(base);
 
-			container.append(brand, langSwitcher, toggle, menu);
+			// テーマトグル
+			const themeToggle = this.#buildThemeToggle(base);
+
+			container.append(brand, langSwitcher, themeToggle, toggle, menu);
 			nav.append(container);
 			header.append(nav);
 			this.append(header);
@@ -211,6 +214,33 @@
 			wrapper.append(toggle, menu);
 			return wrapper;
 		}
+	}
+
+	// ==========================================================================
+	// theme toggle builder
+	// ==========================================================================
+
+	/** sun/moon アイコンでテーマを切り替えるボタンを生成 */
+	#buildThemeToggle(base) {
+		const btn = el("button", {
+			class: "navbar-theme-toggle",
+			"aria-label": "ダークモードに切り替え",
+			"data-theme-toggle": "",
+		});
+
+		const sunImg = createIcon(`${base}/assets/icons/${icons.sun}`, 18);
+		sunImg.classList.add("icon-theme", "icon-sun");
+
+		const moonImg = createIcon(`${base}/assets/icons/${icons.moon}`, 18);
+		moonImg.classList.add("icon-theme", "icon-moon");
+
+		btn.append(sunImg, moonImg);
+
+		btn.addEventListener("click", () => {
+			window.dispatchEvent(new CustomEvent("jocarium:theme-toggle"));
+		});
+
+		return btn;
 	}
 
 	// ==========================================================================
