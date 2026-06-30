@@ -35,7 +35,8 @@
 
 @font-face {
 	font-family: "Playfair Display";
-	src: url("../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf")
+		format("truetype");
 	font-weight: 400 900;
 	font-style: italic;
 	font-display: swap;
@@ -66,7 +67,8 @@
 		/* Typography */
 		--font-family-sans: "Playfair Display", "Zen Antique Soft", sans-serif;
 		--font-family-heading: "Anton SC", "Zen Antique Soft", sans-serif;
-		--font-family-multilingual: "Black And White Picture", sans-serif; /* 多言語対応時に使用 */
+		--font-family-multilingual:
+			"Black And White Picture", sans-serif; /* 多言語対応時に使用 */
 		--font-family-mono: "Courier New", Courier, monospace;
 		--font-size-base: 16px;
 		--line-height-base: 1.6;
@@ -157,13 +159,23 @@
 	}
 
 	@keyframes vt-fade-out {
-		from { opacity: 1; }
-		to   { opacity: 0; }
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
 	}
 
 	@keyframes vt-fade-in {
-		from { opacity: 0; transform: translateY(6px); }
-		to   { opacity: 1; transform: translateY(0); }
+		from {
+			opacity: 0;
+			transform: translateY(6px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -174,19 +186,36 @@
 	}
 
 	/* Typography — Headings */
-	h1, h2, h3, h4, h5, h6 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		font-family: var(--font-family-heading);
 		font-weight: var(--font-weight-bold);
 		line-height: 1.3;
 		margin-bottom: var(--spacing-md);
 	}
 
-	h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-	h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); }
-	h3 { font-size: clamp(1rem, 2.5vw, 1.35rem); }
-	h4 { font-size: 1.15rem; }
-	h5 { font-size: 1rem; }
-	h6 { font-size: 1rem; }
+	h1 {
+		font-size: clamp(2rem, 5vw, 3.5rem);
+	}
+	h2 {
+		font-size: clamp(1.4rem, 3.5vw, 2rem);
+	}
+	h3 {
+		font-size: clamp(1rem, 2.5vw, 1.35rem);
+	}
+	h4 {
+		font-size: 1.15rem;
+	}
+	h5 {
+		font-size: 1rem;
+	}
+	h6 {
+		font-size: 1rem;
+	}
 
 	/* Typography — Text */
 	p {
@@ -304,7 +333,8 @@
 		&:focus {
 			outline: none;
 			border-color: var(--color-accent);
-			box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
+			box-shadow: 0 0 0 3px
+				color-mix(in srgb, var(--color-accent) 20%, transparent);
 		}
 
 		&:disabled {

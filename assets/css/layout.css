@@ -70,20 +70,44 @@
 		justify-content: space-between;
 	}
 
-	.flex-gap-sm { gap: var(--spacing-sm); }
-	.flex-gap    { gap: var(--spacing-md); }
-	.flex-gap-lg { gap: var(--spacing-lg); }
+	.flex-gap-sm {
+		gap: var(--spacing-sm);
+	}
+	.flex-gap {
+		gap: var(--spacing-md);
+	}
+	.flex-gap-lg {
+		gap: var(--spacing-lg);
+	}
 
 	/* Spacing utilities */
-	.m-0 { margin: 0; }
-	.mt  { margin-top: var(--spacing-md); }
-	.mb  { margin-bottom: var(--spacing-md); }
-	.my  { margin-block: var(--spacing-md); }
-	.p-md { padding: var(--spacing-md); }
-	.p-lg { padding: var(--spacing-lg); }
-	.p-xl { padding: var(--spacing-xl); }
-	.px  { padding-inline: var(--spacing-md); }
-	.py  { padding-block: var(--spacing-md); }
+	.m-0 {
+		margin: 0;
+	}
+	.mt {
+		margin-top: var(--spacing-md);
+	}
+	.mb {
+		margin-bottom: var(--spacing-md);
+	}
+	.my {
+		margin-block: var(--spacing-md);
+	}
+	.p-md {
+		padding: var(--spacing-md);
+	}
+	.p-lg {
+		padding: var(--spacing-lg);
+	}
+	.p-xl {
+		padding: var(--spacing-xl);
+	}
+	.px {
+		padding-inline: var(--spacing-md);
+	}
+	.py {
+		padding-block: var(--spacing-md);
+	}
 
 	/* =========================================================================
 	   Header / Navbar
@@ -297,7 +321,8 @@
 	}
 
 	/* aria-expanded="true" で開く */
-	.navbar-lang:has(.navbar-lang-toggle[aria-expanded="true"]) .navbar-lang-menu {
+	.navbar-lang:has(.navbar-lang-toggle[aria-expanded="true"])
+	.navbar-lang-menu {
 		opacity: 1;
 		pointer-events: auto;
 		transform: translateY(0);

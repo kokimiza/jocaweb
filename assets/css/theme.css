@@ -839,22 +839,40 @@
 	   ========================================================================= */
 
 	@keyframes fadeIn {
-		from { opacity: 0; }
-		to   { opacity: 1; }
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 
 	@keyframes fadeInUp {
-		from { opacity: 0; transform: translateY(16px); }
-		to   { opacity: 1; transform: translateY(0); }
+		from {
+			opacity: 0;
+			transform: translateY(16px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	@keyframes inputFocus {
-		from { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 15%, transparent); }
-		to   { box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 15%, transparent); }
+		from {
+			box-shadow: 0 0 0 0
+				color-mix(in srgb, var(--color-accent) 15%, transparent);
+		}
+		to {
+			box-shadow: 0 0 0 2px
+				color-mix(in srgb, var(--color-accent) 15%, transparent);
+		}
 	}
 
 	@keyframes spin {
-		to { rotate: 360deg; }
+		to {
+			rotate: 360deg;
+		}
 	}
 
 	/* スクロールアニメーション — opacity のみ（translateY は使わない） */
@@ -924,11 +942,13 @@
 
 	.icon-accent {
 		/* forest green #2b5940 */
-		filter: invert(25%) sepia(45%) saturate(600%) hue-rotate(110deg) brightness(78%) contrast(92%);
+		filter: invert(25%) sepia(45%) saturate(600%) hue-rotate(110deg)
+			brightness(78%) contrast(92%);
 
 		@media (prefers-color-scheme: dark) {
 			/* light green #5aab7e */
-			filter: invert(62%) sepia(28%) saturate(500%) hue-rotate(108deg) brightness(100%);
+			filter: invert(62%) sepia(28%) saturate(500%) hue-rotate(108deg)
+				brightness(100%);
 		}
 	}
 
