@@ -52,5 +52,7 @@ window.JOCARIUM_CONFIG = {
 	icons: {
 		menu: "menu.svg",
 		earth: "earth.svg",
+		sun: "sun.svg",
+		moon: "moon.svg",
 	},
 };

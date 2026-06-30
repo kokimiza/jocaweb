@@ -33,12 +33,22 @@ class DarkModeToggle {
 				}
 			},
 		);
+
+		// ヘッダーのテーマトグルボタンからのイベントを受け取る
+		window.addEventListener("jocarium:theme-toggle", () => this.toggle());
 	}
 
 	#apply() {
-		document.documentElement.style.colorScheme = this.#isDark
-			? "dark"
-			: "light";
+		document.documentElement.style.colorScheme = this.#isDark ? "dark" : "light";
+		document.documentElement.dataset.theme = this.#isDark ? "dark" : "light";
+
+		// テーマトグルボタンのラベルを更新
+		document.querySelectorAll("[data-theme-toggle]").forEach((btn) => {
+			btn.setAttribute(
+				"aria-label",
+				this.#isDark ? "ライトモードに切り替え" : "ダークモードに切り替え",
+			);
+		});
 	}
 
 	toggle() {
