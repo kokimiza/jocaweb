@@ -268,10 +268,7 @@
 			const container = el("div", { class: "container" });
 
 			// Copyright
-			const copy = document.createElement("p");
-			const icon = createIcon(`${base}/assets/icons/${icons.earth}`, 14);
-			icon.classList.add("icon-inline", "icon-muted");
-			copy.append(icon, document.createTextNode(` © ${site.copyright}`));
+			const copy = el("p", { class: "footer-copyright" }, `© ${site.copyright}`);
 
 			// フッターリンク
 			const linkList = el("ul", { class: "footer-links" });
