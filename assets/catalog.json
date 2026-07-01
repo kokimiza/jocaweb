@@ -290,63 +290,63 @@
 	"gutzgutz": {
 		"header": {
 			"desc": {
-				"ja": "ゲームプレイが、すべての根幹。",
-				"en": "Gameplay is everything."
+				"ja": "静かに沸き立つ衝動を、遊びに変える。",
+				"en": "Turning a quiet, simmering impulse into play."
 			}
 		},
 		"services": {
-			"gameplay": {
+			"original": {
 				"desc": {
-					"ja": "プレイヤーの行動と世界の相互作用を、丁寧に設計する。",
-					"en": "Carefully designing the interactions between player action and world response."
+					"ja": "コンセプトからリリースまで、一貫して自社IPを育てる。",
+					"en": "Nurturing original IP in-house, from concept through release."
 				}
 			},
-			"racing": {
+			"engines": {
 				"desc": {
-					"ja": "速さとコントロールの爽快感を突き詰める。",
-					"en": "Pushing the thrill of speed and precision control to its limit."
+					"ja": "Unity、Unreal Engine、Bevy。プロジェクトに最も適した技術を選ぶ。",
+					"en": "Unity, Unreal Engine, Bevy — choosing whatever technology best serves the project."
 				}
 			},
-			"experimental": {
+			"offline": {
 				"desc": {
-					"ja": "慣例にとらわれない、未知のゲーム体験を探求する。",
-					"en": "Exploring unknown game experiences unconstrained by convention."
+					"ja": "Windows、Linux、macOS、iOS。オフラインの体験だけを、まっすぐに磨く。",
+					"en": "Windows, Linux, macOS, iOS. Focused solely on refining the offline experience."
 				}
 			},
-			"fullCycle": {
+			"genre": {
 				"desc": {
-					"ja": "コンセプトからリリースまで、すべてを担う。",
-					"en": "Taking full ownership from concept through release."
+					"ja": "ジャンルは決めない。面白さの本質だけを追いかける。",
+					"en": "No fixed genre. Just the pursuit of what makes play worthwhile."
 				}
 			}
 		},
 		"philosophy": {
 			"p1": {
-				"title": { "ja": "興奮", "en": "Excitement" },
+				"title": { "ja": "沸点", "en": "Boiling Point" },
 				"desc": {
-					"ja": "チャレンジと報酬のバランスが生む、心躍る体験。",
-					"en": "Exhilarating experiences born from the balance of challenge and reward."
+					"ja": "静かに滾る情熱を、遊びへと注ぎ込む。派手さではなく、熱量で語る。",
+					"en": "A quietly simmering passion, poured into every game — spoken through intensity, not spectacle."
 				}
 			},
 			"p2": {
-				"title": { "ja": "再遊性", "en": "Replayability" },
+				"title": { "ja": "面白さの先", "en": "Beyond Fun" },
 				"desc": {
-					"ja": "プレイするたびに新しい発見がある設計。",
-					"en": "Designs that reveal something new every time you play."
+					"ja": "面白さは前提条件。目指すのは、その先にある忘れがたい手触り。",
+					"en": "Fun is the baseline, not the goal. What we're after is what lingers beyond it."
 				}
 			},
 			"p3": {
-				"title": { "ja": "没入感", "en": "Immersion" },
+				"title": { "ja": "残る記憶", "en": "A Memory That Stays" },
 				"desc": {
-					"ja": "時間を忘れてプレイし続けられる世界。",
-					"en": "A world you can lose yourself in for hours."
+					"ja": "ふと思い出したときに、「あれは楽しかったな」と思える体験を届ける。",
+					"en": "Games that come back to mind someday, with a quiet \"that was fun.\""
 				}
 			},
 			"p4": {
-				"title": { "ja": "革新", "en": "Innovation" },
+				"title": { "ja": "静かな爪痕", "en": "A Quiet Mark" },
 				"desc": {
-					"ja": "誰も見たことのない体験を、常に探求する。",
-					"en": "Always exploring experiences no one has ever seen before."
+					"ja": "声高に語らずとも、遊んだ人の中に、そして社会に、小さな爪痕を残したい。",
+					"en": "Without shouting about it, we hope to leave a small mark — in the people who play, and in the world beyond."
 				}
 			}
 		},
