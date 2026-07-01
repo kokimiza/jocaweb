@@ -72,20 +72,20 @@
 		"values": {
 			"virtue": {
 				"desc": {
-					"ja": "曖昧さの中に美徳を見出す",
-					"en": "Finding virtue within ambiguity"
+					"ja": "曖昧さに宿る美徳を涵養する",
+					"en": ""
 				}
 			},
 			"wisdom": {
 				"desc": {
-					"ja": "知恵で形に意味を与える",
-					"en": "Giving form meaning through wisdom"
+					"ja": "智を修飾する",
+					"en": ""
 				}
 			},
 			"spark": {
 				"desc": {
-					"ja": "才能と創造性が発火する場をつくる",
-					"en": "Creating a space where talent and creativity ignite"
+					"ja": "才気煥発の舞台となる",
+					"en": ""
 				}
 			}
 		},
