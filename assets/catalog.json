@@ -72,20 +72,20 @@
 		"values": {
 			"virtue": {
 				"desc": {
-					"ja": "関わる前より、少し良い人にして返す",
-					"en": "Leave People Better"
+					"ja": "関わる前より、少し良い人に",
+					"en": ""
 				}
 			},
 			"wisdom": {
 				"desc": {
 					"ja": "智を修飾する",
-					"en": "Give Knowledge Form"
+					"en": ""
 				}
 			},
 			"spark": {
 				"desc": {
 					"ja": "才気煥発の舞台を張る",
-					"en": "Stage Brilliance"
+					"en": ""
 				}
 			}
 		},
