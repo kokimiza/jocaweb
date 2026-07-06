@@ -282,12 +282,6 @@
 	.hero {
 		padding: var(--spacing-4xl) 0 var(--spacing-3xl);
 		background: none;
-
-		& .container {
-			display: flex;
-			flex-direction: column;
-			gap: var(--spacing-xl);
-		}
 	}
 
 	.hero-wordmark {
@@ -299,40 +293,25 @@
 		margin-bottom: 0;
 	}
 
-	.hero-sub {
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		gap: var(--spacing-xl);
-		padding-inline-start: 0.05em;
+	/* =========================================================================
+	   Mission — index.html 用 ミッションステートメント
+	   ========================================================================= */
 
-		@media (max-width: 600px) {
-			flex-direction: column;
-			gap: var(--spacing-md);
-		}
+	.mission {
+		padding: var(--spacing-3xl) 0;
+		background: none;
 	}
 
-	.hero-tagline {
-		font-family: var(--font-family-sans);
-		font-style: italic;
-		font-size: clamp(0.95rem, 2.5vw, 1.2rem);
-		line-height: 1.85;
-		color: var(--color-text);
-		margin: 0;
-		max-width: 44ch;
-	}
-
-	.hero-meta {
-		font-size: 0.68rem;
-		letter-spacing: 0.2em;
-		text-transform: uppercase;
-		color: var(--color-text-light);
-		white-space: nowrap;
-		padding-top: 0.35em;
-
-		@media (max-width: 600px) {
-			padding-top: 0;
-		}
+	.mission-statement {
+		font-family: var(--font-family-heading);
+		font-size: clamp(1.8rem, 6vw, 3.5rem);
+		line-height: 1.15;
+		letter-spacing: 0.01em;
+		color: var(--color-accent);
+		margin: var(--spacing-2xl) 0 0;
+		padding: var(--spacing-xl) 0;
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
 	}
 
 	/* 旧 .tagline — サブページ .page-header 用 */
