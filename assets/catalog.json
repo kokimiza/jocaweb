@@ -63,10 +63,10 @@
 	},
 
 	"index": {
-		"hero": {
-			"tagline": {
-				"ja": "内発的動機から生まれるクリエイティブ・エコシステム",
-				"en": "A creative ecosystem born from intrinsic motivation"
+		"mission": {
+			"statement": {
+				"ja": "日常を中断する",
+				"en": "The uninvited interruption"
 			}
 		},
 		"values": {
