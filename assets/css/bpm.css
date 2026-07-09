@@ -1,0 +1,173 @@
+/* ==========================================================================
+   BPM (BURNING PIZZA METHODS) page styles
+   トークンを body[data-page="bpm"] スコープで上書きし、静謐な大理石と
+   きっちりしたスーツのようなフラットな面構成に再配色する。
+   グロー・ぼかし・丸みは使わず、線と面だけで語る。
+   ========================================================================== */
+
+@layer bpm {
+	body[data-page="bpm"] {
+		/* Marble ink — light: white marble / dark: black marble (nero marquina) */
+		--color-primary: light-dark(#1b1b1a, #efece5);
+		--color-accent: light-dark(#374750, #a9bec9);
+		--color-accent-alt: light-dark(#6e685e, #a39c8f);
+		--color-border: light-dark(#d6d2c9, #313130);
+		--color-text: light-dark(#242320, #e6e2d9);
+		--color-text-light: light-dark(#7b756a, #8b8579);
+		--color-bg: light-dark(#f4f2ec, #121212);
+		--color-bg-light: light-dark(#ebe7dd, #1a1a19);
+		--color-bg-dark: light-dark(#dfdacd, #0a0a0a);
+
+		position: relative;
+	}
+
+	/* --------------------------------------------------------------------------
+	   大理石 — 静止した脈理（ヴェイン）。動かない、揺れない、フラット。
+	   -------------------------------------------------------------------------- */
+
+	body[data-page="bpm"]::before {
+		content: "";
+		position: fixed;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+		background:
+			linear-gradient(
+				115deg,
+				transparent 42%,
+				color-mix(in srgb, var(--color-accent) 14%, transparent) 43%,
+				transparent 44.5%,
+				transparent 61%,
+				color-mix(in srgb, var(--color-accent-alt) 10%, transparent) 62%,
+				transparent 63.5%
+			),
+			linear-gradient(
+				28deg,
+				transparent 20%,
+				color-mix(in srgb, var(--color-accent-alt) 8%, transparent) 21%,
+				transparent 22.5%,
+				transparent 78%,
+				color-mix(in srgb, var(--color-accent) 10%, transparent) 79%,
+				transparent 80.5%
+			);
+		opacity: 0.6;
+	}
+
+	/* 極細ピンストライプ — スーツの生地。目視ぎりぎりの濃度に留める */
+	body[data-page="bpm"]::after {
+		content: "";
+		position: fixed;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+		background-image: repeating-linear-gradient(
+			90deg,
+			color-mix(in srgb, var(--color-text) 4%, transparent) 0,
+			color-mix(in srgb, var(--color-text) 4%, transparent) 1px,
+			transparent 1px,
+			transparent 34px
+		);
+	}
+
+	/* --------------------------------------------------------------------------
+	   見出し — グロー無し。襟を正したような、静かな存在感。
+	   -------------------------------------------------------------------------- */
+
+	body[data-page="bpm"] .page-header h1,
+	body[data-page="bpm"] h2 {
+		color: var(--color-primary);
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+	}
+
+	body[data-page="bpm"] .page-header h1 {
+		position: relative;
+		padding-bottom: var(--spacing-lg);
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			translate: -50% 0;
+			width: 3.5rem;
+			height: 2px;
+			background: var(--color-accent);
+		}
+	}
+
+	body[data-page="bpm"] .section-eyebrow {
+		color: var(--color-accent-alt);
+	}
+
+	body[data-page="bpm"] .icon-accent {
+		/* cold steel-grey duotone, no warmth */
+		filter: invert(28%) sepia(12%) saturate(700%) hue-rotate(160deg)
+			brightness(85%) contrast(92%);
+
+		@media (prefers-color-scheme: dark) {
+			filter: invert(78%) sepia(8%) saturate(300%) hue-rotate(160deg)
+				brightness(105%);
+		}
+	}
+
+	html[data-theme="dark"] body[data-page="bpm"] .icon-accent {
+		filter: invert(78%) sepia(8%) saturate(300%) hue-rotate(160deg)
+			brightness(105%);
+	}
+
+	html[data-theme="light"] body[data-page="bpm"] .icon-accent {
+		filter: invert(28%) sepia(12%) saturate(700%) hue-rotate(160deg)
+			brightness(85%) contrast(92%);
+	}
+
+	/* --------------------------------------------------------------------------
+	   カード — 面はフラットなまま、罫線一本の切り替えだけで応える
+	   -------------------------------------------------------------------------- */
+
+	body[data-page="bpm"] .service-card,
+	body[data-page="bpm"] .philosophy-point {
+		transition: border-color var(--transition-fast);
+		border-top-width: 1px;
+
+		&:hover {
+			border-top-color: var(--color-accent);
+			border-top-width: 2px;
+		}
+	}
+
+	/* --------------------------------------------------------------------------
+	   ボタン — グロー無し、面の反転だけ
+	   -------------------------------------------------------------------------- */
+
+	body[data-page="bpm"] .btn {
+		border-radius: 0;
+	}
+
+	body[data-page="bpm"] .btn-primary {
+		background-color: var(--color-primary);
+		color: var(--color-bg);
+		border-color: var(--color-primary);
+
+		&:hover {
+			background-color: var(--color-accent);
+			border-color: var(--color-accent);
+			box-shadow: none;
+		}
+	}
+
+	body[data-page="bpm"] .btn-secondary {
+		border-color: var(--color-border);
+
+		&:hover {
+			border-color: var(--color-accent);
+			color: var(--color-accent);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		body[data-page="bpm"] * {
+			transition: none !important;
+		}
+	}
+}

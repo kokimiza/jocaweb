@@ -1,0 +1,355 @@
+/* ==========================================================================
+   kokimiza page styles
+   トークンを body[data-page="kokimiza"] スコープで上書きし、
+   紫と緑が滲み合う不穏さ — 奇妙な味、今にも動き出しそうな気配を
+   BPM の静謐とは真逆の、落ち着かないレイヤーで表現する。
+   ========================================================================== */
+
+@layer kokimiza {
+	body[data-page="kokimiza"] {
+		--color-primary: light-dark(#2a1a38, #e6d9f0);
+		--color-accent: light-dark(#5c7a3f, #8fc25a);
+		--color-accent-alt: light-dark(#6b3f8a, #b06fe0);
+		--color-border: light-dark(#a89bb0, #3a2c46);
+		--color-text: light-dark(#241a30, #ded3e6);
+		--color-text-light: light-dark(#7a6c82, #9384a0);
+		--color-bg: light-dark(#e7e2d6, #130d1a);
+		--color-bg-light: light-dark(#dcd6c6, #1b1424);
+		--color-bg-dark: light-dark(#cec6b2, #0a060e);
+
+		/* クレイの厚み — 窪みと膨らみを作る二方向の柔らかい影 */
+		--clay-shadow-dark: light-dark(
+			rgba(70, 45, 90, 0.38),
+			rgba(0, 0, 0, 0.65)
+		);
+		--clay-shadow-light: light-dark(
+			rgba(255, 255, 255, 0.75),
+			rgba(160, 140, 190, 0.1)
+		);
+
+		position: relative;
+		overflow-x: clip;
+	}
+
+	/* --------------------------------------------------------------------------
+	   気配 — 隅で滲み、ゆっくり呼吸するように動く紫と緑
+	   -------------------------------------------------------------------------- */
+
+	body[data-page="kokimiza"]::before {
+		content: "";
+		position: fixed;
+		inset: -10%;
+		z-index: -2;
+		pointer-events: none;
+		background:
+			radial-gradient(
+				ellipse 55% 45% at 8% 12%,
+				color-mix(in srgb, var(--color-accent-alt) 38%, transparent) 0%,
+				transparent 65%
+			),
+			radial-gradient(
+				ellipse 50% 40% at 94% 88%,
+				color-mix(in srgb, var(--color-accent) 34%, transparent) 0%,
+				transparent 65%
+			),
+			radial-gradient(
+				ellipse 40% 40% at 90% 10%,
+				color-mix(in srgb, var(--color-accent-alt) 20%, transparent) 0%,
+				transparent 70%
+			);
+		filter: blur(60px);
+		mix-blend-mode: screen;
+		animation: koki-lurk 17s ease-in-out infinite;
+	}
+
+	@keyframes koki-lurk {
+		0%,
+		100% {
+			transform: translate(0, 0) scale(1);
+			opacity: 0.55;
+		}
+		22% {
+			transform: translate(1.5%, -2%) scale(1.04);
+			opacity: 0.75;
+		}
+		48% {
+			transform: translate(-1%, 1.5%) scale(0.98);
+			opacity: 0.5;
+		}
+		71% {
+			transform: translate(2%, 2%) scale(1.05);
+			opacity: 0.8;
+		}
+		86% {
+			transform: translate(-1.5%, -1%) scale(1);
+			opacity: 0.6;
+		}
+	}
+
+	/* 走査ノイズ — 不規則な明滅で「正常でない」感触を足す */
+	body[data-page="kokimiza"]::after {
+		content: "";
+		position: fixed;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+		background: repeating-linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 0.12) 0,
+			rgba(0, 0, 0, 0.12) 1px,
+			transparent 1px,
+			transparent 3px
+		);
+		mix-blend-mode: multiply;
+		animation: koki-flicker 4.3s infinite steps(1, jump-end);
+	}
+
+	@keyframes koki-flicker {
+		0%,
+		89%,
+		100% {
+			opacity: 0.4;
+		}
+		90% {
+			opacity: 0.75;
+		}
+		91% {
+			opacity: 0.15;
+		}
+		93% {
+			opacity: 0.6;
+		}
+		94% {
+			opacity: 0.3;
+		}
+	}
+
+	/* --------------------------------------------------------------------------
+	   見出し — 紫緑のズレた残像。稀に、思い出したように震える
+	   -------------------------------------------------------------------------- */
+
+	body[data-page="kokimiza"] .page-header h1,
+	body[data-page="kokimiza"] h2 {
+		color: var(--color-primary);
+		position: relative;
+	}
+
+	body[data-page="kokimiza"] .page-header h1 {
+		display: inline-block;
+
+		&::before,
+		&::after {
+			content: "kokimiza";
+			position: absolute;
+			inset: 0;
+			opacity: 0;
+		}
+
+		&::before {
+			color: var(--color-accent-alt);
+			animation: koki-glitch-a 9s infinite;
+		}
+
+		&::after {
+			color: var(--color-accent);
+			animation: koki-glitch-b 9s infinite;
+		}
+	}
+
+	@keyframes koki-glitch-a {
+		0%,
+		95%,
+		100% {
+			opacity: 0;
+			transform: translate(0, 0);
+		}
+		96% {
+			opacity: 0.7;
+			transform: translate(-3px, 1px);
+		}
+		97% {
+			opacity: 0;
+			transform: translate(2px, -1px);
+		}
+		98% {
+			opacity: 0.5;
+			transform: translate(-2px, 0);
+		}
+	}
+
+	@keyframes koki-glitch-b {
+		0%,
+		95%,
+		100% {
+			opacity: 0;
+			transform: translate(0, 0);
+		}
+		96.5% {
+			opacity: 0.6;
+			transform: translate(3px, -1px);
+		}
+		97.5% {
+			opacity: 0;
+			transform: translate(-2px, 1px);
+		}
+		98.5% {
+			opacity: 0.45;
+			transform: translate(2px, 0);
+		}
+	}
+
+	body[data-page="kokimiza"] .section-eyebrow {
+		color: var(--color-accent-alt);
+	}
+
+	body[data-page="kokimiza"] .icon-accent {
+		/* 紫→緑へ、気づかれぬ速さで滲むように色相が回る */
+		filter: invert(30%) sepia(45%) saturate(900%) hue-rotate(230deg)
+			brightness(90%) contrast(95%);
+		animation: koki-hue-creep 22s linear infinite;
+
+		@media (prefers-color-scheme: dark) {
+			filter: invert(70%) sepia(25%) saturate(600%) hue-rotate(210deg)
+				brightness(105%);
+		}
+	}
+
+	@keyframes koki-hue-creep {
+		0%,
+		100% {
+			filter: invert(30%) sepia(45%) saturate(900%) hue-rotate(230deg)
+				brightness(90%) contrast(95%);
+		}
+		50% {
+			filter: invert(35%) sepia(40%) saturate(700%) hue-rotate(70deg)
+				brightness(88%) contrast(95%);
+		}
+	}
+
+	/* --------------------------------------------------------------------------
+	   カード — クレイモーフィズム。押し込まれた粘土のような、生々しい厚み。
+	   角は不揃いのブロブにし、ゆっくり呼吸して形を変える。
+	   -------------------------------------------------------------------------- */
+
+	body[data-page="kokimiza"] .service-card,
+	body[data-page="kokimiza"] .philosophy-point {
+		border: none;
+		background: var(--color-bg-light);
+		padding: var(--spacing-xl);
+		border-radius: 38% 62% 61% 39% / 42% 38% 62% 58%;
+		box-shadow:
+			9px 9px 20px var(--clay-shadow-dark),
+			-8px -8px 18px var(--clay-shadow-light);
+		transition:
+			box-shadow var(--transition-base),
+			transform var(--transition-fast),
+			border-radius var(--transition-slow);
+		animation: koki-clay-breathe 13s ease-in-out infinite;
+
+		&:hover {
+			box-shadow:
+				inset 7px 7px 14px var(--clay-shadow-dark),
+				inset -6px -6px 12px var(--clay-shadow-light),
+				0 0 22px color-mix(in srgb, var(--color-accent-alt) 30%, transparent);
+			transform: scale(0.98);
+		}
+	}
+
+	/* 個体差 — 全部同じ形だと不気味さが均され、逆に無害に見えてしまう */
+	body[data-page="kokimiza"] .service-card:nth-child(2n),
+	body[data-page="kokimiza"] .philosophy-point:nth-child(2n) {
+		border-radius: 58% 42% 40% 60% / 55% 61% 39% 45%;
+		animation-duration: 16.5s;
+		animation-delay: -4s;
+	}
+
+	body[data-page="kokimiza"] .service-card:nth-child(3n),
+	body[data-page="kokimiza"] .philosophy-point:nth-child(3n) {
+		animation-duration: 10.5s;
+		animation-delay: -7s;
+	}
+
+	@keyframes koki-clay-breathe {
+		0%,
+		100% {
+			border-radius: 38% 62% 61% 39% / 42% 38% 62% 58%;
+		}
+		33% {
+			border-radius: 46% 54% 42% 58% / 58% 44% 56% 42%;
+		}
+		67% {
+			border-radius: 55% 45% 58% 42% / 38% 56% 44% 62%;
+		}
+	}
+
+	body[data-page="kokimiza"] .page-header-icon {
+		position: relative;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: 5.5rem;
+		height: 5.5rem;
+		margin: 0 auto var(--spacing-md);
+		background: var(--color-bg-light);
+		border-radius: 44% 56% 58% 42% / 48% 44% 56% 52%;
+		box-shadow:
+			7px 7px 16px var(--clay-shadow-dark),
+			-6px -6px 14px var(--clay-shadow-light);
+		animation: koki-clay-breathe 11s ease-in-out infinite;
+	}
+
+	/* --------------------------------------------------------------------------
+	   ボタン — 指で押し込めそうな、柔らかい塊
+	   -------------------------------------------------------------------------- */
+
+	body[data-page="kokimiza"] .btn-primary {
+		border-radius: 999px;
+		box-shadow:
+			6px 6px 14px var(--clay-shadow-dark),
+			-5px -5px 12px var(--clay-shadow-light);
+		transition:
+			box-shadow var(--transition-fast),
+			transform var(--transition-fast);
+
+		&:hover {
+			box-shadow:
+				0 0 0 1px var(--color-bg),
+				0 0 16px color-mix(in srgb, var(--color-accent-alt) 65%, transparent),
+				0 0 26px color-mix(in srgb, var(--color-accent) 45%, transparent);
+		}
+
+		&:active {
+			box-shadow:
+				inset 4px 4px 10px var(--clay-shadow-dark),
+				inset -3px -3px 8px var(--clay-shadow-light);
+			transform: scale(0.96);
+		}
+	}
+
+	body[data-page="kokimiza"] .btn-secondary {
+		border-radius: 999px;
+
+		&:hover {
+			border-color: var(--color-accent-alt);
+			color: var(--color-accent-alt);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		body[data-page="kokimiza"]::before,
+		body[data-page="kokimiza"]::after,
+		body[data-page="kokimiza"] .page-header h1::before,
+		body[data-page="kokimiza"] .page-header h1::after,
+		body[data-page="kokimiza"] .icon-accent,
+		body[data-page="kokimiza"] .service-card,
+		body[data-page="kokimiza"] .philosophy-point,
+		body[data-page="kokimiza"] .page-header-icon {
+			animation: none;
+		}
+
+		body[data-page="kokimiza"] .page-header h1::before,
+		body[data-page="kokimiza"] .page-header h1::after {
+			display: none;
+		}
+	}
+}
