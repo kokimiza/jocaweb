@@ -318,7 +318,7 @@
 		line-height: 1.35;
 		letter-spacing: 0.005em;
 		color: var(--color-primary);
-		max-width: 18ch;
+		max-width: 30ch;
 		margin: var(--spacing-lg) 0 0;
 	}
 
@@ -328,57 +328,6 @@
 		color: var(--color-text-light);
 		max-width: 62ch;
 		margin: var(--spacing-lg) 0 0;
-	}
-
-	.concept-axes {
-		list-style: none;
-		padding: 0;
-		margin: var(--spacing-2xl) 0 0;
-		display: grid;
-		gap: 0;
-		grid-template-columns: 1fr;
-
-		@media (min-width: 768px) {
-			grid-template-columns: repeat(4, 1fr);
-			column-gap: var(--spacing-xl);
-		}
-	}
-
-	.concept-axis {
-		padding: var(--spacing-lg) 0;
-		border-top: 1px solid var(--color-border);
-
-		&:last-child {
-			border-bottom: 1px solid var(--color-border);
-		}
-
-		@media (min-width: 768px) {
-			border-bottom: 1px solid var(--color-border);
-		}
-	}
-
-	.concept-axis-brand {
-		display: block;
-		font-size: 0.68rem;
-		font-weight: var(--font-weight-semibold);
-		letter-spacing: 0.16em;
-		text-transform: uppercase;
-		color: var(--color-accent-alt);
-		margin-bottom: var(--spacing-sm);
-	}
-
-	.concept-axis-label {
-		font-size: clamp(0.95rem, 2vw, 1.05rem);
-		letter-spacing: 0.01em;
-		color: var(--color-primary);
-		margin-bottom: var(--spacing-xs);
-	}
-
-	.concept-axis p {
-		font-size: 0.85rem;
-		line-height: 1.6;
-		color: var(--color-text-light);
-		margin: 0;
 	}
 
 	/* =========================================================================
@@ -805,7 +754,6 @@
 	.service-card,
 	.value-card,
 	.value-item,
-	.concept-axis,
 	.philosophy-point,
 	.responsibility-card,
 	.brand-contact,
