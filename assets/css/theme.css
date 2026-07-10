@@ -293,6 +293,94 @@
 		margin-bottom: 0;
 	}
 
+	.hero-tagline {
+		font-family: var(--font-family-sans);
+		font-style: italic;
+		font-weight: var(--font-weight-medium);
+		font-size: clamp(1rem, 2.6vw, 1.4rem);
+		letter-spacing: 0.02em;
+		color: var(--color-accent);
+		margin: var(--spacing-md) 0 0;
+	}
+
+	/* =========================================================================
+	   Concept — index.html 用 「現象」概念セクション
+	   ========================================================================= */
+
+	.concept {
+		background-color: var(--color-bg-light);
+		border-block: 1px solid var(--color-border);
+	}
+
+	.concept-heading {
+		font-family: var(--font-family-heading);
+		font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+		line-height: 1.35;
+		letter-spacing: 0.005em;
+		color: var(--color-primary);
+		max-width: 18ch;
+		margin: var(--spacing-lg) 0 0;
+	}
+
+	.concept-body {
+		font-size: clamp(0.92rem, 1.6vw, 1.02rem);
+		line-height: 1.9;
+		color: var(--color-text-light);
+		max-width: 62ch;
+		margin: var(--spacing-lg) 0 0;
+	}
+
+	.concept-axes {
+		list-style: none;
+		padding: 0;
+		margin: var(--spacing-2xl) 0 0;
+		display: grid;
+		gap: 0;
+		grid-template-columns: 1fr;
+
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(4, 1fr);
+			column-gap: var(--spacing-xl);
+		}
+	}
+
+	.concept-axis {
+		padding: var(--spacing-lg) 0;
+		border-top: 1px solid var(--color-border);
+
+		&:last-child {
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		@media (min-width: 768px) {
+			border-bottom: 1px solid var(--color-border);
+		}
+	}
+
+	.concept-axis-brand {
+		display: block;
+		font-size: 0.68rem;
+		font-weight: var(--font-weight-semibold);
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: var(--color-accent-alt);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.concept-axis-label {
+		font-size: clamp(0.95rem, 2vw, 1.05rem);
+		letter-spacing: 0.01em;
+		color: var(--color-primary);
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.concept-axis p {
+		font-size: 0.85rem;
+		line-height: 1.6;
+		color: var(--color-text-light);
+		margin: 0;
+	}
+
 	/* =========================================================================
 	   Mission — index.html 用 ミッションステートメント
 	   ========================================================================= */
@@ -383,10 +471,9 @@
 	}
 
 	.brand-entry {
-		display: grid;
-		grid-template-columns: 1fr auto auto;
-		align-items: center;
-		gap: var(--spacing-lg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
 		padding: var(--spacing-lg) 0;
 		border-top: 1px solid var(--color-border);
 		text-decoration: none;
@@ -403,10 +490,26 @@
 		&:hover .brand-entry-arrow {
 			transform: translateX(6px);
 		}
+	}
+
+	.brand-entry-row {
+		display: grid;
+		grid-template-columns: 1fr auto auto;
+		align-items: center;
+		gap: var(--spacing-lg);
+		width: 100%;
 
 		@media (max-width: 560px) {
 			grid-template-columns: 1fr auto;
 		}
+	}
+
+	.brand-entry-desc {
+		font-size: 0.85rem;
+		line-height: 1.6;
+		color: var(--color-text-light);
+		max-width: 55ch;
+		margin: 0;
 	}
 
 	.brand-entry-name {
@@ -702,7 +805,7 @@
 	.service-card,
 	.value-card,
 	.value-item,
-	.org-item,
+	.concept-axis,
 	.philosophy-point,
 	.responsibility-card,
 	.brand-contact,
