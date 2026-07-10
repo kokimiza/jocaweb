@@ -65,42 +65,12 @@
 	"index": {
 		"concept": {
 			"heading": {
-				"ja": "現象は、科学と技術と芸術が交わるところに生まれる。",
-				"en": "A phenomenon is born where science, technology, and art intersect."
+				"ja": "jocariumがつくるのは、ひとつひとつの「現象」。",
+				"en": "What jocarium makes: phenomena, one at a time."
 			},
 			"body": {
-				"ja": "観測されれば科学になり、形にされれば技術になり、意味を与えられれば芸術になる。同じひとつの現象が、見る角度によって姿を変える。Jocariumはこの三つの視点を横断しながら、現象そのものをデザインします。",
-				"en": "Observed, it becomes science. Given form, it becomes technology. Given meaning, it becomes art. The same phenomenon changes shape depending on where you stand. Jocarium moves across all three vantage points to design the phenomenon itself."
-			},
-			"axes": {
-				"kokimiza": {
-					"label": { "ja": "視覚の現象", "en": "Visual Phenomena" },
-					"desc": {
-						"ja": "光と動きが、感情に変わる瞬間。",
-						"en": "The instant light and motion become feeling."
-					}
-				},
-				"gutzgutz": {
-					"label": { "ja": "遊びの現象", "en": "Playable Phenomena" },
-					"desc": {
-						"ja": "選択と反応が、物語に変わる瞬間。",
-						"en": "The instant choice and response become story."
-					}
-				},
-				"bpm": {
-					"label": { "ja": "聴覚の現象", "en": "Sonic Phenomena" },
-					"desc": {
-						"ja": "音が、空間の意味を変える瞬間。",
-						"en": "The instant sound redefines a space."
-					}
-				},
-				"systems": {
-					"label": { "ja": "構造の現象", "en": "Structural Phenomena" },
-					"desc": {
-						"ja": "仕組みが、体験を静かに支える瞬間。",
-						"en": "The instant structure quietly holds an experience together."
-					}
-				}
+				"ja": "映像が動く。音が鳴る。ゲームが反応する。仕組みが動き続ける。誰かの前で実際に起きる、その一つひとつを設計すること。",
+				"en": "An image moves. A sound plays. A game responds. A system keeps running. Designing each of these moments as they actually happen in front of someone."
 			}
 		},
 		"mission": {
