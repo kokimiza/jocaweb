@@ -110,7 +110,8 @@
 	}
 
 	/* =========================================================================
-	   Header / Navbar
+	   Header / Navbar — N6 Newspaper masthead (adapted to the existing
+	   <site-header> web component; DOM order unchanged, CSS grid re-flows it)
 	   ========================================================================= */
 
 	header,
@@ -118,10 +119,8 @@
 		position: sticky;
 		top: 0;
 		z-index: var(--z-sticky);
-		border-bottom: 1px solid var(--color-border);
-		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
-		background-color: color-mix(in srgb, var(--color-bg) 92%, transparent);
+		border-bottom: var(--rule-width, 2px) solid var(--color-border);
+		background-color: var(--color-bg);
 	}
 
 	/* Web Component ラッパーを透過させて内側の <header> に干渉しないようにする */
@@ -134,21 +133,33 @@
 	}
 
 	.navbar {
-		padding: var(--spacing-md) 0;
+		padding: var(--spacing-sm) 0 0;
 
 		& .container {
-			display: flex;
+			display: grid;
+			grid-template-columns: 1fr auto auto auto;
+			grid-template-areas:
+				".     lang  theme hamburger"
+				"brand brand brand brand"
+				"menu  menu  menu  menu";
 			align-items: center;
-			justify-content: space-between;
+			row-gap: var(--spacing-xs);
+			column-gap: var(--spacing-xs);
 		}
 	}
 
 	.navbar-brand {
-		font-weight: var(--font-weight-bold);
-		font-size: 1.5rem;
+		grid-area: brand;
+		font-family: var(--font-family-outlier);
+		font-weight: 700;
+		font-size: clamp(1.5rem, 4vw, 2.25rem);
+		letter-spacing: -0.01em;
+		line-height: 0.95;
+		text-align: center;
+		padding-block: var(--spacing-xs) 0;
 
 		& a {
-			color: var(--color-text);
+			color: var(--color-primary);
 			transition: color var(--transition-fast);
 
 			&:hover {
@@ -158,42 +169,45 @@
 		}
 	}
 
+	.navbar-lang {
+		grid-area: lang;
+	}
+
+	.navbar-theme-toggle {
+		grid-area: theme;
+	}
+
+	.navbar-toggle {
+		grid-area: hamburger;
+	}
+
 	/* -------------------------------------------------------------------------
-	   デスクトップ nav — デフォルト
+	   リンク行 — masthead 下段。tracked small caps
 	   ------------------------------------------------------------------------- */
 
 	.navbar-menu {
+		grid-area: menu;
 		display: flex;
+		justify-content: center;
 		list-style: none;
-		gap: var(--spacing-xl);
+		gap: var(--spacing-lg);
 		margin: 0;
-		padding: 0;
+		padding: var(--spacing-xs) 0 var(--spacing-sm);
+		flex-wrap: wrap;
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 
 		& a {
 			color: var(--color-text);
-			font-weight: var(--font-weight-medium);
+			font-weight: var(--font-weight-semibold);
+			font-size: var(--text-xs, 0.75rem);
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
 			transition: color var(--transition-fast);
 			position: relative;
 
 			&:hover {
 				color: var(--color-accent);
 				text-decoration: none;
-			}
-
-			&::after {
-				content: "";
-				position: absolute;
-				bottom: -4px;
-				left: 0;
-				width: 0;
-				height: 2px;
-				background-color: var(--color-accent);
-				transition: width var(--transition-fast);
-			}
-
-			&:hover::after,
-			&.is-active::after {
-				width: 100%;
 			}
 
 			&.is-active {
@@ -213,7 +227,7 @@
 			flex-direction: column;
 			gap: 0;
 			background-color: var(--color-bg);
-			border-bottom: 1px solid var(--color-border);
+			border-bottom: var(--rule-width, 2px) solid var(--color-border);
 			padding: var(--spacing-md);
 			list-style: none;
 			z-index: var(--z-dropdown);
@@ -237,16 +251,17 @@
 			& a {
 				display: block;
 				padding: var(--spacing-md) 0;
-
-				&::after {
-					display: none;
-				}
-
-				&:hover::after {
-					width: 0;
-				}
 			}
 		}
+	}
+
+	/* 二重罫 — masthead の締め */
+	.navbar::after {
+		content: "";
+		display: block;
+		height: 6px;
+		border-top: var(--rule-width, 2px) solid var(--color-border);
+		border-bottom: var(--rule-width, 2px) solid var(--color-border);
 	}
 
 	/* aria-expanded="true" に反応して開く — .is-open クラス不要 */
@@ -485,26 +500,56 @@
 	}
 
 	/* =========================================================================
-	   Footer
+	   Footer — Ft1 Mast-headed: wordmark + tagline anchor the band,
+	   links beside, copyright beneath.
 	   ========================================================================= */
 
 	footer {
 		margin-top: var(--spacing-4xl);
 		padding: var(--spacing-2xl) 0 var(--spacing-xl);
-		border-top: 1px solid var(--color-border);
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 		background-color: transparent;
 
 		& .container {
 			display: flex;
 			flex-direction: column;
 			gap: var(--spacing-lg);
-
-			@media (min-width: 769px) {
-				flex-direction: row;
-				align-items: center;
-				justify-content: space-between;
-			}
 		}
+	}
+
+	.footer-band {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+
+		@media (min-width: 769px) {
+			flex-direction: row;
+			align-items: baseline;
+			justify-content: space-between;
+			gap: var(--spacing-xl);
+		}
+	}
+
+	.footer-wordmark {
+		font-family: var(--font-family-outlier);
+		font-weight: 700;
+		font-size: clamp(1.5rem, 4vw, 2rem);
+		letter-spacing: -0.01em;
+		color: var(--color-primary);
+		transition: color var(--transition-fast);
+
+		&:hover {
+			color: var(--color-accent);
+			text-decoration: none;
+		}
+	}
+
+	.footer-tagline {
+		margin: 0;
+		font-size: 0.85rem;
+		font-style: italic;
+		color: var(--color-text-light);
+		flex: 1;
 	}
 
 	.footer-copyright {
@@ -512,11 +557,13 @@
 		color: var(--color-text-light);
 		font-size: 0.8rem;
 		letter-spacing: 0.04em;
+		border-top: var(--rule-width, 2px) solid var(--color-border);
+		padding-top: var(--spacing-md);
 	}
 
 	.footer-links {
 		display: flex;
-		gap: var(--spacing-xl);
+		gap: var(--spacing-lg);
 		list-style: none;
 		margin: 0;
 		padding: 0;

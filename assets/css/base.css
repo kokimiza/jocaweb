@@ -53,23 +53,31 @@
 
 @layer base {
 	:root {
-		/* Color Palette — light */
-		--color-primary: #1a1917;
-		--color-accent: #2b5940;
-		--color-accent-alt: #a5712e;
-		--color-border: #cbc6bc;
-		--color-text: #2e2c28;
-		--color-text-light: #78746e;
-		--color-bg: #f7f5f0;
-		--color-bg-light: #f0ece3;
-		--color-bg-dark: #e6e1d5;
+		/* Hallmark · genre: editorial · macrostructure: Manifesto (hub) · theme: Carnival (drop: Citrus Riot)
+		 * enrichment: none · nav: N6 masthead (adapted) · footer: Ft1 mast-headed
+		 * Colour, type and spacing tokens below — see /design.md and /tokens.css for the full system. */
 
-		/* Typography */
-		--font-family-sans: "Playfair Display", "Zen Antique Soft", sans-serif;
-		--font-family-heading: "Anton SC", "Zen Antique Soft", sans-serif;
+		/* Color Palette — Carnival / Citrus Riot anchor. Dark-mode values declared
+		   inline via light-dark() so there is a single source of truth per token. */
+		--color-primary: light-dark(oklch(20% 0.07 145), oklch(92% 0.03 145));
+		--color-accent: light-dark(oklch(28% 0.28 350), oklch(78% 0.20 350));
+		--color-accent-alt: light-dark(oklch(82% 0.20 130), oklch(60% 0.15 130));
+		--color-border: light-dark(oklch(28% 0.28 350), oklch(50% 0.20 350));
+		--color-text: light-dark(oklch(22% 0.05 145), oklch(90% 0.02 145));
+		--color-text-light: light-dark(oklch(48% 0.04 130), oklch(70% 0.03 130));
+		--color-bg: light-dark(oklch(94% 0.040 85), oklch(14% 0.03 145));
+		--color-bg-light: light-dark(oklch(90% 0.048 82), oklch(18% 0.035 145));
+		--color-bg-dark: light-dark(oklch(84% 0.055 80), oklch(22% 0.04 145));
+
+		color-scheme: light dark;
+
+		/* Typography — 2+1 rule: display, body, + wordmark-only outlier */
+		--font-family-sans: "Newsreader", "Zen Antique Soft", serif;
+		--font-family-heading: "Anton SC", "Zen Antique", sans-serif;
+		--font-family-outlier: "Big Shoulders Display", "Anton SC", sans-serif;
 		--font-family-multilingual:
 			"Black And White Picture", sans-serif; /* 多言語対応時に使用 */
-		--font-family-mono: "Courier New", Courier, monospace;
+		--font-family-mono: "JetBrains Mono", "Courier New", monospace;
 		--font-size-base: 16px;
 		--line-height-base: 1.6;
 		--font-weight-normal: 400;
@@ -77,33 +85,38 @@
 		--font-weight-semibold: 600;
 		--font-weight-bold: 700;
 
-		/* Spacing */
+		/* Spacing — 4pt-derived named scale */
 		--spacing-xs: 0.25rem;
-		--spacing-sm: 0.5rem;
+		--spacing-sm: 0.75rem;
 		--spacing-md: 1rem;
 		--spacing-lg: 1.5rem;
-		--spacing-xl: 2rem;
-		--spacing-2xl: 3rem;
-		--spacing-3xl: 4rem;
-		--spacing-4xl: 6rem;
+		--spacing-xl: 2.5rem;
+		--spacing-2xl: 4rem;
+		--spacing-3xl: 6rem;
+		--spacing-4xl: 9rem;
 
-		/* Border radius */
-		--radius-sm: 2px;
-		--radius-md: 4px;
-		--radius-lg: 4px;
-		--radius-xl: 6px;
+		/* Border radius — Carnival is hard-edged; 0 everywhere except pills */
+		--radius-sm: 0;
+		--radius-md: 0;
+		--radius-lg: 0;
+		--radius-xl: 0;
 		--radius-full: 9999px;
 
-		/* Shadows */
-		--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-		--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-		--shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-		--shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+		/* Shadows — one hard-offset shadow, no soft/blurred shadows (Carnival ban) */
+		--shadow-hard: 4px 4px 0 var(--color-primary);
+		--shadow-sm: var(--shadow-hard);
+		--shadow-md: var(--shadow-hard);
+		--shadow-lg: var(--shadow-hard);
+		--shadow-xl: var(--shadow-hard);
+		--rule-width: 2px;
 
 		/* Transitions */
-		--transition-fast: 150ms ease;
-		--transition-base: 250ms ease;
-		--transition-slow: 350ms ease;
+		--transition-fast: 150ms var(--ease-out);
+		--transition-base: 220ms var(--ease-out);
+		--transition-slow: 420ms var(--ease-out);
+		--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+		--ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+		--ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
 		/* Z-index */
 		--z-dropdown: 100;
@@ -113,21 +126,6 @@
 		--z-modal: 500;
 		--z-popover: 600;
 		--z-tooltip: 700;
-	}
-
-	/* ダークモード — light-dark() でトークンを一元管理 */
-	:root {
-		color-scheme: light dark;
-
-		--color-primary: light-dark(#1a1917, #e8e3d9);
-		--color-text: light-dark(#2e2c28, #e4dfd6);
-		--color-text-light: light-dark(#78746e, #8a8580);
-		--color-bg: light-dark(#f7f5f0, #111009);
-		--color-bg-light: light-dark(#f0ece3, #1c1b17);
-		--color-bg-dark: light-dark(#e6e1d5, #2a2822);
-		--color-border: light-dark(#cbc6bc, #363330);
-		--color-accent: light-dark(#2b5940, #5aab7e);
-		--color-accent-alt: light-dark(#a5712e, #c99152);
 	}
 
 	/* HTML & Body */
@@ -337,7 +335,7 @@
 	/* Horizontal rule */
 	hr {
 		border: none;
-		border-top: 1px solid var(--color-border);
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 		margin: var(--spacing-xl) 0;
 	}
 
@@ -348,7 +346,7 @@
 		width: 100%;
 		padding: var(--spacing-sm) var(--spacing-md);
 		font-size: var(--font-size-base);
-		border: 1px solid var(--color-border);
+		border: var(--rule-width, 2px) solid var(--color-border);
 		border-radius: var(--radius-md);
 		background-color: var(--color-bg);
 		color: var(--color-text);

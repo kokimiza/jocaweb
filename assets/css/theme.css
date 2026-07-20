@@ -1,10 +1,17 @@
+/* Hallmark · genre: editorial · macrostructure: Manifesto (hub) · theme: Carnival (drop: Citrus Riot)
+ * enrichment: none (typography + ornament only) · nav: N6 masthead (adapted) · footer: Ft1 mast-headed
+ * content pages (systems/press/contact): Index-First-flavoured, shared tokens only, no duo-tone fill
+ * sub-brand pages (kokimiza/gutzgutz/bpm): locked brand variants — see design.md
+ */
+
 /* ==========================================================================
    テーマ・コンポーネント
    ========================================================================== */
 
 @layer theme {
 	/* =========================================================================
-	   Section Eyebrow — 小見出しラベル
+	   Section Eyebrow — ordinal label only. Default OFF; used on Core Values
+	   (genuinely numbered I/II/III) and nowhere else on the hub page.
 	   ========================================================================= */
 
 	.section-eyebrow {
@@ -13,12 +20,24 @@
 		font-weight: var(--font-weight-semibold);
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
-		color: var(--color-text-light);
+		color: var(--color-accent);
 		margin-bottom: 0;
 	}
 
+	/* Ornament divider — Carnival signature move, used instead of a repeated
+	   eyebrow to mark a beat between declarations. */
+	.ornament-divider {
+		display: flex;
+		justify-content: center;
+		gap: var(--spacing-md);
+		color: var(--color-accent);
+		font-size: 1rem;
+		margin: 0;
+		user-select: none;
+	}
+
 	/* =========================================================================
-	   Buttons
+	   Buttons — solid fill, 2px border, hard-offset shadow, no radius
 	   ========================================================================= */
 
 	.btn {
@@ -28,37 +47,46 @@
 		font-weight: var(--font-weight-semibold);
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		border: 1px solid transparent;
+		border: var(--rule-width, 2px) solid var(--color-primary);
 		border-radius: 0;
 		cursor: pointer;
-		transition: all var(--transition-fast);
+		transition:
+			transform var(--transition-fast),
+			box-shadow var(--transition-fast),
+			background-color var(--transition-fast),
+			color var(--transition-fast);
 		text-align: center;
 		text-decoration: none;
 		white-space: nowrap;
+		box-shadow: var(--shadow-hard);
 
 		&:hover {
 			text-decoration: none;
+			transform: translate(-2px, -2px);
+			box-shadow: 6px 6px 0 var(--color-primary);
+		}
+
+		&:active {
+			transform: translate(0, 0);
+			box-shadow: 1px 1px 0 var(--color-primary);
 		}
 
 		&:disabled {
 			opacity: 0.55;
 			cursor: not-allowed;
+			transform: none;
+			box-shadow: var(--shadow-hard);
 		}
 	}
 
 	.btn-primary {
-		background-color: var(--color-primary);
-		color: var(--color-bg);
+		background-color: var(--color-accent);
+		color: light-dark(#fff8f0, oklch(14% 0.03 145));
 		border-color: var(--color-primary);
 
 		&:hover {
-			background-color: var(--color-accent);
-			border-color: var(--color-accent);
+			background-color: var(--color-primary);
 			color: var(--color-bg);
-		}
-
-		&:active {
-			opacity: 0.85;
 		}
 	}
 
@@ -66,10 +94,18 @@
 		background-color: transparent;
 		color: var(--color-text);
 		border-color: var(--color-border);
+		box-shadow: none;
 
 		&:hover {
-			border-color: var(--color-text);
-			color: var(--color-text);
+			background-color: var(--color-accent-alt);
+			border-color: var(--color-primary);
+			color: var(--color-primary);
+			transform: none;
+			box-shadow: none;
+		}
+
+		&:active {
+			box-shadow: none;
 		}
 	}
 
@@ -108,7 +144,7 @@
 	.card {
 		background-color: transparent;
 		border: none;
-		border-top: 1px solid var(--color-border);
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 		border-radius: 0;
 		padding: var(--spacing-xl) 0;
 	}
@@ -117,7 +153,7 @@
 	.value-card {
 		background-color: transparent;
 		border: none;
-		border-top: 1px solid var(--color-border);
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 		border-radius: 0;
 		padding: var(--spacing-xl) 0;
 
@@ -137,7 +173,7 @@
 	.brand-card {
 		background-color: transparent;
 		border: none;
-		border-top: 1px solid var(--color-border);
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 		border-radius: 0;
 		padding: var(--spacing-xl) 0;
 		display: flex;
@@ -175,13 +211,13 @@
 
 		& li {
 			padding: var(--spacing-xs) 0;
-			border-top: 1px solid var(--color-border);
+			border-top: var(--rule-width, 2px) solid var(--color-border);
 			color: var(--color-text);
 			font-size: 0.9rem;
 			margin: 0;
 
 			&:last-child {
-				border-bottom: 1px solid var(--color-border);
+				border-bottom: var(--rule-width, 2px) solid var(--color-border);
 			}
 		}
 	}
@@ -206,10 +242,12 @@
 	.service-card {
 		background-color: transparent;
 		border: none;
-		border-top: 1px solid var(--color-border);
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 		border-radius: 0;
 		padding: var(--spacing-xl) 0;
-		transition: opacity var(--transition-fast);
+		transition:
+			border-color var(--transition-fast),
+			box-shadow var(--transition-fast);
 
 		& h3 {
 			font-size: clamp(0.95rem, 2vw, 1.1rem);
@@ -218,21 +256,26 @@
 		}
 
 		&:hover {
-			opacity: 0.72;
+			border-top-color: var(--color-accent);
 		}
 	}
 
 	.responsibility-card {
 		background-color: transparent;
 		border: none;
-		border-top: 1px solid var(--color-border);
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 		border-radius: 0;
 		padding: var(--spacing-xl) 0;
+		transition: border-color var(--transition-fast);
 
 		& h3 {
 			color: var(--color-primary);
 			margin-bottom: var(--spacing-sm);
 			font-size: clamp(0.95rem, 2vw, 1.1rem);
+		}
+
+		&:hover {
+			border-top-color: var(--color-accent);
 		}
 	}
 
@@ -276,19 +319,25 @@
 	}
 
 	/* =========================================================================
-	   Hero — index.html 用 大型タイポグラフィ
+	   Hero — index.html 用 大型タイポグラフィ。左に寄せ、宣言として置く。
+	   Outlier face (Big Shoulders Display) はワードマークだけの特別枠。
 	   ========================================================================= */
 
 	.hero {
-		padding: var(--spacing-4xl) 0 var(--spacing-3xl);
+		padding: var(--spacing-3xl) 0 var(--spacing-2xl);
 		background: none;
+		text-align: left;
 	}
 
 	.hero-wordmark {
-		font-family: var(--font-family-heading);
-		font-size: clamp(4.5rem, 20vw, 14rem);
-		line-height: 0.88;
-		letter-spacing: -0.035em;
+		font-family: var(--font-family-outlier);
+		font-weight: 700;
+		font-variation-settings: "wdth" 100;
+		font-size: clamp(3.5rem, 16vw, 10rem);
+		line-height: 0.86;
+		letter-spacing: -0.02em;
+		overflow-wrap: anywhere;
+		min-width: 0;
 		color: var(--color-primary);
 		margin-bottom: 0;
 	}
@@ -304,12 +353,12 @@
 	}
 
 	/* =========================================================================
-	   Concept — index.html 用 「現象」概念セクション
+	   Concept — index.html 用 「現象」概念セクション。静かな導入。
 	   ========================================================================= */
 
 	.concept {
 		background-color: var(--color-bg-light);
-		border-block: 1px solid var(--color-border);
+		border-block: var(--rule-width, 2px) solid var(--color-border);
 	}
 
 	.concept-heading {
@@ -331,12 +380,13 @@
 	}
 
 	/* =========================================================================
-	   Mission — index.html 用 ミッションステートメント
+	   Mission — index.html 用 ミッションステートメント。
+	   Carnival の bleed-colour block — 唯一、地の色を塗り替えるセクション。
 	   ========================================================================= */
 
 	.mission {
 		padding: var(--spacing-3xl) 0;
-		background: none;
+		background: var(--color-accent);
 	}
 
 	.mission-statement {
@@ -344,11 +394,9 @@
 		font-size: clamp(1.8rem, 6vw, 3.5rem);
 		line-height: 1.15;
 		letter-spacing: 0.01em;
-		color: var(--color-accent);
-		margin: var(--spacing-2xl) 0 0;
-		padding: var(--spacing-xl) 0;
-		border-top: 1px solid var(--color-border);
-		border-bottom: 1px solid var(--color-border);
+		color: var(--color-bg);
+		margin: 0;
+		max-width: 20ch;
 	}
 
 	/* 旧 .tagline — サブページ .page-header 用 */
@@ -367,7 +415,8 @@
 	}
 
 	/* =========================================================================
-	   Values — list style（index.html 用）
+	   Values (Core Values) — list style（index.html 用・文言固定）
+	   静かなセクション。F4 Step-sequence の numbering=I/II/III を per-item に使う。
 	   ========================================================================= */
 
 	.values-list {
@@ -381,17 +430,17 @@
 		grid-template-columns: 3.5rem 1fr;
 		gap: var(--spacing-xl);
 		padding: var(--spacing-xl) 0;
-		border-top: 1px solid var(--color-border);
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 
 		&:last-child {
-			border-bottom: 1px solid var(--color-border);
+			border-bottom: var(--rule-width, 2px) solid var(--color-border);
 		}
 	}
 
 	.values-index {
 		font-family: var(--font-family-heading);
-		font-size: 1.3rem;
-		color: var(--color-border);
+		font-size: 1.5rem;
+		color: var(--color-accent);
 		line-height: 1.3;
 		user-select: none;
 	}
@@ -412,31 +461,48 @@
 	}
 
 	/* =========================================================================
-	   Brands — roster style（index.html 用）
+	   Brands — poster-tile roster（index.html 用）。Carnival の duo-tone
+	   alternating fill: 各ブランドが交互に accent / accent-alt で塗られた
+	   一枚のポスターとして並ぶ。「証拠」区画 — 理念のあとに実績を置く。
 	   ========================================================================= */
 
 	.brands-roster {
 		margin-top: var(--spacing-2xl);
+		display: grid;
+		gap: var(--spacing-lg);
+
+		@media (min-width: 700px) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
 	}
 
 	.brand-entry {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-sm);
-		padding: var(--spacing-lg) 0;
-		border-top: 1px solid var(--color-border);
+		padding: var(--spacing-xl);
+		border: var(--rule-width, 2px) solid var(--color-primary);
+		box-shadow: var(--shadow-hard);
 		text-decoration: none;
-		color: inherit;
+		color: var(--color-primary);
+		background: var(--color-accent-alt);
+		transition:
+			transform var(--transition-fast),
+			box-shadow var(--transition-fast);
 
-		&:last-child {
-			border-bottom: 1px solid var(--color-border);
+		&:nth-child(2n) {
+			background: var(--color-accent);
+			color: var(--color-bg);
 		}
 
-		&:hover .brand-entry-name {
-			color: var(--color-accent);
+		&:hover,
+		&:focus-visible {
+			transform: translate(-3px, -3px);
+			box-shadow: 8px 8px 0 var(--color-primary);
 		}
 
-		&:hover .brand-entry-arrow {
+		&:hover .brand-entry-arrow,
+		&:focus-visible .brand-entry-arrow {
 			transform: translateX(6px);
 		}
 	}
@@ -454,26 +520,28 @@
 	}
 
 	.brand-entry-desc {
-		font-size: 0.85rem;
+		font-size: 0.9rem;
 		line-height: 1.6;
-		color: var(--color-text-light);
 		max-width: 55ch;
 		margin: 0;
+		opacity: 0.88;
 	}
 
 	.brand-entry-name {
 		font-family: var(--font-family-heading);
-		font-size: clamp(1.5rem, 5vw, 3rem);
+		font-weight: 700;
+		text-transform: uppercase;
+		font-size: clamp(1.4rem, 4.5vw, 2.5rem);
 		line-height: 1;
-		color: var(--color-primary);
-		transition: color var(--transition-fast);
+		overflow-wrap: anywhere;
+		min-width: 0;
 	}
 
 	.brand-entry-type {
 		font-size: 0.7rem;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: var(--color-text-light);
+		opacity: 0.8;
 
 		@media (max-width: 560px) {
 			display: none;
@@ -481,8 +549,7 @@
 	}
 
 	.brand-entry-arrow {
-		font-size: 1.1rem;
-		color: var(--color-accent);
+		font-size: 1.3rem;
 		transition: transform var(--transition-base);
 		line-height: 1;
 	}
@@ -507,6 +574,22 @@
 			font-size: 0.95rem;
 			max-width: 50ch;
 			opacity: 1;
+		}
+	}
+
+	/* Manifesto close — index.html only. Oversized solid-block CTA, set far
+	   below the fold, closing the page's argument. */
+	.cta-manifesto {
+		& h2 {
+			font-family: var(--font-family-heading);
+			font-size: clamp(2rem, 6vw, 3.75rem);
+			line-height: 1.05;
+			max-width: 16ch;
+		}
+
+		& .btn-primary {
+			padding: var(--spacing-md) var(--spacing-2xl);
+			font-size: 0.9rem;
 		}
 	}
 
@@ -542,7 +625,7 @@
 		& textarea,
 		& select {
 			padding: var(--spacing-md);
-			border: 1px solid var(--color-border);
+			border: var(--rule-width, 2px) solid var(--color-border);
 			border-radius: 0;
 			font-family: var(--font-family-sans);
 			font-size: 1rem;
@@ -566,13 +649,13 @@
 
 		& li {
 			padding: var(--spacing-md) 0;
-			border-top: 1px solid var(--color-border);
+			border-top: var(--rule-width, 2px) solid var(--color-border);
 			color: var(--color-text);
 			font-size: 0.95rem;
 			margin: 0;
 
 			&:last-child {
-				border-bottom: 1px solid var(--color-border);
+				border-bottom: var(--rule-width, 2px) solid var(--color-border);
 			}
 		}
 	}
@@ -585,7 +668,7 @@
 
 		& li {
 			padding: var(--spacing-md) 0;
-			border-top: 1px solid var(--color-border);
+			border-top: var(--rule-width, 2px) solid var(--color-border);
 			display: flex;
 			align-items: center;
 			gap: var(--spacing-sm);
@@ -594,7 +677,7 @@
 			margin: 0;
 
 			&:last-child {
-				border-bottom: 1px solid var(--color-border);
+				border-bottom: var(--rule-width, 2px) solid var(--color-border);
 			}
 
 			& .icon-inline {
@@ -617,7 +700,7 @@
 
 	.brand-contact {
 		padding: var(--spacing-xl) 0;
-		border-top: 1px solid var(--color-border);
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 
 		& h3 {
 			color: var(--color-primary);
@@ -640,7 +723,7 @@
 
 	.value-item {
 		padding: var(--spacing-xl) 0;
-		border-top: 1px solid var(--color-border);
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 
 		& h3 {
 			color: var(--color-primary);
@@ -660,12 +743,12 @@
 
 	.faq-item {
 		border: none;
-		border-top: 1px solid var(--color-border);
+		border-top: var(--rule-width, 2px) solid var(--color-border);
 		border-radius: 0;
 		overflow: hidden;
 
 		&:last-child {
-			border-bottom: 1px solid var(--color-border);
+			border-bottom: var(--rule-width, 2px) solid var(--color-border);
 		}
 
 		& summary {
@@ -766,13 +849,13 @@
 	}
 
 	[data-animate].is-visible {
-		animation: fadeIn 0.6s ease-out forwards;
+		animation: fadeIn var(--transition-slow) var(--ease-out) forwards;
 	}
 
 	input:focus,
 	textarea:focus,
 	select:focus {
-		animation: inputFocus 0.3s ease forwards;
+		animation: inputFocus var(--transition-base) var(--ease-out) forwards;
 	}
 
 	/* =========================================================================
@@ -813,14 +896,14 @@
 	   ========================================================================= */
 
 	.icon-accent {
-		/* forest green #2b5940 */
-		filter: invert(25%) sepia(45%) saturate(600%) hue-rotate(110deg)
-			brightness(78%) contrast(92%);
+		/* deep magenta — oklch(28% 0.28 350) */
+		filter: invert(9%) sepia(85%) saturate(5200%) hue-rotate(320deg)
+			brightness(90%) contrast(105%);
 
 		@media (prefers-color-scheme: dark) {
-			/* light green #5aab7e */
-			filter: invert(62%) sepia(28%) saturate(500%) hue-rotate(108deg)
-				brightness(100%);
+			/* bright magenta — oklch(78% 0.20 350) */
+			filter: invert(70%) sepia(35%) saturate(900%) hue-rotate(300deg)
+				brightness(105%);
 		}
 	}
 

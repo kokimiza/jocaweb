@@ -330,6 +330,12 @@
 			box-shadow var(--transition-fast),
 			transform var(--transition-fast);
 
+		&:hover,
+		&:active {
+			/* jocarium 共通ボタンの diagonal shift を打ち消し、粘土の押し込みだけを残す */
+			transform: none;
+		}
+
 		&:hover {
 			background-color: var(--clay-purple);
 			border-color: transparent;
@@ -352,10 +358,13 @@
 
 	body[data-page="kokimiza"] .btn-secondary {
 		border-radius: 999px;
+		box-shadow: none;
 
 		&:hover {
 			border-color: var(--color-accent-alt);
 			color: var(--color-accent-alt);
+			transform: none;
+			box-shadow: none;
 		}
 	}
 

@@ -146,6 +146,17 @@
 	   ボタン — 攻撃色に
 	   -------------------------------------------------------------------------- */
 
+	body[data-page="gutzgutz"] .btn,
+	body[data-page="gutzgutz"] .service-card,
+	body[data-page="gutzgutz"] .philosophy-point {
+		box-shadow: none;
+	}
+
+	body[data-page="gutzgutz"] .btn:hover,
+	body[data-page="gutzgutz"] .btn:active {
+		transform: none;
+	}
+
 	body[data-page="gutzgutz"] .btn-primary:hover {
 		box-shadow: 0 0 18px
 			color-mix(in srgb, var(--color-accent) 60%, transparent);

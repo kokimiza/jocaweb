@@ -142,6 +142,13 @@
 
 	body[data-page="bpm"] .btn {
 		border-radius: 0;
+		box-shadow: none;
+
+		&:hover,
+		&:active {
+			box-shadow: none;
+			transform: none;
+		}
 	}
 
 	body[data-page="bpm"] .btn-primary {
@@ -163,6 +170,16 @@
 			border-color: var(--color-accent);
 			color: var(--color-accent);
 		}
+	}
+
+	/* jocarium 全体の hard-offset shadow は BPM の「グロー無し・線と面だけ」の
+	   哲学と衝突するため、共有カード類でも明示的に無効化する */
+	body[data-page="bpm"] .service-card,
+	body[data-page="bpm"] .philosophy-point,
+	body[data-page="bpm"] .card,
+	body[data-page="bpm"] .value-card,
+	body[data-page="bpm"] .responsibility-card {
+		box-shadow: none;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
