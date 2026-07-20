@@ -266,9 +266,15 @@
 
 			const footer = el("footer");
 			const container = el("div", { class: "container" });
+			const band = el("div", { class: "footer-band" });
 
-			// Copyright
-			const copy = el("p", { class: "footer-copyright" }, `© ${site.copyright}`);
+			// ワードマーク + タグライン（Ft1 mast-headed）
+			const wordmark = el(
+				"a",
+				{ class: "footer-wordmark", href: `${base}/${site.rootPage}` },
+				site.name,
+			);
+			const tagline = el("p", { class: "footer-tagline" }, "Designs Phenomena");
 
 			// フッターリンク
 			const linkList = el("ul", { class: "footer-links" });
@@ -278,7 +284,11 @@
 				linkList.append(li);
 			}
 
-			container.append(copy, linkList);
+			// Copyright
+			const copy = el("p", { class: "footer-copyright" }, `© ${site.copyright}`);
+
+			band.append(wordmark, tagline, linkList);
+			container.append(band, copy);
 			footer.append(container);
 			this.append(footer);
 		}
