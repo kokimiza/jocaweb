@@ -105,16 +105,22 @@ export default {
 	async fetch(request, env) {
 		const origin = env.ALLOWED_ORIGIN ?? "*";
 
-		if (request.method === "OPTIONS") {
-			return new Response(null, { headers: corsHeaders(origin) });
+		try {
+			if (request.method === "OPTIONS") {
+				return new Response(null, { status: 204, headers: corsHeaders(origin) });
+			}
+
+			const url = new URL(request.url);
+
+			if (url.pathname === "/contact" && request.method === "POST") {
+				return await handleContact(request, env, origin);
+			}
+
+			return json({ error: "not_found" }, 404, origin);
+		} catch (err) {
+			// wrangler tail に詳細を残す — 素の 500（CORS ヘッダー無し）を防ぐ
+			console.error("[jocarium-notify] unhandled error:", err?.stack ?? err);
+			return json({ error: "internal_error" }, 500, origin);
 		}
-
-		const url = new URL(request.url);
-
-		if (url.pathname === "/contact" && request.method === "POST") {
-			return handleContact(request, env, origin);
-		}
-
-		return json({ error: "not_found" }, 404, origin);
 	},
 };
