@@ -155,8 +155,33 @@
 
 			container.append(brand, langSwitcher, themeToggle, toggle, menu);
 			nav.append(container);
-			header.append(nav);
+			header.append(nav, this.#buildTicker());
 			this.append(header);
+		}
+
+		/**
+		 * masthead ticker — 実在のナビラベル（config.js の navLinks）をそのまま
+		 * 繰り返すだけの装飾バー。新規コピーは書かない。ナビ本体に同じリンクが
+		 * 実体としてすでに存在するため aria-hidden にする。
+		 */
+		#buildTicker() {
+			const wrapper = el("div", { class: "masthead-ticker" });
+			const track = el("div", {
+				class: "masthead-ticker-track",
+				"aria-hidden": "true",
+			});
+
+			const labels = [site.name.toUpperCase(), ...navLinks.map((l) => l.label)];
+
+			// シームレスループのため同じ内容を2回並べる
+			for (let rep = 0; rep < 2; rep++) {
+				for (const label of labels) {
+					track.append(el("span", { class: "masthead-ticker-item" }, `★ ${label}`));
+				}
+			}
+
+			wrapper.append(track);
+			return wrapper;
 		}
 
 		#buildLangSwitcher(base) {

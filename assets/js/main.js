@@ -218,6 +218,128 @@ function initPageLoad() {
 }
 
 // ============================================================================
+// 背景の動物 GIF スキャッタリング — Wikimedia Commons の
+// Category:Animated_GIF_files_of_animals からランダムに何点か拾ってきて、
+// ページ背景にごく薄く散らす。稚拙で無邪気な「ホームページ感」の演出。
+// 実在の外部画像のみを使い、コピーは一切でっち上げない。
+// ロック済みのブランド固有ページ（bpm/gutzgutz/kokimiza）と
+// prefers-reduced-motion では出さない。
+// ============================================================================
+
+class GifScatter {
+	#CATEGORY = "Category:Animated_GIF_files_of_animals";
+	#CACHE_KEY = "jocarium-scatter-titles-v1";
+	#CACHE_TTL = 24 * 60 * 60 * 1000;
+	#COUNT = 7;
+	#THUMB_WIDTH = 140;
+	#API = "https://commons.wikimedia.org/w/api.php";
+
+	async init() {
+		const lockedPages = ["bpm", "gutzgutz", "kokimiza"];
+		if (lockedPages.includes(document.body.dataset.page)) return;
+		if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+		try {
+			const titles = await this.#titlePool();
+			if (!titles.length) return;
+
+			const picked = this.#sample(titles, this.#COUNT);
+			const infos = await this.#imageInfos(picked);
+			if (infos.length) this.#render(infos);
+		} catch (e) {
+			console.warn("[jocarium] gif scatter skipped:", e);
+		}
+	}
+
+	async #titlePool() {
+		try {
+			const cached = JSON.parse(localStorage.getItem(this.#CACHE_KEY) ?? "null");
+			if (cached && Date.now() - cached.ts < this.#CACHE_TTL && cached.titles?.length) {
+				return cached.titles;
+			}
+		} catch {
+			/* 壊れたキャッシュは無視して取り直す */
+		}
+
+		const url =
+			`${this.#API}?action=query&list=categorymembers` +
+			`&cmtitle=${encodeURIComponent(this.#CATEGORY)}&cmtype=file&cmlimit=500` +
+			`&format=json&origin=*`;
+		const resp = await fetch(url);
+		if (!resp.ok) throw new Error(`categorymembers HTTP ${resp.status}`);
+		const data = await resp.json();
+		const titles = (data.query?.categorymembers ?? []).map((m) => m.title);
+
+		try {
+			localStorage.setItem(
+				this.#CACHE_KEY,
+				JSON.stringify({ ts: Date.now(), titles }),
+			);
+		} catch {
+			/* ストレージ不可でも致命的ではない */
+		}
+
+		return titles;
+	}
+
+	async #imageInfos(titles) {
+		const url =
+			`${this.#API}?action=query&titles=${encodeURIComponent(titles.join("|"))}` +
+			`&prop=imageinfo&iiprop=url&iiurlwidth=${this.#THUMB_WIDTH}&format=json&origin=*`;
+		const resp = await fetch(url);
+		if (!resp.ok) throw new Error(`imageinfo HTTP ${resp.status}`);
+		const data = await resp.json();
+		const pages = Object.values(data.query?.pages ?? {});
+		return pages.map((p) => p.imageinfo?.[0]).filter((info) => info?.thumburl);
+	}
+
+	#sample(source, n) {
+		const pool = [...source];
+		const picked = [];
+		while (pool.length && picked.length < n) {
+			const i = Math.floor(Math.random() * pool.length);
+			picked.push(pool.splice(i, 1)[0]);
+		}
+		return picked;
+	}
+
+	#render(infos) {
+		const docHeight = Math.max(
+			document.documentElement.scrollHeight,
+			window.innerHeight,
+		);
+
+		const layer = document.createElement("div");
+		layer.className = "gif-scatter-layer";
+		layer.setAttribute("aria-hidden", "true");
+		layer.style.height = `${docHeight}px`;
+
+		for (const info of infos) {
+			const img = document.createElement("img");
+			img.src = info.thumburl;
+			img.alt = "";
+			img.loading = "lazy";
+			img.decoding = "async";
+			img.className = "gif-scatter-item";
+
+			const top = Math.random() * Math.max(docHeight - 160, 0);
+			const left = Math.random() * 90;
+			const size = 80 + Math.random() * 60;
+			const rotate = (Math.random() * 24 - 12).toFixed(1);
+
+			img.style.top = `${top}px`;
+			img.style.left = `${left}%`;
+			img.style.width = `${size}px`;
+			img.style.setProperty("--gif-rotate", `${rotate}deg`);
+
+			layer.append(img);
+		}
+
+		document.body.prepend(layer);
+	}
+}
+
+// ============================================================================
 // 初期化
 // ============================================================================
 
@@ -227,6 +349,7 @@ function initialize() {
 	initPageLoad();
 	new DarkModeToggle();
 	new ContactForm();
+	new GifScatter().init();
 }
 
 // ES module ではなく defer で読み込まれるため、
