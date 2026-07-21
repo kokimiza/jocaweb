@@ -148,8 +148,8 @@ class ContactForm {
 		};
 
 		try {
-			// TODO: バックエンド実装時は fetch('/api/contact', ...) に差し替え
-			await new Promise((resolve) => setTimeout(resolve, 900));
+			const data = Object.fromEntries(new FormData(this.form).entries());
+			await window.JOCARIUM_NOTICE.sendContactNotice(data);
 
 			if (iconEl) iconEl.src = resolveIconPath("check.svg");
 			setLabel("Sent!");

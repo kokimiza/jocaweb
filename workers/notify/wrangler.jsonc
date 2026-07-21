@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "jocarium-notify",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-20",
+
+  // TWIST_POST_DATA_URL は秘密情報なのでここには書かない。
+  //   本番:   npx wrangler secret put TWIST_POST_DATA_URL
+  //   ローカル: workers/notify/.dev.vars に TWIST_POST_DATA_URL=... を書く（.gitignore 対象）
+  //
+  // ALLOWED_ORIGIN は公開情報なのでここに書いてよい。ブラウザからの fetch を
+  // このオリジンだけに制限する（サーバー間の直接呼び出しまでは防げないが、
+  // 無関係なサイトの JS から叩かれるのを防ぐ最低限のガード）。
+  "vars": {
+    "ALLOWED_ORIGIN": "https://jocarium.productions"
+  }
+}

@@ -17,6 +17,12 @@ window.JOCARIUM_CONFIG = {
 	},
 
 	/**
+	 * workers/notify（別デプロイの Cloudflare Worker）のエンドポイント。
+	 * デプロイ後に実際の workers.dev / カスタムドメインの URL へ書き換えること。
+	 */
+	notifyEndpoint: "https://jocarium-notify.YOUR-SUBDOMAIN.workers.dev/contact",
+
+	/**
 	 * ナビゲーションリンク
 	 * href は base ディレクトリからの相対パスで記述。
 	 * components.js 側で `${base}/${item.href}` として解決します。
