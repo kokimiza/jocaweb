@@ -4,43 +4,10 @@
 
 /* --------------------------------------------------------------------------
    @font-face — @layer 外で宣言することでブラウザが確実に認識する
+   Retro Static パスの表示・本文フォントは Google Fonts (Bungee / Bungee
+   Shade / Kosugi / Kosugi Maru / VT323) を <link> 経由で読み込むため、
+   ここでの @font-face 宣言は不要 — 各 HTML の <head> を参照。
    -------------------------------------------------------------------------- */
-
-/* 見出し用ディスプレイフォント */
-@font-face {
-	font-family: "Anton SC";
-	src: url("../fonts/AntonSC-Regular.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-/* 日本語本文 */
-@font-face {
-	font-family: "Zen Antique Soft";
-	src: url("../fonts/ZenAntiqueSoft-Regular.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-/* 英語本文 — Variable font (wght 軸) */
-@font-face {
-	font-family: "Playfair Display";
-	src: url("../fonts/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
-	font-weight: 400 900;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Playfair Display";
-	src: url("../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf")
-		format("truetype");
-	font-weight: 400 900;
-	font-style: italic;
-	font-display: swap;
-}
 
 /* 多言語対応予備 (ハングル等) — 現在は未使用 */
 @font-face {
@@ -53,37 +20,50 @@
 
 @layer base {
 	:root {
-		/* Hallmark · genre: editorial · macrostructure: Manifesto (hub) · theme: Carnival (drop: Citrus Riot)
-		 * enrichment: none · nav: N6 masthead (adapted) · footer: Ft1 mast-headed
-		 * Colour, type and spacing tokens below — see /design.md and /tokens.css for the full system. */
+		/* Hallmark · genre: editorial · macrostructure: Manifesto (hub) · theme: Retro Static (drop: Dial-Up Neon)
+		 * enrichment: masthead ticker · nav: N6 masthead + ticker · footer: Ft1 mast-headed (digital-readout copyright)
+		 * Colour, type and spacing tokens below — see /design.md for the full system. */
 
-		/* Color Palette — Carnival / Citrus Riot anchor. Dark-mode values declared
-		   inline via light-dark() so there is a single source of truth per token. */
-		--color-primary: light-dark(oklch(20% 0.07 145), oklch(92% 0.03 145));
-		--color-accent: light-dark(oklch(28% 0.28 350), oklch(78% 0.20 350));
-		--color-accent-alt: light-dark(oklch(82% 0.20 130), oklch(60% 0.15 130));
-		--color-border: light-dark(oklch(28% 0.28 350), oklch(50% 0.20 350));
-		--color-text: light-dark(oklch(22% 0.05 145), oklch(90% 0.02 145));
-		--color-text-light: light-dark(oklch(48% 0.04 130), oklch(70% 0.03 130));
-		--color-bg: light-dark(oklch(94% 0.040 85), oklch(14% 0.03 145));
-		--color-bg-light: light-dark(oklch(90% 0.048 82), oklch(18% 0.035 145));
-		--color-bg-dark: light-dark(oklch(84% 0.055 80), oklch(22% 0.04 145));
+		/* Color Palette — Retro Static / Crayon Pastel anchor. Dark-mode values
+		   declared inline via light-dark() so there is a single source of truth
+		   per token. Soft bubblegum pink + pistachio mint on pale sky-blue
+		   paper — a naive, hand-picked crayon-box palette, not a neon one. */
+		--color-primary: light-dark(oklch(24% 0.045 280), oklch(94% 0.015 90));
+		--color-accent: light-dark(oklch(66% 0.15 350), oklch(78% 0.13 350));
+		--color-accent-alt: light-dark(oklch(84% 0.10 150), oklch(68% 0.09 150));
+		--color-border: light-dark(oklch(46% 0.09 320), oklch(60% 0.10 320));
+		--color-text: light-dark(oklch(26% 0.04 280), oklch(90% 0.015 90));
+		--color-text-light: light-dark(oklch(48% 0.035 270), oklch(70% 0.02 90));
+		--color-bg: light-dark(oklch(97% 0.014 210), oklch(15% 0.03 280));
+		--color-bg-light: light-dark(oklch(93% 0.025 210), oklch(20% 0.035 280));
+		--color-bg-dark: light-dark(oklch(87% 0.035 205), oklch(11% 0.03 280));
+
+		/* Bevel tokens — inset-only, fake a raised/sunken 3D edge on buttons
+		   and form fields. Never used as a flat fill (Retro Static discipline). */
+		--bevel-highlight: light-dark(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.16));
+		--bevel-shade: light-dark(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.55));
 
 		color-scheme: light dark;
 
-		/* Typography — 2+1 rule: display, body, + wordmark-only outlier */
-		--font-family-sans: "Newsreader", "Zen Antique Soft", serif;
-		--font-family-heading: "Anton SC", "Zen Antique", sans-serif;
-		--font-family-outlier: "Big Shoulders Display", "Anton SC", sans-serif;
+		/* Typography — one bubbly display face doing double duty as both
+		   heading and wordmark (a real unskilled webmaster wouldn't run a
+		   careful 2-face system), + a plain body pairing. */
+		--font-family-sans: "Verdana", "Kosugi Maru", sans-serif;
+		--font-family-heading: "Mochiy Pop One", sans-serif;
+		--font-family-outlier: var(--font-family-heading);
 		--font-family-multilingual:
 			"Black And White Picture", sans-serif; /* 多言語対応時に使用 */
-		--font-family-mono: "JetBrains Mono", "Courier New", monospace;
+		--font-family-mono: "Courier New", monospace;
 		--font-size-base: 16px;
 		--line-height-base: 1.6;
 		--font-weight-normal: 400;
 		--font-weight-medium: 500;
 		--font-weight-semibold: 600;
 		--font-weight-bold: 700;
+		/* Mochiy Pop One ships one weight (400), already at its heaviest cut —
+		   headings use this instead of --font-weight-bold so browsers don't
+		   synthetic-embolden a font that can't take it. */
+		--font-weight-heading: 400;
 
 		/* Spacing — 4pt-derived named scale */
 		--spacing-xs: 0.25rem;
@@ -95,20 +75,23 @@
 		--spacing-3xl: 6rem;
 		--spacing-4xl: 9rem;
 
-		/* Border radius — Carnival is hard-edged; 0 everywhere except pills */
+		/* Border radius — Retro Static is hard-edged; 0 everywhere except pills */
 		--radius-sm: 0;
 		--radius-md: 0;
 		--radius-lg: 0;
 		--radius-xl: 0;
 		--radius-full: 9999px;
 
-		/* Shadows — one hard-offset shadow, no soft/blurred shadows (Carnival ban) */
+		/* Shadows — one hard-offset poster shadow, no soft/blurred shadows
+		   (still banned). Paired with --bevel-* insets on interactive elements
+		   for the outset/sunken 3D look — see .btn and form fields in theme.css
+		   / base.css. */
 		--shadow-hard: 4px 4px 0 var(--color-primary);
 		--shadow-sm: var(--shadow-hard);
 		--shadow-md: var(--shadow-hard);
 		--shadow-lg: var(--shadow-hard);
 		--shadow-xl: var(--shadow-hard);
-		--rule-width: 2px;
+		--rule-width: 3px;
 
 		/* Transitions */
 		--transition-fast: 150ms var(--ease-out);
@@ -137,6 +120,16 @@
 		background-color: var(--color-bg);
 		scroll-behavior: smooth;
 		scrollbar-gutter: stable;
+
+		/* Dot-grid wallpaper — a nod to tiled desktop/background GIFs, done in
+		   pure CSS (no image request, crisp at any zoom). Subtle by design:
+		   this sits behind every page, so it stays low-contrast against --color-bg. */
+		background-image: radial-gradient(
+			circle at 1px 1px,
+			color-mix(in srgb, var(--color-border) 30%, transparent) 1px,
+			transparent 0
+		);
+		background-size: 22px 22px;
 	}
 
 	/* dialog（モーダル）表示中は背景のスクロールを止める */
@@ -217,7 +210,7 @@
 	h5,
 	h6 {
 		font-family: var(--font-family-heading);
-		font-weight: var(--font-weight-bold);
+		font-weight: var(--font-weight-heading);
 		line-height: 1.3;
 		margin-bottom: var(--spacing-md);
 	}
@@ -279,12 +272,17 @@
 		}
 	}
 
-	/* Links */
+	/* Links — visited state gets its own dusty-violet, the way browsers used
+	   to make it obvious where you'd already clicked. */
 	a {
 		color: var(--color-accent);
 		text-decoration: none;
 		transition: color var(--transition-fast);
 		cursor: pointer;
+
+		&:visited {
+			color: light-dark(oklch(42% 0.14 310), oklch(62% 0.14 310));
+		}
 
 		&:hover {
 			color: var(--color-accent-alt);
@@ -335,7 +333,7 @@
 	/* Horizontal rule */
 	hr {
 		border: none;
-		border-top: var(--rule-width, 2px) solid var(--color-border);
+		border-top: var(--rule-width, 3px) solid var(--color-border);
 		margin: var(--spacing-xl) 0;
 	}
 
@@ -346,10 +344,14 @@
 		width: 100%;
 		padding: var(--spacing-sm) var(--spacing-md);
 		font-size: var(--font-size-base);
-		border: var(--rule-width, 2px) solid var(--color-border);
+		border: var(--rule-width, 3px) solid var(--color-border);
 		border-radius: var(--radius-md);
 		background-color: var(--color-bg);
 		color: var(--color-text);
+		/* permanently sunken — the old-school "pressed in" text field */
+		box-shadow:
+			inset 2px 2px 0 var(--bevel-shade),
+			inset -1px -1px 0 var(--bevel-highlight);
 		transition:
 			border-color var(--transition-fast),
 			box-shadow var(--transition-fast);
@@ -357,8 +359,10 @@
 		&:focus {
 			outline: none;
 			border-color: var(--color-accent);
-			box-shadow: 0 0 0 3px
-				color-mix(in srgb, var(--color-accent) 20%, transparent);
+			box-shadow:
+				inset 2px 2px 0 var(--bevel-shade),
+				inset -1px -1px 0 var(--bevel-highlight),
+				0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
 		}
 
 		&:disabled {

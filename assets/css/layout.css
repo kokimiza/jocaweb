@@ -111,7 +111,9 @@
 
 	/* =========================================================================
 	   Header / Navbar — N6 Newspaper masthead (adapted to the existing
-	   <site-header> web component; DOM order unchanged, CSS grid re-flows it)
+	   <site-header> web component; DOM order unchanged, CSS grid re-flows it).
+	   The masthead ticker (below) sits inside <header>, under the nav; this
+	   border-bottom closes the whole band, ticker included.
 	   ========================================================================= */
 
 	header,
@@ -119,7 +121,7 @@
 		position: sticky;
 		top: 0;
 		z-index: var(--z-sticky);
-		border-bottom: var(--rule-width, 2px) solid var(--color-border);
+		border-bottom: var(--rule-width, 3px) solid var(--color-border);
 		background-color: var(--color-bg);
 	}
 
@@ -151,7 +153,7 @@
 	.navbar-brand {
 		grid-area: brand;
 		font-family: var(--font-family-outlier);
-		font-weight: 700;
+		font-weight: var(--font-weight-heading);
 		font-size: clamp(1.5rem, 4vw, 2.25rem);
 		letter-spacing: -0.01em;
 		line-height: 0.95;
@@ -194,7 +196,7 @@
 		margin: 0;
 		padding: var(--spacing-xs) 0 var(--spacing-sm);
 		flex-wrap: wrap;
-		border-top: var(--rule-width, 2px) solid var(--color-border);
+		border-top: var(--rule-width, 3px) solid var(--color-border);
 
 		& a {
 			color: var(--color-text);
@@ -227,7 +229,7 @@
 			flex-direction: column;
 			gap: 0;
 			background-color: var(--color-bg);
-			border-bottom: var(--rule-width, 2px) solid var(--color-border);
+			border-bottom: var(--rule-width, 3px) solid var(--color-border);
 			padding: var(--spacing-md);
 			list-style: none;
 			z-index: var(--z-dropdown);
@@ -260,8 +262,52 @@
 		content: "";
 		display: block;
 		height: 6px;
-		border-top: var(--rule-width, 2px) solid var(--color-border);
-		border-bottom: var(--rule-width, 2px) solid var(--color-border);
+		border-top: var(--rule-width, 3px) solid var(--color-border);
+		border-bottom: var(--rule-width, 3px) solid var(--color-border);
+	}
+
+	/* -------------------------------------------------------------------------
+	   Masthead ticker — Retro Static signature move. Full-bleed scrolling
+	   strip under the nav, built in components.js from the real nav-link
+	   labels (JOCARIUM_CONFIG.navLinks) — an honest echo, nothing invented.
+	   aria-hidden: the same links already exist as real, focusable nav items
+	   above it.
+	   ------------------------------------------------------------------------- */
+
+	.masthead-ticker {
+		overflow: hidden;
+		background-color: var(--color-accent);
+		white-space: nowrap;
+	}
+
+	.masthead-ticker-track {
+		display: inline-flex;
+		width: max-content;
+		padding-block: 4px;
+		font-family: var(--font-family-mono);
+		font-size: 1.1rem;
+		letter-spacing: 0.04em;
+		color: var(--color-bg);
+		animation: masthead-ticker-scroll 22s linear infinite;
+	}
+
+	.masthead-ticker-item {
+		padding-inline-end: 3rem;
+	}
+
+	@keyframes masthead-ticker-scroll {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.masthead-ticker-track {
+			animation-play-state: paused;
+		}
 	}
 
 	/* aria-expanded="true" に反応して開く — .is-open クラス不要 */
@@ -507,7 +553,7 @@
 	footer {
 		margin-top: var(--spacing-4xl);
 		padding: var(--spacing-2xl) 0 var(--spacing-xl);
-		border-top: var(--rule-width, 2px) solid var(--color-border);
+		border-top: var(--rule-width, 3px) solid var(--color-border);
 		background-color: transparent;
 
 		& .container {
@@ -532,7 +578,7 @@
 
 	.footer-wordmark {
 		font-family: var(--font-family-outlier);
-		font-weight: 700;
+		font-weight: var(--font-weight-heading);
 		font-size: clamp(1.5rem, 4vw, 2rem);
 		letter-spacing: -0.01em;
 		color: var(--color-primary);
@@ -555,9 +601,10 @@
 	.footer-copyright {
 		margin: 0;
 		color: var(--color-text-light);
-		font-size: 0.8rem;
+		font-family: var(--font-family-mono);
+		font-size: 0.85rem;
 		letter-spacing: 0.04em;
-		border-top: var(--rule-width, 2px) solid var(--color-border);
+		border-top: var(--rule-width, 3px) solid var(--color-border);
 		padding-top: var(--spacing-md);
 	}
 
