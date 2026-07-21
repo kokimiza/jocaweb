@@ -228,9 +228,7 @@ function initPageLoad() {
 
 class GifScatter {
 	#CATEGORY = "Category:Animated_GIF_files_of_animals";
-	#CACHE_KEY = "jocarium-scatter-titles-v1";
-	#CACHE_TTL = 24 * 60 * 60 * 1000;
-	#COUNT = 7;
+	#COUNT = 14;
 	#THUMB_WIDTH = 140;
 	#API = "https://commons.wikimedia.org/w/api.php";
 
@@ -252,34 +250,16 @@ class GifScatter {
 	}
 
 	async #titlePool() {
-		try {
-			const cached = JSON.parse(localStorage.getItem(this.#CACHE_KEY) ?? "null");
-			if (cached && Date.now() - cached.ts < this.#CACHE_TTL && cached.titles?.length) {
-				return cached.titles;
-			}
-		} catch {
-			/* 壊れたキャッシュは無視して取り直す */
-		}
-
+		// キャッシュはしない — 毎回 Wikimedia から取り直して、ページを開くたびに
+		// 違う顔ぶれになるようにする。
 		const url =
 			`${this.#API}?action=query&list=categorymembers` +
 			`&cmtitle=${encodeURIComponent(this.#CATEGORY)}&cmtype=file&cmlimit=500` +
 			`&format=json&origin=*`;
-		const resp = await fetch(url);
+		const resp = await fetch(url, { cache: "no-store" });
 		if (!resp.ok) throw new Error(`categorymembers HTTP ${resp.status}`);
 		const data = await resp.json();
-		const titles = (data.query?.categorymembers ?? []).map((m) => m.title);
-
-		try {
-			localStorage.setItem(
-				this.#CACHE_KEY,
-				JSON.stringify({ ts: Date.now(), titles }),
-			);
-		} catch {
-			/* ストレージ不可でも致命的ではない */
-		}
-
-		return titles;
+		return (data.query?.categorymembers ?? []).map((m) => m.title);
 	}
 
 	async #imageInfos(titles) {
@@ -330,6 +310,7 @@ class GifScatter {
 			img.style.top = `${top}px`;
 			img.style.left = `${left}%`;
 			img.style.width = `${size}px`;
+			img.style.height = `${size}px`;
 			img.style.setProperty("--gif-rotate", `${rotate}deg`);
 
 			layer.append(img);
