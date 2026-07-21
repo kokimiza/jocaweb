@@ -140,6 +140,12 @@
 	body {
 		font-weight: var(--font-weight-normal);
 		background-color: var(--color-bg);
+		/* gives negative z-index descendants (the gif-scatter layer) a local
+		   stacking root — position alone isn't enough to contain them, a
+		   non-auto z-index is required too, or z-index:-1 renders behind
+		   html's own opaque background instead of just behind page content */
+		position: relative;
+		z-index: 0;
 	}
 
 	/* View Transitions — ページ遷移アニメーション */
