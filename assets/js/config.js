@@ -16,11 +16,8 @@ window.JOCARIUM_CONFIG = {
 		rootPage: "index.html",
 	},
 
-	/**
-	 * workers/notify（別デプロイの Cloudflare Worker）のエンドポイント。
-	 * デプロイ後に実際の workers.dev / カスタムドメインの URL へ書き換えること。
-	 */
-	notifyEndpoint: "https://jocarium-notify.YOUR-SUBDOMAIN.workers.dev/contact",
+	/** workers/notify（別デプロイの Cloudflare Worker）のエンドポイント */
+	notifyEndpoint: "https://notify-app.jocarium.productions/contact",
 
 	/**
 	 * ナビゲーションリンク
