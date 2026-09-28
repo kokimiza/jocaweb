@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jocarium</title>
+  <meta name="description" content="握る！ jocarium（ヨカリウム）は、余暇から生まれる奇を収蔵する容器。映像・ゲーム・音楽・技術を、ぎゅっと。">
+  <title>jocarium — 握る！</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Kosugi+Maru&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap">
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/base.css">
   <link rel="stylesheet" href="./assets/css/layout.css">
   <link rel="stylesheet" href="./assets/css/theme.css">
+  <link rel="stylesheet" href="./assets/css/retro.css">
   <script src="./assets/js/config.js" defer></script>
   <script src="./assets/js/components.js" defer></script>
   <script src="./assets/js/main.js" defer></script>
@@ -18,111 +20,68 @@
 </head>
 <body data-page="index">
   <site-header base="."></site-header>
-
-  <main>
-    <section class="hero">
+  <main id="main" tabindex="-1">
+    <section class="flyer-hero" aria-labelledby="slogan">
       <div class="container">
-        <h1 class="hero-wordmark">Jocarium</h1>
-        <p class="hero-tagline">Designs Phenomena</p>
-      </div>
-    </section>
-
-    <section class="concept" id="concept">
-      <div class="container">
-        <h2 class="concept-heading" data-i18n="index.concept.heading">jocariumがつくるのは、ひとつひとつの「現象」。</h2>
-        <p class="concept-body" data-i18n="index.concept.body">映像が動く。音が鳴る。ゲームが反応する。仕組みが動き続ける。誰かの前で実際に起きる、その一つひとつを設計すること。</p>
-      </div>
-    </section>
-
-    <section class="mission" id="mission">
-      <div class="container">
-        <p class="mission-statement" data-i18n="index.mission.statement">日常を中断する</p>
-      </div>
-    </section>
-
-    <p class="ornament-divider" aria-hidden="true"><span>✱</span><span>✱</span><span>✱</span><span>✱</span></p>
-
-    <section class="values" id="values">
-      <div class="container">
-        <p class="section-eyebrow">Core Values</p>
-        <ol class="values-list">
-          <li class="values-item" data-animate>
-            <span class="values-index" aria-hidden="true">I</span>
-            <div class="values-body">
-              <h3>Leave People Better</h3>
-              <p data-i18n="index.values.virtue.desc">少しいい人に</p>
-            </div>
-          </li>
-          <li class="values-item" data-animate>
-            <span class="values-index" aria-hidden="true">II</span>
-            <div class="values-body">
-              <h3>Give Knowledge Form</h3>
-              <p data-i18n="index.values.wisdom.desc">智を修飾する</p>
-            </div>
-          </li>
-          <li class="values-item" data-animate>
-            <span class="values-index" aria-hidden="true">III</span>
-            <div class="values-body">
-              <h3>Stage Brilliance</h3>
-              <p data-i18n="index.values.spark.desc">才気煥発の舞台を張る</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="brands" id="brands">
-      <div class="container">
-        <h2>Creative Brands</h2>
-        <nav class="brands-roster" aria-label="ブランド一覧">
-          <a class="brand-entry" href="./kokimiza/index.html" data-animate>
-            <span class="brand-entry-row">
-              <span class="brand-entry-name">kokimiza</span>
-              <span class="brand-entry-type">Animation &amp; Visual</span>
-              <span class="brand-entry-arrow" aria-hidden="true">→</span>
-            </span>
-            <p class="brand-entry-desc" data-i18n="index.brands.kokimiza.desc">意図あるビジュアルと、意味あるモーション。</p>
-          </a>
-          <a class="brand-entry" href="./gutzgutz/index.html" data-animate>
-            <span class="brand-entry-row">
-              <span class="brand-entry-name">Gutzgutz</span>
-              <span class="brand-entry-type">Game Development</span>
-              <span class="brand-entry-arrow" aria-hidden="true">→</span>
-            </span>
-            <p class="brand-entry-desc" data-i18n="index.brands.gutzgutz.desc">何度でも遊びたくなる、ゲームプレイ中心の体験。</p>
-          </a>
-          <a class="brand-entry" href="./bpm/index.html" data-animate>
-            <span class="brand-entry-row">
-              <span class="brand-entry-name">Burning Pizza Methods</span>
-              <span class="brand-entry-type">Music Label</span>
-              <span class="brand-entry-arrow" aria-hidden="true">→</span>
-            </span>
-            <p class="brand-entry-desc" data-i18n="index.brands.bpm.desc">エコシステム全体を音で満たす、インハウス・レーベル。</p>
-          </a>
-          <a class="brand-entry" href="./systems/index.html" data-animate>
-            <span class="brand-entry-row">
-              <span class="brand-entry-name">jocarium Systems</span>
-              <span class="brand-entry-type">Software Engineering</span>
-              <span class="brand-entry-arrow" aria-hidden="true">→</span>
-            </span>
-            <p class="brand-entry-desc" data-i18n="index.brands.systems.desc">クリエイティブを支える、見えない技術基盤。</p>
-          </a>
-        </nav>
-      </div>
-    </section>
-
-    <section class="cta cta-manifesto">
-      <div class="container">
-        <h2>Latest News</h2>
-        <p data-i18n="index.cta.desc">各ブランドのお知らせは Press ページにて随時公開しています。</p>
-        <div class="cta-buttons">
-          <a href="./press/index.html" class="btn btn-primary" data-i18n="shared.press">Press</a>
-          <a href="./contact/index.html" class="btn btn-secondary" data-i18n="shared.getInTouch">Get in Touch</a>
+        <div class="flyer-topline"><span data-i18n="index.hero.edition">余暇と、奇と、ちょっとした小競り合い。</span><span>jocarium productions</span></div>
+        <p class="homepage-welcome"><b aria-hidden="true">★</b> <span data-i18n="retro.welcome">ようこそ！jocarium のホームページへ！</span> <b aria-hidden="true">★</b></p>
+        <div class="hero-stage">
+          <div class="hero-sparkles" aria-hidden="true"><span>✦</span><span>★</span><span>✧</span><span>✦</span></div>
+          <h1 class="hero-title" id="slogan" lang="ja" aria-label="握る！"><span>握</span><span>る</span><span>！</span></h1>
+          <div class="hero-aside" aria-hidden="true">
+            <p class="grip-bubble">ぎゅっ。</p>
+            <img class="grip-clipart" src="./assets/icons/grip.svg" width="280" height="290" alt="">
+          </div>
+        </div>
+        <div class="hero-caption">
+          <h2 data-i18n="index.hero.caption">奇を収蔵する容器。</h2>
+          <p class="harmless-stamp"><strong data-i18n="index.hero.harmless">無害です。</strong><span data-i18n="index.hero.skirmish">小競り合いは、少々。</span></p>
+        </div>
+        <div class="hero-footline"><p data-i18n="index.hero.reading">jocarium と書いて、ヨカリウム。</p><a href="#brands" data-i18n="index.hero.explore">中身をのぞく ↓</a></div>
+        <div class="grip-console" hidden>
+          <span class="new-badge" aria-hidden="true">NEW LOOK!</span>
+          <div><label for="grip-count" data-i18n="retro.counter">このブラウザで握った回数</label><output class="grip-count" id="grip-count" aria-live="off">0000000</output></div>
+          <button type="button" class="grip-button" data-i18n="retro.grip">握ってみる！</button>
+          <span class="grip-console-message" aria-live="polite"></span>
         </div>
       </div>
     </section>
+    <section class="concept" id="concept">
+      <div class="container">
+        <h2 class="concept-heading" data-i18n="index.concept.heading">余暇を、ぎゅっと。</h2>
+        <p class="concept-body" data-i18n="index.concept.body">無害であり、ときには小競り合い。妙なものも、好きなものも、この容器に。jocarium は、余暇から生まれる「奇」を収蔵する、ヨカリウム（余暇リウム）です。</p>
+      </div>
+    </section>
+    <section class="values" id="values" aria-labelledby="values-heading">
+      <div class="container">
+        <div class="section-title"><h2 id="values-heading" data-i18n="index.values.heading">大事に握る、三つのこと。</h2><p>CORE VALUES</p></div>
+        <ul class="values-list">
+          <li class="values-item"><span class="values-mark" aria-hidden="true">智</span><h3 data-i18n="index.values.wisdom.desc">智を修飾する</h3><p>Adorn knowledge.</p></li>
+          <li class="values-item"><span class="values-mark" aria-hidden="true">才</span><h3 data-i18n="index.values.spark.desc">才気煥発</h3><p>Let brilliance burst.</p></li>
+          <li class="values-item"><span class="values-mark" aria-hidden="true">徳</span><h3 data-i18n="index.values.virtue.desc">非合理に宿る美徳を涵養する</h3><p>Cultivate virtue in the irrational.</p></li>
+        </ul>
+      </div>
+    </section>
+    <section class="brands" id="brands" aria-labelledby="brands-heading">
+      <div class="container">
+        <div class="section-title"><h2 id="brands-heading" data-i18n="index.brands.heading">容器の中の、あれこれ。</h2><p>CREATIVE BRANDS</p></div>
+        <nav class="brands-roster" aria-label="ブランド一覧" data-i18n-label="index.brands.label">
+          <a class="brand-entry" href="./kokimiza/index.html"><span class="brand-entry-type" data-i18n="index.brands.kokimiza.type">映像・アニメーション</span><span class="brand-entry-name">kokimiza</span><p class="brand-entry-desc" data-i18n="index.brands.kokimiza.desc">意図あるビジュアルと、意味あるモーション。</p><span class="brand-entry-arrow" aria-hidden="true">↗</span></a>
+          <a class="brand-entry" href="./gutzgutz/index.html"><span class="brand-entry-type" data-i18n="index.brands.gutzgutz.type">ゲーム開発</span><span class="brand-entry-name">Gutzgutz</span><p class="brand-entry-desc" data-i18n="index.brands.gutzgutz.desc">何度でも遊びたくなる、ゲームプレイ中心の体験。</p><span class="brand-entry-arrow" aria-hidden="true">↗</span></a>
+          <a class="brand-entry" href="./bpm/index.html"><span class="brand-entry-type" data-i18n="index.brands.bpm.type">音楽レーベル</span><span class="brand-entry-name">Burning Pizza Methods</span><p class="brand-entry-desc" data-i18n="index.brands.bpm.desc">jocarium を音で満たす、インハウス・レーベル。</p><span class="brand-entry-arrow" aria-hidden="true">↗</span></a>
+          <a class="brand-entry" href="./systems/index.html"><span class="brand-entry-type" data-i18n="index.brands.systems.type">ソフトウェア・技術基盤</span><span class="brand-entry-name">jocarium Systems</span><p class="brand-entry-desc" data-i18n="index.brands.systems.desc">クリエイティブを支える技術基盤。Namaran も運営しています。</p><span class="brand-entry-arrow" aria-hidden="true">↗</span></a>
+        </nav>
+        <aside class="namaran-notice"><p><strong>Namaran</strong> <span data-i18n="index.namaran.desc">も、この容器から。運営：jocarium Systems</span></p><a href="https://namaran.jocarium.productions/" data-i18n="index.namaran.link">Namaran を開く ↗</a></aside>
+      </div>
+    </section>
+    <section class="cta">
+      <div class="container">
+        <h2 data-i18n="index.cta.heading">お知らせと、おたより。</h2>
+        <p data-i18n="index.cta.desc">各ブランドの近況はこちら。お問い合わせも、お気軽に。</p>
+        <div class="cta-buttons"><a href="./press/index.html" class="btn btn-primary" data-i18n="shared.press">お知らせ</a><a href="./contact/index.html" class="btn btn-secondary" data-i18n="shared.getInTouch">お問い合わせ</a></div>
+      </div>
+    </section>
   </main>
-
   <site-footer base="."></site-footer>
 </body>
 </html>
