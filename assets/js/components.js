@@ -29,18 +29,9 @@
 	 * ルートの index.html は完全一致のみアクティブ。
 	 */
 	function isActivePath(href) {
-		const current = location.pathname.replace(/\/$/, "") || "/";
-		const target =
-			new URL(href, location.href).pathname.replace(/\/$/, "") || "/";
-
-		if (target === "" || target === "/index.html" || target === "/") {
-			return current === "" || current === "/" || current === "/index.html";
-		}
-		return (
-			current === target ||
-			current.startsWith(target.replace(/\/index\.html$/, "/"))
-		);
-	}
+        const normalize = (pathname) => pathname.replace(/\/index\.html$/, "").replace(/\/$/, "") || "/";
+        return normalize(location.pathname) === normalize(new URL(href, location.href).pathname);
+    }
 
 	/** 装飾アイコン用 <img> を生成 */
 	function createIcon(src, size = 22) {
@@ -92,7 +83,7 @@
 				{ href: `${base}/${site.rootPage}` },
 				site.name,
 			);
-			brand.append(brandLink);
+			brand.append(brandLink, el("span", { class: "navbar-brand-note", "data-i18n": "nav.brandNote" }, "ヨカリウム ／ 奇を収蔵する容器"));
 
 			// ハンバーガーボタン
 			const toggle = el("button", {
@@ -100,6 +91,7 @@
 				"aria-label": "メニューを開く",
 				"aria-expanded": "false",
 				"aria-controls": "nav-menu",
+                "data-i18n-label": "nav.menuOpen",
 			});
 			toggle.append(createIcon(`${base}/assets/icons/${icons.menu}`, 22));
 
@@ -109,10 +101,10 @@
 				id: "nav-menu",
 			});
 
-			for (const { href, label } of navLinks) {
+			for (const { href, label, key } of navLinks) {
 				const resolvedHref = `${base}/${href}`;
 				const li = document.createElement("li");
-				const a = el("a", { href: resolvedHref }, label);
+				const a = el("a", { href: resolvedHref, ...(key ? { "data-i18n": key } : {}) }, label);
 				if (isActivePath(resolvedHref)) {
 					a.setAttribute("aria-current", "page");
 					a.classList.add("is-active");
@@ -123,11 +115,13 @@
 
 			const openMenu = () => {
 				toggle.setAttribute("aria-expanded", "true");
-				toggle.setAttribute("aria-label", "メニューを閉じる");
+				toggle.dataset.i18nLabel = "nav.menuClose";
+                toggle.setAttribute("aria-label", window.jocariumI18n?.text("nav.menuClose") ?? "メニューを閉じる");
 			};
 			const closeMenu = () => {
 				toggle.setAttribute("aria-expanded", "false");
-				toggle.setAttribute("aria-label", "メニューを開く");
+				toggle.dataset.i18nLabel = "nav.menuOpen";
+                toggle.setAttribute("aria-label", window.jocariumI18n?.text("nav.menuOpen") ?? "メニューを開く");
 			};
 
 			toggle.addEventListener("click", (e) => {
@@ -146,43 +140,35 @@
 			document.addEventListener("click", (e) => {
 				if (!e.target.closest(".navbar")) closeMenu();
 			});
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+					closeMenu();
+					toggle.focus();
+				}
+			});
 
 			// 言語スイッチャー
 			const langSwitcher = this.#buildLangSwitcher(base);
 
-			// テーマトグル
-			const themeToggle = this.#buildThemeToggle(base);
-
-			container.append(brand, langSwitcher, themeToggle, toggle, menu);
+			const stamp = el("span", { class: "header-stamp", "data-i18n": "nav.stamp" }, "余暇の活動");
+			container.append(brand, stamp, langSwitcher, toggle, menu);
 			nav.append(container);
-			header.append(nav, this.#buildTicker());
+			header.append(el("a", { class: "skip-link", href: "#main", "data-i18n": "nav.skip" }, "本文へ"), nav, this.#buildWelcome());
 			this.append(header);
 		}
 
-		/**
-		 * masthead ticker — 実在のナビラベル（config.js の navLinks）をそのまま
-		 * 繰り返すだけの装飾バー。新規コピーは書かない。ナビ本体に同じリンクが
-		 * 実体としてすでに存在するため aria-hidden にする。
-		 */
-		#buildTicker() {
-			const wrapper = el("div", { class: "masthead-ticker" });
-			const track = el("div", {
-				class: "masthead-ticker-track",
-				"aria-hidden": "true",
-			});
-
-			const labels = [site.name.toUpperCase(), ...navLinks.map((l) => l.label)];
-
-			// シームレスループのため同じ内容を2回並べる
-			for (let rep = 0; rep < 2; rep++) {
-				for (const label of labels) {
-					track.append(el("span", { class: "masthead-ticker-item" }, `★ ${label}`));
-				}
-			}
-
-			wrapper.append(track);
-			return wrapper;
-		}
+        #buildWelcome() {
+            const strip = el("div", { class: "webmaster-strip" });
+            const window = el("div", { class: "welcome-window", "aria-hidden": "true" });
+            const track = el("div", { class: "welcome-track" });
+            for (let i = 0; i < 2; i++) {
+                track.append(el("span", { "data-i18n": "retro.ticker" }, "★ 握る！ ★ 無害です。小競り合いは、少々。 ★ 余暇を、奇を、ぎゅっと。"));
+            }
+            window.append(track);
+            const toggle = el("button", { class: "motion-toggle", type: "button", "aria-pressed": "false", "data-i18n": "retro.pause" }, "動きを止める");
+            strip.append(window, toggle);
+            return strip;
+        }
 
 		#buildLangSwitcher(base) {
 			const wrapper = el("div", { class: "navbar-lang" });
@@ -192,7 +178,6 @@
 				"aria-label": "言語を選択",
 				"aria-expanded": "false",
 				"aria-controls": "lang-menu",
-				"aria-haspopup": "listbox",
 				"data-i18n-label": "nav.langToggle",
 			});
 			toggle.append(createIcon(`${base}/assets/icons/${icons.earth}`, 18));
@@ -206,21 +191,18 @@
 			const menu = el("ul", {
 				id: "lang-menu",
 				class: "navbar-lang-menu",
-				role: "listbox",
 				"aria-label": "言語を選択",
 				"data-i18n-label": "nav.langToggle",
 			});
 
 			for (const lang of languages) {
 				const li = document.createElement("li");
-				li.setAttribute("role", "presentation");
 				const btn = el(
 					"button",
 					{
 						class: "navbar-lang-option",
-						role: "option",
 						"data-lang": lang.code,
-						"aria-selected": "false",
+						"aria-pressed": "false",
 					},
 					lang.label,
 				);
@@ -244,33 +226,17 @@
 					toggle.setAttribute("aria-expanded", "false");
 				}
 			});
+			wrapper.addEventListener("keydown", (e) => {
+				if (e.key === "Escape") {
+					toggle.setAttribute("aria-expanded", "false");
+					toggle.focus();
+				}
+			});
 
 			wrapper.append(toggle, menu);
 			return wrapper;
 		}
 
-		/** sun/moon アイコンでテーマを切り替えるボタンを生成 */
-		#buildThemeToggle(base) {
-			const btn = el("button", {
-				class: "navbar-theme-toggle",
-				"aria-label": "ダークモードに切り替え",
-				"data-theme-toggle": "",
-			});
-
-			const sunImg = createIcon(`${base}/assets/icons/${icons.sun}`, 18);
-			sunImg.classList.add("icon-theme", "icon-sun");
-
-			const moonImg = createIcon(`${base}/assets/icons/${icons.moon}`, 18);
-			moonImg.classList.add("icon-theme", "icon-moon");
-
-			btn.append(sunImg, moonImg);
-
-			btn.addEventListener("click", () => {
-				window.dispatchEvent(new CustomEvent("jocarium:theme-toggle"));
-			});
-
-			return btn;
-		}
 	}
 
 	// ==========================================================================
@@ -299,13 +265,13 @@
 				{ class: "footer-wordmark", href: `${base}/${site.rootPage}` },
 				site.name,
 			);
-			const tagline = el("p", { class: "footer-tagline" }, "Designs Phenomena");
+			const tagline = el("p", { class: "footer-tagline", "data-i18n": "footer.tagline" }, "握る！ 余暇を、奇を、ぎゅっと。");
 
 			// フッターリンク
 			const linkList = el("ul", { class: "footer-links" });
-			for (const { href, label } of footerLinks) {
+			for (const { href, label, key } of footerLinks) {
 				const li = document.createElement("li");
-				li.append(el("a", { href: `${base}/${href}` }, label));
+				li.append(el("a", { href: `${base}/${href}`, ...(key ? { "data-i18n": key } : {}) }, label));
 				linkList.append(li);
 			}
 
@@ -313,7 +279,14 @@
 			const copy = el("p", { class: "footer-copyright" }, `© ${site.copyright}`);
 
 			band.append(wordmark, tagline, linkList);
-			container.append(band, copy);
+			const badges = el("div", { class: "footer-badges" });
+            badges.append(
+                el("a", { class: "web-badge", href: `${base}/${site.rootPage}` }, "JOCARIUM\nHOME"),
+                el("span", { class: "web-badge", lang: "ja" }, "握る！\n余暇リウム"),
+                el("a", { class: "web-badge", href: "https://namaran.jocarium.productions/" }, "NAMARAN"),
+                el("a", { class: "web-badge", href: `${base}/contact/index.html`, "data-i18n": "shared.getInTouch" }, "お問い合わせ")
+            );
+            container.append(band, badges, copy);
 			footer.append(container);
 			this.append(footer);
 		}

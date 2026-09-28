@@ -1,394 +1,43 @@
-/* ==========================================================================
-   基本スタイル・タイポグラフィ
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   @font-face — @layer 外で宣言することでブラウザが確実に認識する
-   Retro Static パスの表示・本文フォントは Google Fonts (Bungee / Bungee
-   Shade / Kosugi / Kosugi Maru / VT323) を <link> 経由で読み込むため、
-   ここでの @font-face 宣言は不要 — 各 HTML の <head> を参照。
-   -------------------------------------------------------------------------- */
-
-/* 多言語対応予備 (ハングル等) — 現在は未使用 */
-@font-face {
-	font-family: "Black And White Picture";
-	src: url("../fonts/BlackAndWhitePicture-Regular.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
+/* 色刷りのちらし。画面の外は机、画面の中は紙。 */
 @layer base {
-	:root {
-		/* Hallmark · genre: editorial · macrostructure: Manifesto (hub) · theme: Retro Static (drop: Dial-Up Neon)
-		 * enrichment: masthead ticker · nav: N6 masthead + ticker · footer: Ft1 mast-headed (digital-readout copyright)
-		 * Colour, type and spacing tokens below — see /design.md for the full system. */
-
-		/* Color Palette — Retro Static / Crayon Pastel anchor. Dark-mode values
-		   declared inline via light-dark() so there is a single source of truth
-		   per token. Soft bubblegum pink + pistachio mint on pale sky-blue
-		   paper — a naive, hand-picked crayon-box palette, not a neon one. */
-		--color-primary: light-dark(oklch(24% 0.045 280), oklch(94% 0.015 90));
-		--color-accent: light-dark(oklch(66% 0.15 350), oklch(78% 0.13 350));
-		--color-accent-alt: light-dark(oklch(84% 0.10 150), oklch(68% 0.09 150));
-		--color-border: light-dark(oklch(46% 0.09 320), oklch(60% 0.10 320));
-		--color-text: light-dark(oklch(26% 0.04 280), oklch(90% 0.015 90));
-		--color-text-light: light-dark(oklch(48% 0.035 270), oklch(70% 0.02 90));
-		--color-bg: light-dark(oklch(97% 0.014 210), oklch(15% 0.03 280));
-		--color-bg-light: light-dark(oklch(93% 0.025 210), oklch(20% 0.035 280));
-		--color-bg-dark: light-dark(oklch(87% 0.035 205), oklch(11% 0.03 280));
-
-		/* Bevel tokens — inset-only, fake a raised/sunken 3D edge on buttons
-		   and form fields. Never used as a flat fill (Retro Static discipline). */
-		--bevel-highlight: light-dark(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.16));
-		--bevel-shade: light-dark(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.55));
-
-		color-scheme: light dark;
-
-		/* Typography — one bubbly display face doing double duty as both
-		   heading and wordmark (a real unskilled webmaster wouldn't run a
-		   careful 2-face system), + a plain body pairing. */
-		--font-family-sans: "Verdana", "Kosugi Maru", sans-serif;
-		--font-family-heading: "Mochiy Pop One", sans-serif;
-		--font-family-outlier: var(--font-family-heading);
-		--font-family-multilingual:
-			"Black And White Picture", sans-serif; /* 多言語対応時に使用 */
-		--font-family-mono: "Courier New", monospace;
-		--font-size-base: 16px;
-		--line-height-base: 1.6;
-		--font-weight-normal: 400;
-		--font-weight-medium: 500;
-		--font-weight-semibold: 600;
-		--font-weight-bold: 700;
-		/* Mochiy Pop One ships one weight (400), already at its heaviest cut —
-		   headings use this instead of --font-weight-bold so browsers don't
-		   synthetic-embolden a font that can't take it. */
-		--font-weight-heading: 400;
-
-		/* Spacing — 4pt-derived named scale */
-		--spacing-xs: 0.25rem;
-		--spacing-sm: 0.75rem;
-		--spacing-md: 1rem;
-		--spacing-lg: 1.5rem;
-		--spacing-xl: 2.5rem;
-		--spacing-2xl: 4rem;
-		--spacing-3xl: 6rem;
-		--spacing-4xl: 9rem;
-
-		/* Border radius — Retro Static is hard-edged; 0 everywhere except pills */
-		--radius-sm: 0;
-		--radius-md: 0;
-		--radius-lg: 0;
-		--radius-xl: 0;
-		--radius-full: 9999px;
-
-		/* Shadows — one hard-offset poster shadow, no soft/blurred shadows
-		   (still banned). Paired with --bevel-* insets on interactive elements
-		   for the outset/sunken 3D look — see .btn and form fields in theme.css
-		   / base.css. */
-		--shadow-hard: 4px 4px 0 var(--color-primary);
-		--shadow-sm: var(--shadow-hard);
-		--shadow-md: var(--shadow-hard);
-		--shadow-lg: var(--shadow-hard);
-		--shadow-xl: var(--shadow-hard);
-		--rule-width: 3px;
-
-		/* Transitions */
-		--transition-fast: 150ms var(--ease-out);
-		--transition-base: 220ms var(--ease-out);
-		--transition-slow: 420ms var(--ease-out);
-		--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-		--ease-in: cubic-bezier(0.7, 0, 0.84, 0);
-		--ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-
-		/* Z-index */
-		--z-dropdown: 100;
-		--z-sticky: 200;
-		--z-fixed: 300;
-		--z-modal-backdrop: 400;
-		--z-modal: 500;
-		--z-popover: 600;
-		--z-tooltip: 700;
-	}
-
-	/* HTML & Body */
-	html {
-		font-size: var(--font-size-base);
-		font-family: var(--font-family-sans);
-		line-height: var(--line-height-base);
-		color: var(--color-text);
-		background-color: var(--color-bg);
-		scroll-behavior: smooth;
-		scrollbar-gutter: stable;
-
-		/* Dot-grid wallpaper — a nod to tiled desktop/background GIFs, done in
-		   pure CSS (no image request, crisp at any zoom). Subtle by design:
-		   this sits behind every page, so it stays low-contrast against --color-bg. */
-		background-image: radial-gradient(
-			circle at 1px 1px,
-			color-mix(in srgb, var(--color-border) 30%, transparent) 1px,
-			transparent 0
-		);
-		background-size: 22px 22px;
-	}
-
-	/* dialog（モーダル）表示中は背景のスクロールを止める */
-	html:has(dialog[open]) {
-		overflow: hidden;
-	}
-
-	body {
-		font-weight: var(--font-weight-normal);
-		background-color: var(--color-bg);
-		/* gives negative z-index descendants (the gif-scatter layer) a local
-		   stacking root — position alone isn't enough to contain them, a
-		   non-auto z-index is required too, or z-index:-1 renders behind
-		   html's own opaque background instead of just behind page content */
-		position: relative;
-		z-index: 0;
-	}
-
-	/* View Transitions — ページ遷移アニメーション */
-	@view-transition {
-		navigation: auto;
-	}
-
-	/* ヘッダー・フッターは同一構造として扱い、遷移のたびに明滅させない */
-	site-header > header {
-		view-transition-name: site-header;
-	}
-
-	site-footer > footer {
-		view-transition-name: site-footer;
-	}
-
-	::view-transition-old(site-header),
-	::view-transition-new(site-header),
-	::view-transition-old(site-footer),
-	::view-transition-new(site-footer) {
-		animation: none;
-		mix-blend-mode: normal;
-	}
-
-	/* 本文（root）は退出をやや速く・進入をゆるやかに — 落ち着いた印象の非対称モーション */
-	::view-transition-old(root) {
-		animation: vt-fade-out 180ms cubic-bezier(0.4, 0, 1, 1) both;
-	}
-
-	::view-transition-new(root) {
-		animation: vt-fade-in 380ms cubic-bezier(0.16, 1, 0.3, 1) both;
-	}
-
-	@keyframes vt-fade-out {
-		from {
-			opacity: 1;
-			transform: translateY(0) scale(1);
-		}
-		to {
-			opacity: 0;
-			transform: translateY(-4px) scale(0.996);
-		}
-	}
-
-	@keyframes vt-fade-in {
-		from {
-			opacity: 0;
-			transform: translateY(10px) scale(0.996);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0) scale(1);
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		::view-transition-old(root),
-		::view-transition-new(root) {
-			animation: none;
-		}
-	}
-
-	/* Typography — Headings */
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		font-family: var(--font-family-heading);
-		font-weight: var(--font-weight-heading);
-		line-height: 1.3;
-		margin-bottom: var(--spacing-md);
-	}
-
-	h1 {
-		font-size: clamp(2rem, 5vw, 3.5rem);
-	}
-	h2 {
-		font-size: clamp(1.4rem, 3.5vw, 2rem);
-	}
-	h3 {
-		font-size: clamp(1rem, 2.5vw, 1.35rem);
-	}
-	h4 {
-		font-size: 1.15rem;
-	}
-	h5 {
-		font-size: 1rem;
-	}
-	h6 {
-		font-size: 1rem;
-	}
-
-	/* Typography — Text */
-	p {
-		margin-bottom: var(--spacing-md);
-		line-height: var(--line-height-base);
-		color: var(--color-text);
-
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-
-	strong {
-		font-weight: var(--font-weight-bold);
-		color: var(--color-text);
-	}
-
-	em {
-		font-style: italic;
-	}
-
-	small {
-		font-size: 0.875rem;
-		color: var(--color-text-light);
-	}
-
-	/* Lists */
-	ul,
-	ol {
-		list-style-position: outside;
-		margin-bottom: var(--spacing-md);
-		padding-left: var(--spacing-lg);
-
-		& li {
-			margin-bottom: var(--spacing-sm);
-			color: var(--color-text);
-		}
-	}
-
-	/* Links — visited state gets its own dusty-violet, the way browsers used
-	   to make it obvious where you'd already clicked. */
-	a {
-		color: var(--color-accent);
-		text-decoration: none;
-		transition: color var(--transition-fast);
-		cursor: pointer;
-
-		&:visited {
-			color: light-dark(oklch(42% 0.14 310), oklch(62% 0.14 310));
-		}
-
-		&:hover {
-			color: var(--color-accent-alt);
-			text-decoration: underline;
-		}
-
-		&:active {
-			opacity: 0.8;
-		}
-	}
-
-	/* Code */
-	code,
-	pre {
-		font-family: var(--font-family-mono);
-		font-size: 0.875rem;
-	}
-
-	code {
-		background-color: var(--color-bg-light);
-		padding: var(--spacing-xs) var(--spacing-sm);
-		border-radius: var(--radius-sm);
-		color: var(--color-text);
-	}
-
-	pre {
-		background-color: var(--color-bg-light);
-		padding: var(--spacing-md);
-		border-radius: var(--radius-md);
-		overflow-x: auto;
-		margin-bottom: var(--spacing-md);
-
-		& code {
-			background-color: transparent;
-			padding: 0;
-		}
-	}
-
-	/* Blockquote */
-	blockquote {
-		margin-bottom: var(--spacing-md);
-		padding-left: var(--spacing-lg);
-		border-left: 4px solid var(--color-accent);
-		color: var(--color-text-light);
-		font-style: italic;
-	}
-
-	/* Horizontal rule */
-	hr {
-		border: none;
-		border-top: var(--rule-width, 3px) solid var(--color-border);
-		margin: var(--spacing-xl) 0;
-	}
-
-	/* Forms */
-	input,
-	textarea,
-	select {
-		width: 100%;
-		padding: var(--spacing-sm) var(--spacing-md);
-		font-size: var(--font-size-base);
-		border: var(--rule-width, 3px) solid var(--color-border);
-		border-radius: var(--radius-md);
-		background-color: var(--color-bg);
-		color: var(--color-text);
-		/* permanently sunken — the old-school "pressed in" text field */
-		box-shadow:
-			inset 2px 2px 0 var(--bevel-shade),
-			inset -1px -1px 0 var(--bevel-highlight);
-		transition:
-			border-color var(--transition-fast),
-			box-shadow var(--transition-fast);
-
-		&:focus {
-			outline: none;
-			border-color: var(--color-accent);
-			box-shadow:
-				inset 2px 2px 0 var(--bevel-shade),
-				inset -1px -1px 0 var(--bevel-highlight),
-				0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
-		}
-
-		&:disabled {
-			background-color: var(--color-bg-light);
-			color: var(--color-text-light);
-			cursor: not-allowed;
-		}
-	}
-
-	textarea {
-		resize: vertical;
-		font-family: var(--font-family-sans);
-		/* 内容に合わせて自動伸長 */
-		field-sizing: content;
-		min-block-size: 8lh;
-	}
-
-	/* Selection */
-	::selection {
-		background-color: var(--color-accent);
-		color: #ffffff;
-	}
+  :root {
+    color-scheme: light;
+    --paper: #fffef7; --ink: #182861; --red: #ce232b; --blue: #174db3; --yellow: #ffe500; --green: #087b46;
+    --color-primary: var(--ink); --color-accent: var(--red); --color-accent-alt: var(--green);
+    --color-border: var(--ink); --color-text: var(--ink); --color-text-light: #48516b;
+    --color-bg: var(--paper); --color-bg-light: #f5f2d7; --color-bg-dark: #e3eacb;
+    --font-family-sans: "MS PGothic", "Yu Gothic", sans-serif;
+    --font-family-heading: "Dela Gothic One", "Arial Black", "Yu Gothic", sans-serif;
+    --font-family-outlier: var(--font-family-heading);
+    --font-family-mono: "Courier New", monospace;
+    --font-family-mincho: "Yu Mincho", "MS PMincho", serif;
+    --font-weight-heading: 400; --font-weight-semibold: 700; --font-weight-medium: 700;
+    --spacing-xs: .25rem; --spacing-sm: .75rem; --spacing-md: 1rem; --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem; --spacing-2xl: 3rem; --spacing-3xl: 4rem; --spacing-4xl: 5rem;
+    --rule-width: 2px; --radius-sm: 0; --radius-md: 0; --radius-lg: 0; --radius-full: 0;
+    --shadow-md: 4px 4px 0 var(--ink); --shadow-xl: 8px 8px 0 var(--ink); --transition-fast: 140ms ease;
+  }
+  html { background: #c9cec5; color: var(--ink); font: 16px/1.8 var(--font-family-sans); scroll-padding-top: 1rem; }
+  body { max-width: 1180px; margin: 24px auto; background: var(--paper); border: 1px solid var(--ink); box-shadow: 8px 8px 0 #a9b1a5; }
+  h1, h2, h3 { line-height: 1.35; overflow-wrap: anywhere; }
+  h1, h2 { font-family: var(--font-family-heading); font-weight: 400; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2.3rem); }
+  h3 { font-size: 1.2rem; }
+  p + p { margin-top: 1rem; }
+  a { color: var(--blue); text-underline-offset: .2em; }
+  a:hover { text-decoration: underline; }
+  button { color: inherit; }
+  a, button, input, select, textarea, summary { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 3px solid var(--blue); outline-offset: 5px; }
+  ::selection { background: var(--yellow); color: var(--ink); }
+  input, select, textarea { width: 100%; min-width: 0; padding: .65rem .8rem; border: 2px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); }
+  textarea { min-height: 180px; resize: vertical; }
+  button:disabled { cursor: wait; opacity: .65; }
+  ul, ol { padding-left: 1.3rem; }
+  code, pre { font-family: var(--font-family-mono); background: var(--color-bg-light); }
+  pre { padding: 1rem; overflow-x: auto; }
+  html:has(dialog[open]) { overflow: hidden; }
+  @media (max-width: 1200px) { body { margin: 12px; } }
+  @media (max-width: 600px) { html { font-size: 15px; } body { margin: 0; border: 0; box-shadow: none; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }
 }

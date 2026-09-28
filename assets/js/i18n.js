@@ -14,6 +14,10 @@ class I18n {
 	#catalog = null;
 	#lang = DEFAULT_LANG;
 
+	text(key) {
+		return this.#resolve(this.#catalog, `${key}.${this.#lang}`);
+	}
+
 	async init() {
 		try {
 			this.#catalog = await this.#fetchCatalog();
@@ -113,10 +117,10 @@ class I18n {
 			if (meta) currentEl.textContent = meta.short;
 		}
 
-		// aria-selected
+		// aria-pressed
 		document.querySelectorAll(".navbar-lang-option").forEach((btn) => {
 			btn.setAttribute(
-				"aria-selected",
+				"aria-pressed",
 				btn.dataset.lang === lang ? "true" : "false",
 			);
 		});
@@ -156,6 +160,7 @@ class I18n {
 
 // DOMContentLoaded 後に初期化（defer との二重安全策）
 const i18n = new I18n();
+window.jocariumI18n = i18n;
 
 if (document.readyState === "loading") {
 	document.addEventListener("DOMContentLoaded", () => i18n.init());

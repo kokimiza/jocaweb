@@ -3,6 +3,7 @@
    ========================================================================== */
 
 @layer press {
+	.filter-btn input:focus-visible + span { outline: 3px solid var(--blue); outline-offset: 4px; }
 	/* --------------------------------------------------------------------------
 	   Genre filter pills
 	   -------------------------------------------------------------------------- */
@@ -27,7 +28,7 @@
 
 		& span {
 			display: inline-block;
-			padding: 4px var(--spacing-md);
+			padding: 8px var(--spacing-md);
 			border: var(--rule-width, 3px) solid var(--color-border);
 			border-radius: var(--radius-full);
 			font-size: 0.875rem;
@@ -217,8 +218,8 @@
 		position: absolute;
 		top: var(--spacing-md);
 		right: var(--spacing-md);
-		width: 2rem;
-		height: 2rem;
+		width: 44px;
+		height: 44px;
 		border: none;
 		background: none;
 		cursor: pointer;

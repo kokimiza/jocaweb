@@ -6,12 +6,13 @@
   <title>BURNING PIZZA METHODS – Music Label | jocarium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Kosugi+Maru&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap">
   <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
   <link rel="stylesheet" href="../assets/css/theme.css">
   <link rel="stylesheet" href="../assets/css/bpm.css">
+  <link rel="stylesheet" href="../assets/css/retro.css">
   <script src="../assets/js/config.js" defer></script>
   <script src="../assets/js/components.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
@@ -20,7 +21,7 @@
 <body data-page="bpm">
   <site-header base=".."></site-header>
 
-  <main>
+  <main id="main" tabindex="-1">
     <section class="page-header">
       <div class="container">
         <div class="page-header-icon">
@@ -33,21 +34,21 @@
 
     <section class="content-section">
       <div class="container">
-        <h2>Audio Services</h2>
+        <h2 data-i18n="sections.audio">音のしごと</h2>
         <div class="services-grid">
-          <article class="service-card" data-animate>
+          <article class="service-card">
             <h3>Original Music</h3>
             <p data-i18n="bpm.services.original.desc">プロジェクトのビジョンに合わせた、オーダーメイドの楽曲制作。</p>
           </article>
-          <article class="service-card" data-animate>
+          <article class="service-card">
             <h3>BGM</h3>
             <p data-i18n="bpm.services.bgm.desc">映像・ゲームの世界観を深める背景音楽。</p>
           </article>
-          <article class="service-card" data-animate>
+          <article class="service-card">
             <h3>Sound Effects</h3>
             <p data-i18n="bpm.services.sfx.desc">UI音・環境音・インタラクティブ音響のデザイン。</p>
           </article>
-          <article class="service-card" data-animate>
+          <article class="service-card">
             <h3>Audio Production</h3>
             <p data-i18n="bpm.services.production.desc">録音・ミックス・マスタリングまで、一気通貫の音響制作。</p>
           </article>
@@ -57,21 +58,21 @@
 
     <section class="content-section">
       <div class="container">
-        <h2>Philosophy</h2>
+        <h2 data-i18n="sections.philosophy">大切にしていること</h2>
         <div class="philosophy-points">
-          <article class="philosophy-point" data-animate>
+          <article class="philosophy-point">
             <h3 data-i18n="bpm.philosophy.p1.title">一体性</h3>
             <p data-i18n="bpm.philosophy.p1.desc">ビジュアルとサウンドが溶け合う体験をつくる。</p>
           </article>
-          <article class="philosophy-point" data-animate>
+          <article class="philosophy-point">
             <h3 data-i18n="bpm.philosophy.p2.title">感情的な深さ</h3>
             <p data-i18n="bpm.philosophy.p2.desc">和音・テンポ・音色が、感情に直接届く。</p>
           </article>
-          <article class="philosophy-point" data-animate>
+          <article class="philosophy-point">
             <h3 data-i18n="bpm.philosophy.p3.title">職人技</h3>
             <p data-i18n="bpm.philosophy.p3.desc">各音・各フレーズに、意図と意味がある。</p>
           </article>
-          <article class="philosophy-point" data-animate>
+          <article class="philosophy-point">
             <h3 data-i18n="bpm.philosophy.p4.title">多様性</h3>
             <p data-i18n="bpm.philosophy.p4.desc">クラシックからエレクトロニック、実験音響まで。ジャンルに縛られない。</p>
           </article>
@@ -81,7 +82,7 @@
 
     <section class="content-section">
       <div class="container">
-        <h2>Collaborations</h2>
+        <h2 data-i18n="sections.collaborations">音でつながる</h2>
         <ul class="collaboration-list">
           <li><strong>kokimiza</strong> — <span data-i18n="bpm.collaborations.kokimiza">アニメーション・ビジュアルへの音楽付け</span></li>
           <li><strong>Gutzgutz</strong> — <span data-i18n="bpm.collaborations.gutzgutz">ゲームのサウンドデザイン</span></li>
@@ -92,7 +93,7 @@
 
     <section class="content-section">
       <div class="container">
-        <h2>Catalog</h2>
+        <h2 data-i18n="sections.catalog">音楽のお知らせ</h2>
         <p class="section-note" data-i18n="bpm.catalog.note">カタログ・プレイリスト準備中</p>
       </div>
     </section>
@@ -101,8 +102,8 @@
       <div class="container">
         <h2 data-i18n="bpm.cta.heading">Sound Good?</h2>
         <div class="cta-buttons">
-          <a href="../contact/index.html" class="btn btn-primary" data-i18n="shared.getInTouch">Get in Touch</a>
-          <a href="../press/index.html" class="btn btn-secondary" data-i18n="shared.press">Press</a>
+          <a href="../contact/index.html" class="btn btn-primary" data-i18n="shared.getInTouch">お問い合わせ</a>
+          <a href="../press/index.html" class="btn btn-secondary" data-i18n="shared.press">お知らせ</a>
         </div>
       </div>
     </section>

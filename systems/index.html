@@ -6,11 +6,12 @@
   <title>jocarium Systems – Engineering | jocarium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Kosugi+Maru&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap">
   <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
   <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/retro.css">
   <script src="../assets/js/config.js" defer></script>
   <script src="../assets/js/components.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
@@ -19,7 +20,7 @@
 <body data-page="systems">
   <site-header base=".."></site-header>
 
-  <main>
+  <main id="main" tabindex="-1">
     <section class="page-header">
       <div class="container">
         <div class="page-header-icon">
@@ -30,27 +31,38 @@
       </div>
     </section>
 
+    <section class="content-section" aria-labelledby="namaran-heading">
+      <div class="container">
+        <h2 data-i18n="systems.projects.heading">運営しているサービス</h2>
+        <article class="project-notice">
+          <h3 id="namaran-heading">Namaran</h3>
+          <p data-i18n="systems.projects.namaran">jocarium Systems が運営する Web サービスです。</p>
+          <a href="https://namaran.jocarium.productions/" class="btn btn-primary" data-i18n="index.namaran.link">Namaran を開く ↗</a>
+        </article>
+      </div>
+    </section>
+
     <section class="content-section">
       <div class="container">
-        <h2>Core Responsibilities</h2>
+        <h2 data-i18n="sections.responsibilities">技術のしごと</h2>
         <div class="responsibilities-grid">
-          <article class="responsibility-card" data-animate>
+          <article class="responsibility-card">
             <h3>Internal Systems</h3>
             <p data-i18n="systems.responsibilities.internal.desc">プロジェクト管理・資産管理・財務システムなど、事業基盤の構築・運用。</p>
           </article>
-          <article class="responsibility-card" data-animate>
+          <article class="responsibility-card">
             <h3>Software Engineering</h3>
             <p data-i18n="systems.responsibilities.software.desc">各ブランドが使うソフトウェア・ツールの設計・実装・保守。</p>
           </article>
-          <article class="responsibility-card" data-animate>
+          <article class="responsibility-card">
             <h3>Dev Infrastructure</h3>
             <p data-i18n="systems.responsibilities.infra.desc">CI/CD・テスト環境・デプロイ基盤の構築と管理。</p>
           </article>
-          <article class="responsibility-card" data-animate>
+          <article class="responsibility-card">
             <h3>DevSecOps</h3>
             <p data-i18n="systems.responsibilities.devsecops.desc">自動化・セキュリティ強化・信頼性向上の継続的な推進。</p>
           </article>
-          <article class="responsibility-card" data-animate>
+          <article class="responsibility-card">
             <h3>Open Source</h3>
             <p data-i18n="systems.responsibilities.oss.desc">内部成果のオープンソース化による、コミュニティへの還元。</p>
           </article>
@@ -60,21 +72,21 @@
 
     <section class="content-section">
       <div class="container">
-        <h2>Philosophy</h2>
+        <h2 data-i18n="sections.philosophy">大切にしていること</h2>
         <div class="philosophy-points">
-          <article class="philosophy-point" data-animate>
+          <article class="philosophy-point">
             <h3 data-i18n="systems.philosophy.p1.title">技術は手段</h3>
             <p data-i18n="systems.philosophy.p1.desc">クリエイターのビジョンを実現するために存在する。邪魔をしない。</p>
           </article>
-          <article class="philosophy-point" data-animate>
+          <article class="philosophy-point">
             <h3 data-i18n="systems.philosophy.p2.title">長期的な視点</h3>
             <p data-i18n="systems.philosophy.p2.desc">保守性・拡張性・持続性を重視した、長く使えるシステムを作る。</p>
           </article>
-          <article class="philosophy-point" data-animate>
+          <article class="philosophy-point">
             <h3 data-i18n="systems.philosophy.p3.title">信頼性と安全性</h3>
             <p data-i18n="systems.philosophy.p3.desc">クリエイティブ作業を止めない。セキュリティと可用性が最優先。</p>
           </article>
-          <article class="philosophy-point" data-animate>
+          <article class="philosophy-point">
             <h3 data-i18n="systems.philosophy.p4.title">シンプルさ</h3>
             <p data-i18n="systems.philosophy.p4.desc">複雑さを排除し、理解しやすい設計を追求する。</p>
           </article>
@@ -84,7 +96,7 @@
 
     <section class="content-section">
       <div class="container">
-        <h2>Technology Focus</h2>
+        <h2 data-i18n="sections.technology">扱う技術</h2>
         <ul class="tech-focus-list">
           <li>
             <img src="../assets/icons/earth.svg" width="16" height="16" alt="" aria-hidden="true" class="icon-inline icon-accent">
@@ -118,19 +130,12 @@
       </div>
     </section>
 
-    <section class="content-section">
-      <div class="container">
-        <h2>Projects</h2>
-        <p class="section-note" data-i18n="systems.projects.note">プロジェクト一覧準備中</p>
-      </div>
-    </section>
-
     <section class="cta">
       <div class="container">
         <h2 data-i18n="systems.cta.heading">Build Together.</h2>
         <div class="cta-buttons">
-          <a href="../contact/index.html" class="btn btn-primary" data-i18n="shared.getInTouch">Get in Touch</a>
-          <a href="../press/index.html" class="btn btn-secondary" data-i18n="shared.press">Press</a>
+          <a href="../contact/index.html" class="btn btn-primary" data-i18n="shared.getInTouch">お問い合わせ</a>
+          <a href="../press/index.html" class="btn btn-secondary" data-i18n="shared.press">お知らせ</a>
         </div>
       </div>
     </section>

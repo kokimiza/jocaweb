@@ -1,22 +1,35 @@
 {
 	"_comment": "jocarium 表示原稿カタログ — コンテンツキーの末端に言語コードが並ぶ構造",
 	"languages": [
-		{ "code": "ja", "label": "日本語", "short": "JA" },
-		{ "code": "en", "label": "English", "short": "EN" }
+		{
+			"code": "ja",
+			"label": "日本語",
+			"short": "JA"
+		},
+		{
+			"code": "en",
+			"label": "English",
+			"short": "EN"
+		}
 	],
-
 	"meta": {
 		"index": {
 			"title": {
-				"ja": "jocarium – Designs Phenomena",
-				"en": "jocarium – Designs Phenomena"
+				"ja": "jocarium — 握る！",
+				"en": "jocarium — 握る！ / GRASP!"
 			}
 		},
 		"press": {
-			"title": { "ja": "Press – jocarium", "en": "Press – jocarium" }
+			"title": {
+				"ja": "Press – jocarium",
+				"en": "Press – jocarium"
+			}
 		},
 		"contact": {
-			"title": { "ja": "Contact – jocarium", "en": "Contact – jocarium" }
+			"title": {
+				"ja": "Contact – jocarium",
+				"en": "Contact – jocarium"
+			}
 		},
 		"kokimiza": {
 			"title": {
@@ -43,60 +56,97 @@
 			}
 		}
 	},
-
 	"nav": {
-		"langToggle": { "ja": "言語を選択", "en": "Select language" },
-		"menuOpen": { "ja": "メニューを開く", "en": "Open menu" },
-		"menuClose": { "ja": "メニューを閉じる", "en": "Close menu" }
+		"langToggle": {
+			"ja": "言語を選択",
+			"en": "Select language"
+		},
+		"menuOpen": {
+			"ja": "メニューを開く",
+			"en": "Open menu"
+		},
+		"menuClose": {
+			"ja": "メニューを閉じる",
+			"en": "Close menu"
+		},
+		"brandNote": {
+			"ja": "ヨカリウム ／ 奇を収蔵する容器",
+			"en": "Yokarium / A vessel for curiosities"
+		},
+		"stamp": {
+			"ja": "余暇の活動",
+			"en": "Made at leisure"
+		},
+		"skip": {
+			"ja": "本文へ",
+			"en": "Skip to content"
+		}
 	},
-
 	"footer": {
-		"copyright": { "ja": "2026 jocarium.", "en": "2026 jocarium." }
+		"copyright": {
+			"ja": "2026 jocarium.",
+			"en": "2026 jocarium."
+		},
+		"tagline": {
+			"ja": "握る！ 余暇を、奇を、ぎゅっと。",
+			"en": "GRASP! Hold leisure and curiosity close."
+		}
 	},
-
 	"shared": {
-		"learnMore": { "ja": "詳細 →", "en": "Learn more →" },
-		"getInTouch": { "ja": "Get in Touch", "en": "Get in Touch" },
-		"press": { "ja": "Press", "en": "Press" },
-		"wip": { "ja": "準備中", "en": "Coming soon" },
-		"modalClose": { "ja": "閉じる", "en": "Close" }
+		"learnMore": {
+			"ja": "詳細 →",
+			"en": "Learn more →"
+		},
+		"getInTouch": {
+			"ja": "お問い合わせ",
+			"en": "Contact"
+		},
+		"press": {
+			"ja": "お知らせ",
+			"en": "News"
+		},
+		"wip": {
+			"ja": "準備中",
+			"en": "Coming soon"
+		},
+		"modalClose": {
+			"ja": "閉じる",
+			"en": "Close"
+		}
 	},
-
 	"index": {
 		"concept": {
 			"heading": {
-				"ja": "jocariumがつくるのは、ひとつひとつの「現象」。",
-				"en": "What jocarium makes: phenomena, one at a time."
+				"ja": "余暇を、ぎゅっと。",
+				"en": "Hold leisure close."
 			},
 			"body": {
-				"ja": "映像が動く。音が鳴る。ゲームが反応する。仕組みが動き続ける。誰かの前で実際に起きる、その一つひとつを設計すること。",
-				"en": "An image moves. A sound plays. A game responds. A system keeps running. Designing each of these moments as they actually happen in front of someone."
-			}
-		},
-		"mission": {
-			"statement": {
-				"ja": "日常を中断する",
-				"en": "The uninvited interruption"
+				"ja": "無害であり、ときには小競り合い。妙なものも、好きなものも、この容器に。jocarium は、余暇から生まれる「奇」を収蔵する、ヨカリウム（余暇リウム）です。",
+				"en": "Harmless, with the occasional little skirmish. A home for oddities and things we love. jocarium is Yokarium: a vessel for curiosities born of leisure."
 			}
 		},
 		"values": {
 			"virtue": {
 				"desc": {
-					"ja": "関わる前より、少し良い人に",
-					"en": "A little better for having been part of it."
+					"ja": "非合理に宿る美徳を涵養する",
+					"en": "Cultivate virtue in the irrational."
 				}
 			},
 			"wisdom": {
 				"desc": {
 					"ja": "智を修飾する",
-					"en": "Giving knowledge its form."
+					"en": "Adorn knowledge."
 				}
 			},
 			"spark": {
 				"desc": {
-					"ja": "才気煥発の舞台を張る",
-					"en": "Setting the stage for brilliance."
+					"ja": "才気煥発",
+					"en": "Let brilliance burst."
 				}
+			},
+			"heading": {
+				"ja": "大事に握る、三つのこと。",
+				"en": "Three things to hold close."
 			}
 		},
 		"brands": {
@@ -104,77 +154,190 @@
 				"desc": {
 					"ja": "意図あるビジュアルと、意味あるモーション。",
 					"en": "Intentional visuals. Meaningful motion."
+				},
+				"type": {
+					"ja": "映像・アニメーション",
+					"en": "Animation & Visual"
 				}
 			},
 			"gutzgutz": {
 				"desc": {
 					"ja": "何度でも遊びたくなる、ゲームプレイ中心の体験。",
 					"en": "Gameplay-first experiences you'll want to play again and again."
+				},
+				"type": {
+					"ja": "ゲーム開発",
+					"en": "Game Development"
 				}
 			},
 			"bpm": {
 				"desc": {
-					"ja": "エコシステム全体を音で満たす、インハウス・レーベル。",
-					"en": "The in-house label filling the entire ecosystem with sound."
+					"ja": "jocarium を音で満たす、インハウス・レーベル。",
+					"en": "The in-house label filling jocarium with sound."
+				},
+				"type": {
+					"ja": "音楽レーベル",
+					"en": "Music Label"
 				}
 			},
 			"systems": {
 				"desc": {
-					"ja": "クリエイティブを支える、見えない技術基盤。",
-					"en": "The invisible technical foundation supporting creativity."
+					"ja": "クリエイティブを支える技術基盤。Namaran も運営しています。",
+					"en": "The technology behind our creativity. Also operating Namaran."
+				},
+				"type": {
+					"ja": "ソフトウェア・技術基盤",
+					"en": "Software & Infrastructure"
 				}
+			},
+			"heading": {
+				"ja": "容器の中の、あれこれ。",
+				"en": "Inside the vessel."
+			},
+			"label": {
+				"ja": "ブランド一覧",
+				"en": "Creative brands"
 			}
 		},
 		"cta": {
 			"desc": {
-				"ja": "各ブランドのお知らせは Press ページにて随時公開しています。",
-				"en": "News from each brand is published regularly on the Press page."
+				"ja": "各ブランドの近況はこちら。お問い合わせも、お気軽に。",
+				"en": "Updates from our brands. Get in touch, too."
+			},
+			"heading": {
+				"ja": "お知らせと、おたより。",
+				"en": "News & correspondence."
+			}
+		},
+		"hero": {
+			"edition": {
+				"ja": "余暇と、奇と、ちょっとした小競り合い。",
+				"en": "Leisure, curiosities, and little skirmishes."
+			},
+			"caption": {
+				"ja": "奇を収蔵する容器。",
+				"en": "A vessel for curiosities."
+			},
+			"harmless": {
+				"ja": "無害です。",
+				"en": "Harmless."
+			},
+			"skirmish": {
+				"ja": "小競り合いは、少々。",
+				"en": "A few little skirmishes."
+			},
+			"reading": {
+				"ja": "jocarium と書いて、ヨカリウム。",
+				"en": "Written jocarium. Pronounced Yokarium."
+			},
+			"explore": {
+				"ja": "中身をのぞく ↓",
+				"en": "Look inside ↓"
+			}
+		},
+		"namaran": {
+			"desc": {
+				"ja": "も、この容器から。運営：jocarium Systems",
+				"en": "is part of the vessel, too. Operated by jocarium Systems."
+			},
+			"link": {
+				"ja": "Namaran を開く ↗",
+				"en": "Visit Namaran ↗"
 			}
 		}
 	},
-
 	"press": {
 		"header": {
-			"title": { "ja": "Press", "en": "Press" },
+			"title": {
+				"ja": "お知らせ",
+				"en": "News"
+			},
 			"desc": {
 				"ja": "jocarium および各ブランドからのお知らせ",
 				"en": "News and announcements from jocarium and its brands"
 			}
 		},
 		"filter": {
-			"label": { "ja": "ジャンルで絞り込む", "en": "Filter by brand" }
+			"label": {
+				"ja": "ジャンルで絞り込む",
+				"en": "Filter by brand"
+			}
 		},
 		"empty": {
 			"ja": "該当するお知らせはありません。",
 			"en": "No announcements found."
 		},
-		"loading": { "ja": "読み込み中…", "en": "Loading…" }
+		"loading": {
+			"ja": "読み込み中…",
+			"en": "Loading…"
+		}
 	},
-
 	"contact": {
 		"header": {
-			"title": { "ja": "Contact", "en": "Contact" },
+			"title": {
+				"ja": "お問い合わせ",
+				"en": "Contact"
+			},
 			"desc": {
 				"ja": "お問い合わせ・コラボレーションのご相談はこちら",
 				"en": "Inquiries and collaboration proposals"
 			}
 		},
 		"form": {
-			"name": { "ja": "Name", "en": "Name" },
-			"email": { "ja": "Email", "en": "Email" },
-			"subject": { "ja": "Subject", "en": "Subject" },
-			"brand": { "ja": "Brand", "en": "Brand" },
-			"brandSelect": { "ja": "選択してください", "en": "Select…" },
-			"brandOther": { "ja": "その他", "en": "Other" },
-			"message": { "ja": "Message", "en": "Message" },
-			"required": { "ja": "必須", "en": "required" },
-			"submit": { "ja": "Send Message", "en": "Send Message" },
-			"sending": { "ja": "Sending…", "en": "Sending…" },
-			"sent": { "ja": "Sent!", "en": "Sent!" },
-			"error": { "ja": "Error. Try again.", "en": "Error. Try again." }
+			"name": {
+				"ja": "お名前",
+				"en": "Name"
+			},
+			"email": {
+				"ja": "メールアドレス",
+				"en": "Email"
+			},
+			"subject": {
+				"ja": "件名",
+				"en": "Subject"
+			},
+			"brand": {
+				"ja": "関連ブランド",
+				"en": "Brand"
+			},
+			"brandSelect": {
+				"ja": "選択してください",
+				"en": "Select…"
+			},
+			"brandOther": {
+				"ja": "その他",
+				"en": "Other"
+			},
+			"message": {
+				"ja": "お問い合わせ内容",
+				"en": "Message"
+			},
+			"required": {
+				"ja": "必須",
+				"en": "required"
+			},
+			"submit": {
+				"ja": "おたよりを送る",
+				"en": "Send message"
+			},
+			"sending": {
+				"ja": "送信中…",
+				"en": "Sending…"
+			},
+			"sent": {
+				"ja": "送信しました。",
+				"en": "Message sent."
+			},
+			"error": {
+				"ja": "送信できませんでした。内容を残していますので、もう一度お試しください。",
+				"en": "Could not send. Your message is preserved; please try again."
+			}
 		},
 		"faq": {
-			"heading": { "ja": "FAQ", "en": "FAQ" },
+			"heading": {
+				"ja": "FAQ",
+				"en": "FAQ"
+			},
 			"q1": {
 				"ja": "返信にどれくらいかかりますか？",
 				"en": "How long does it take to get a reply?"
@@ -209,7 +372,6 @@
 			}
 		}
 	},
-
 	"kokimiza": {
 		"header": {
 			"desc": {
@@ -245,21 +407,30 @@
 		},
 		"philosophy": {
 			"p1": {
-				"title": { "ja": "満足度", "en": "Satisfaction" },
+				"title": {
+					"ja": "満足度",
+					"en": "Satisfaction"
+				},
 				"desc": {
 					"ja": "磨き抜かれた、完成度の高い作品だけを出す。",
 					"en": "Only polished, fully realized work goes out."
 				}
 			},
 			"p2": {
-				"title": { "ja": "表現力", "en": "Expressiveness" },
+				"title": {
+					"ja": "表現力",
+					"en": "Expressiveness"
+				},
 				"desc": {
 					"ja": "技術と芸術のバランスの中で、感情と意図を映像に宿す。",
 					"en": "Embedding emotion and intent in visuals at the intersection of technique and art."
 				}
 			},
 			"p3": {
-				"title": { "ja": "心地よさ", "en": "Comfort" },
+				"title": {
+					"ja": "心地よさ",
+					"en": "Comfort"
+				},
 				"desc": {
 					"ja": "テンポ・色彩・タイミング、すべてが調和した体験。",
 					"en": "An experience where tempo, color, and timing all converge in harmony."
@@ -267,7 +438,10 @@
 			}
 		},
 		"works": {
-			"note": { "ja": "ポートフォリオ準備中", "en": "Portfolio coming soon" }
+			"note": {
+				"ja": "ポートフォリオ準備中",
+				"en": "Portfolio coming soon"
+			}
 		},
 		"cta": {
 			"heading": {
@@ -276,7 +450,6 @@
 			}
 		}
 	},
-
 	"gutzgutz": {
 		"header": {
 			"desc": {
@@ -312,28 +485,40 @@
 		},
 		"philosophy": {
 			"p1": {
-				"title": { "ja": "沸点", "en": "Boiling Point" },
+				"title": {
+					"ja": "沸点",
+					"en": "Boiling Point"
+				},
 				"desc": {
 					"ja": "静かに滾る情熱を、遊びへと注ぎ込む。派手さではなく、熱量で語る。",
 					"en": "A quietly simmering passion, poured into every game — spoken through intensity, not spectacle."
 				}
 			},
 			"p2": {
-				"title": { "ja": "面白さの先", "en": "Beyond Fun" },
+				"title": {
+					"ja": "面白さの先",
+					"en": "Beyond Fun"
+				},
 				"desc": {
 					"ja": "面白さは前提条件。目指すのは、その先にある忘れがたい手触り。",
 					"en": "Fun is the baseline, not the goal. What we're after is what lingers beyond it."
 				}
 			},
 			"p3": {
-				"title": { "ja": "残る記憶", "en": "A Memory That Stays" },
+				"title": {
+					"ja": "残る記憶",
+					"en": "A Memory That Stays"
+				},
 				"desc": {
 					"ja": "ふと思い出したときに、「あれは楽しかったな」と思える体験を届ける。",
 					"en": "Games that come back to mind someday, with a quiet \"that was fun.\""
 				}
 			},
 			"p4": {
-				"title": { "ja": "静かな爪痕", "en": "A Quiet Mark" },
+				"title": {
+					"ja": "静かな爪痕",
+					"en": "A Quiet Mark"
+				},
 				"desc": {
 					"ja": "声高に語らずとも、遊んだ人の中に、そして社会に、小さな爪痕を残したい。",
 					"en": "Without shouting about it, we hope to leave a small mark — in the people who play, and in the world beyond."
@@ -346,9 +531,13 @@
 				"en": "Game projects coming soon"
 			}
 		},
-		"cta": { "heading": { "ja": "Play With Us.", "en": "Play With Us." } }
+		"cta": {
+			"heading": {
+				"ja": "Play With Us.",
+				"en": "Play With Us."
+			}
+		}
 	},
-
 	"bpm": {
 		"header": {
 			"desc": {
@@ -384,28 +573,40 @@
 		},
 		"philosophy": {
 			"p1": {
-				"title": { "ja": "一体性", "en": "Unity" },
+				"title": {
+					"ja": "一体性",
+					"en": "Unity"
+				},
 				"desc": {
 					"ja": "ビジュアルとサウンドが溶け合う体験をつくる。",
 					"en": "Creating experiences where visuals and sound dissolve into one."
 				}
 			},
 			"p2": {
-				"title": { "ja": "感情的な深さ", "en": "Emotional Depth" },
+				"title": {
+					"ja": "感情的な深さ",
+					"en": "Emotional Depth"
+				},
 				"desc": {
 					"ja": "和音・テンポ・音色が、感情に直接届く。",
 					"en": "Harmony, tempo, and timbre that speak directly to emotion."
 				}
 			},
 			"p3": {
-				"title": { "ja": "職人技", "en": "Craftsmanship" },
+				"title": {
+					"ja": "職人技",
+					"en": "Craftsmanship"
+				},
 				"desc": {
 					"ja": "各音・各フレーズに、意図と意味がある。",
 					"en": "Every note, every phrase carries intention and meaning."
 				}
 			},
 			"p4": {
-				"title": { "ja": "多様性", "en": "Versatility" },
+				"title": {
+					"ja": "多様性",
+					"en": "Versatility"
+				},
 				"desc": {
 					"ja": "クラシックからエレクトロニック、実験音響まで。ジャンルに縛られない。",
 					"en": "From classical to electronic, experimental to ambient — never bound by genre."
@@ -432,9 +633,13 @@
 				"en": "Catalog and playlist coming soon"
 			}
 		},
-		"cta": { "heading": { "ja": "Sound Good?", "en": "Sound Good?" } }
+		"cta": {
+			"heading": {
+				"ja": "Sound Good?",
+				"en": "Sound Good?"
+			}
+		}
 	},
-
 	"systems": {
 		"header": {
 			"desc": {
@@ -476,28 +681,40 @@
 		},
 		"philosophy": {
 			"p1": {
-				"title": { "ja": "技術は手段", "en": "Technology as a Tool" },
+				"title": {
+					"ja": "技術は手段",
+					"en": "Technology as a Tool"
+				},
 				"desc": {
 					"ja": "クリエイターのビジョンを実現するために存在する。邪魔をしない。",
 					"en": "It exists to realize the creator's vision. Nothing more."
 				}
 			},
 			"p2": {
-				"title": { "ja": "長期的な視点", "en": "Long-Term Thinking" },
+				"title": {
+					"ja": "長期的な視点",
+					"en": "Long-Term Thinking"
+				},
 				"desc": {
 					"ja": "保守性・拡張性・持続性を重視した、長く使えるシステムを作る。",
 					"en": "Building systems that last, with maintainability, scalability, and sustainability in mind."
 				}
 			},
 			"p3": {
-				"title": { "ja": "信頼性と安全性", "en": "Reliability & Safety" },
+				"title": {
+					"ja": "信頼性と安全性",
+					"en": "Reliability & Safety"
+				},
 				"desc": {
 					"ja": "クリエイティブ作業を止めない。セキュリティと可用性が最優先。",
 					"en": "Creative work must never stop. Security and availability come first."
 				}
 			},
 			"p4": {
-				"title": { "ja": "シンプルさ", "en": "Simplicity" },
+				"title": {
+					"ja": "シンプルさ",
+					"en": "Simplicity"
+				},
 				"desc": {
 					"ja": "複雑さを排除し、理解しやすい設計を追求する。",
 					"en": "Eliminating complexity and pursuing designs that are easy to understand."
@@ -521,7 +738,10 @@
 				"ja": "DB・キャッシング・分析",
 				"en": "Databases, caching, and analytics"
 			},
-			"api": { "ja": "サービス間統合", "en": "Inter-service integration" },
+			"api": {
+				"ja": "サービス間統合",
+				"en": "Inter-service integration"
+			},
 			"security": {
 				"ja": "暗号化・認証・アクセス管理",
 				"en": "Encryption, authentication, and access control"
@@ -532,11 +752,100 @@
 			}
 		},
 		"projects": {
-			"note": {
-				"ja": "プロジェクト一覧準備中",
-				"en": "Project list coming soon"
+			"heading": {
+				"ja": "運営しているサービス",
+				"en": "Our services"
+			},
+			"namaran": {
+				"ja": "jocarium Systems が運営する Web サービスです。",
+				"en": "A web service operated by jocarium Systems."
 			}
 		},
-		"cta": { "heading": { "ja": "Build Together.", "en": "Build Together." } }
+		"cta": {
+			"heading": {
+				"ja": "Build Together.",
+				"en": "Build Together."
+			}
+		}
+	},
+	"sections": {
+		"responsibilities": {
+			"ja": "技術のしごと",
+			"en": "Core Responsibilities"
+		},
+		"philosophy": {
+			"ja": "大切にしていること",
+			"en": "Philosophy"
+		},
+		"technology": {
+			"ja": "扱う技術",
+			"en": "Technology Focus"
+		},
+		"work": {
+			"ja": "つくるもの",
+			"en": "What We Do"
+		},
+		"works": {
+			"ja": "作品のお知らせ",
+			"en": "Works"
+		},
+		"games": {
+			"ja": "つくる遊び",
+			"en": "The Arsenal"
+		},
+		"doctrine": {
+			"ja": "遊びの心得",
+			"en": "Fight Doctrine"
+		},
+		"titles": {
+			"ja": "ゲームのお知らせ",
+			"en": "The Roster"
+		},
+		"audio": {
+			"ja": "音のしごと",
+			"en": "Audio Services"
+		},
+		"collaborations": {
+			"ja": "音でつながる",
+			"en": "Collaborations"
+		},
+		"catalog": {
+			"ja": "音楽のお知らせ",
+			"en": "Catalog"
+		}
+	},
+	"retro": {
+		"welcome": {
+			"ja": "ようこそ！jocarium のホームページへ！",
+			"en": "Welcome to the jocarium homepage!"
+		},
+		"ticker": {
+			"ja": "★ 握る！ ★ 無害です。小競り合いは、少々。 ★ 余暇を、奇を、ぎゅっと。",
+			"en": "★ GRASP! ★ Harmless, with a few little skirmishes. ★ Hold leisure and curiosity close."
+		},
+		"pause": {
+			"ja": "動きを止める",
+			"en": "Pause motion"
+		},
+		"resume": {
+			"ja": "動かす",
+			"en": "Play motion"
+		},
+		"reduced": {
+			"ja": "動きは停止中",
+			"en": "Motion is off"
+		},
+		"counter": {
+			"ja": "このブラウザで握った回数",
+			"en": "Grips in this browser"
+		},
+		"grip": {
+			"ja": "握ってみる！",
+			"en": "Give it a grip!"
+		},
+		"squeeze": {
+			"ja": "ぎゅっ！",
+			"en": "Squeeze!"
+		}
 	}
 }

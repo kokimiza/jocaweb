@@ -6,13 +6,14 @@
   <title>Press – jocarium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Kosugi+Maru&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap">
   <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
   <link rel="stylesheet" href="../assets/css/theme.css">
   <link rel="stylesheet" href="../assets/css/press.css">
   <script src="../assets/news/news-data.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/retro.css">
   <script src="../assets/js/config.js" defer></script>
   <script src="../assets/js/components.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
@@ -22,10 +23,10 @@
 <body data-page="press">
   <site-header base=".."></site-header>
 
-  <main>
+  <main id="main" tabindex="-1">
     <section class="page-header">
       <div class="container">
-        <h1 data-i18n="press.header.title">Press</h1>
+        <h1 data-i18n="press.header.title">お知らせ</h1>
         <p data-i18n="press.header.desc">jocarium および各ブランドからのお知らせ</p>
       </div>
     </section>
@@ -67,7 +68,7 @@
   </main>
 
   <!-- モーダル（<dialog>） -->
-  <dialog id="news-modal" class="news-modal" aria-modal="true">
+  <dialog id="news-modal" class="news-modal" aria-modal="true" aria-labelledby="modal-title">
     <div class="news-modal-inner">
       <header class="news-modal-header">
         <div class="news-modal-meta">

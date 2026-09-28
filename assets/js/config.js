@@ -25,18 +25,18 @@ window.JOCARIUM_CONFIG = {
 	 * components.js 側で `${base}/${item.href}` として解決します。
 	 */
 	navLinks: [
-		{ href: "press/index.html", label: "Press" },
+		{ href: "press/index.html", label: "お知らせ", key: "shared.press" },
 		{ href: "kokimiza/index.html", label: "kokimiza" },
 		{ href: "gutzgutz/index.html", label: "Gutzgutz" },
 		{ href: "bpm/index.html", label: "BPM" },
 		{ href: "systems/index.html", label: "Systems" },
-		{ href: "contact/index.html", label: "Contact" },
+		{ href: "contact/index.html", label: "お問い合わせ", key: "shared.getInTouch" },
 	],
 
 	/** フッターリンク */
 	footerLinks: [
-		{ href: "press/index.html", label: "Press" },
-		{ href: "contact/index.html", label: "Contact" },
+		{ href: "press/index.html", label: "お知らせ", key: "shared.press" },
+		{ href: "contact/index.html", label: "お問い合わせ", key: "shared.getInTouch" },
 	],
 
 	/**
