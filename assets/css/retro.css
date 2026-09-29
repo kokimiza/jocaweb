@@ -1,149 +1,142 @@
-/* Word-processor community flyer: white paper first, spot-colour ink second. */
+/* 2000年代の回覧チラシ：一太郎の罫線、パワポのオートシェイプ、昔のホームページ。 */
+@font-face {
+  font-family: "Mochiy Pop One";
+  src: url("../fonts/MochiyPopOne-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 @layer retro {
-  :root { --paper: #fffefb; --ink: #242529; --red: #d33120; --blue: #214a9b; --green: #2d7645; --yellow: #ffdc32; --color-text-light: #565650; --color-bg-light: #fff8d5; --color-bg-dark: #e8eee3; --ink-blue-wash: #eef3fa; --ink-red-wash: #fff0e7; --ink-green-wash: #edf3e9; }
+  :root {
+    --paper: #fffefb; --ink: #242529; --red: #d33120; --blue: #214a9b; --green: #2d7645; --yellow: #ffdc32;
+    --color-text-light: #565650; --color-bg-light: #fff8d5; --color-bg-dark: #e8eee3;
+    --ink-blue-wash: #eef3fa; --ink-red-wash: #fff0e7; --ink-green-wash: #edf3e9;
+    /* パワポの「影」の灰色と、Windows のボタン面。 */
+    --shade: #b4b4ac; --button-face: #ecebe4;
+    /* 同梱のモッチーポップで、端末を問わず手書きPOP風の見出しに。 */
+    --font-family-heading: "Mochiy Pop One", "Dela Gothic One", sans-serif;
+  }
   html { background: #d8d6ce; }
-  body { max-width: 1080px; margin-block: 16px; border: 1px solid #adafa6; box-shadow: 5px 5px 0 #bfc0b7; }
+  body { max-width: 980px; margin-block: 16px; border: 1px solid #adafa6; box-shadow: 5px 5px 0 #bfc0b7; }
+  h1, h2 { font-family: var(--font-family-heading); }
   a { text-decoration: underline; }
   a:hover { color: var(--red); }
   section { padding-block: 28px; }
-  .navbar { padding-top: 15px; background: var(--paper); padding-bottom: 12px; border-bottom: 0; }
-  .navbar-brand a { color: var(--green); text-shadow: 1px 1px var(--paper); letter-spacing: -.05em; }
-  .navbar-brand-note { font-family: 'MS PGothic', sans-serif; letter-spacing: 0; }
-  .header-stamp { color: var(--red); background: var(--paper); border: 4px double var(--red); font-style: normal; }
-  .navbar-menu { border: 3px double var(--blue); background: var(--paper); gap: 0; padding: 0; }
-  .navbar-menu li + li { border-left: 1px solid var(--blue); }
-  .navbar-menu a { background: var(--paper); border: 0; color: var(--blue); font-family: "MS PGothic", sans-serif; }
-  .navbar-menu li:nth-child(2n) a { background: var(--paper); }
-  .navbar-menu li:nth-child(3n) a { background: var(--paper); }
-  .navbar-menu a:hover, .navbar-menu a.is-active { background: var(--color-bg-light); color: var(--red); text-decoration: underline; }
-  .navbar-lang-toggle, .navbar-toggle, .motion-toggle { border: 1px solid var(--blue); background: var(--paper); color: var(--blue); font: 700 12px "MS PGothic", sans-serif; }
-  .navbar-lang-menu { background: var(--paper); }
-  .webmaster-strip { display: flex; align-items: center; gap: 8px; padding: 7px 12px; background: var(--paper); border-block: 3px double var(--red); }
-  .welcome-window { flex: 1; overflow: hidden; min-width: 0; border: 0; background: var(--paper); }
-  .welcome-track { display: flex; width: max-content; color: var(--red); font: 700 14px/2 "MS PGothic", monospace; animation: welcome-scroll 22s linear infinite; }
-  .welcome-track span { padding-inline: 25px; white-space: nowrap; }
-  .motion-toggle { flex: 0 0 auto; min-height: 36px; padding: 6px 10px; }
-  .motion-toggle:active { border-style: inset; }
-  .motion-toggle:disabled { cursor: default; opacity: 1; }
-  .flyer-hero { background: var(--paper); border-bottom: 0; }
-  .flyer-topline { color: var(--blue); border: 0; border-bottom: 1px solid var(--blue); background: var(--paper); padding: 6px 0; font-family: "MS PGothic", sans-serif; }
-  .homepage-welcome { margin: 12px 0 0; text-align: center; color: var(--blue); font: 900 clamp(.9rem, 2.5vw, 1.5rem)/1.6 var(--font-family-mincho); letter-spacing: .12em; }
-  .homepage-welcome b { display: inline-block; color: var(--red); animation: star-turn 6s linear infinite; }
-  .hero-stage { padding-top: 20px; isolation: isolate; }
-  .hero-title { color: var(--red); -webkit-text-stroke: 2px var(--paper); text-shadow: 3px 3px var(--paper), 6px 6px var(--blue), 9px 9px var(--yellow); }
-  .hero-title span { animation: letter-bob 2.6s ease-in-out infinite alternate; }
-  .hero-title span:nth-child(2) { color: var(--red); animation-delay: -.8s; }
-  .hero-title span:nth-child(3) { color: var(--red); animation-delay: -1.6s; }
-  .hero-sparkles { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-  .hero-sparkles span { position: absolute; color: var(--yellow); font: 900 32px/1 serif; animation: sparkle-pop 2.4s ease-in-out infinite alternate; }
-  .hero-sparkles span:nth-child(1) { top: 0; left: 4%; }
-  .hero-sparkles span:nth-child(2) { bottom: 0; left: 46%; color: var(--blue); animation-delay: -.7s; }
-  .hero-sparkles span:nth-child(3) { top: 15%; left: 63%; color: var(--red); animation-delay: -1.4s; }
-  .hero-sparkles span:nth-child(4) { bottom: 10%; right: 0; color: var(--green); animation-delay: -2s; }
-  .grip-clipart { animation: grip-wiggle 1.8s ease-in-out infinite alternate; transform-origin: 50% 85%; }
-  .grip-bubble { background: var(--yellow); color: var(--ink); border-color: var(--ink); box-shadow: 3px 3px var(--blue); }
-  .grip-bubble::after { background: var(--yellow); border-color: var(--ink); }
-  .hero-caption h2 { color: var(--green); text-shadow: none; }
-  .harmless-stamp { color: var(--red); background: var(--paper); border: 5px double var(--red); }
-  .hero-footline { padding: 10px; border: 5px double var(--blue); background: var(--paper); }
-  .grip-console { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin-top: 18px; padding: 12px; border: 1px dashed var(--red); background: var(--color-bg-light); font-family: "MS PGothic", sans-serif; }
-  .grip-console label { display: block; font-size: 11px; line-height: 1.5; }
-  .grip-count { display: block; min-width: 7ch; padding: 2px 5px; color: var(--red); background: var(--paper); border: 1px solid var(--red); font: 700 26px/1.1 "Courier New", monospace; letter-spacing: .08em; text-align: center; }
-  .grip-button { min-height: 44px; padding: 6px 16px; color: var(--paper); background: var(--red); border: 2px solid var(--red); box-shadow: 2px 2px 0 var(--ink); font-weight: 900; }
-  .grip-button:active { border-style: inset; }
-  .new-badge { display: inline-block; padding: 2px 5px; color: var(--red); background: var(--yellow); font: italic 900 12px/1.2 Arial, sans-serif; border: 1px dashed var(--red); animation: new-blink 1.8s steps(1, end) infinite; }
-  .grip-console .new-badge { transform: rotate(-12deg); }
-  .grip-console-message { min-width: 4em; color: var(--red); font-weight: 900; }
+
+  /* ワードアート：縦に引き伸ばして、黒フチと灰色の影。 */
+  .navbar-brand a, .hero-title, .page-header h1, .footer-wordmark {
+    display: inline-block; font-family: var(--font-family-heading); font-weight: 400; letter-spacing: 0;
+    -webkit-text-stroke: 1px var(--ink); paint-order: stroke fill; text-shadow: 4px 4px 0 var(--shade); text-decoration: none;
+  }
+
+  /* 昔のボタン：出っ張って、押すとへこむ。 */
+  .navbar-lang-toggle, .navbar-toggle, .navbar-menu a, .btn { border: 3px outset var(--button-face); background: var(--button-face); color: var(--ink); box-shadow: none; font-family: "MS PGothic", sans-serif; text-decoration: none; }
+  .navbar-lang-toggle:active, .navbar-toggle:active, .navbar-menu a:active, .btn:active { border-style: inset; transform: none; }
+
+  site-header { padding-bottom: 12px; border-bottom: 3px double var(--blue); }
+  .navbar { padding-top: 16px; }
+  .navbar-brand { font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.3; }
+  .navbar-brand a { color: var(--green); transform: scaleY(1.2); transform-origin: bottom; }
+  .navbar-brand a:hover { color: var(--green); }
+  .navbar-lang-toggle, .navbar-toggle { font-size: 12px; font-weight: 700; }
+  .navbar-lang-menu { background: var(--paper); box-shadow: 4px 4px 0 var(--shade); }
+  .navbar-menu { gap: 4px; border: 0; background: none; }
+  .navbar-menu li + li, .navbar-menu li:nth-child(even) { border: 0; }
+  .navbar-menu a { color: var(--blue); font-size: .85rem; }
+  .navbar-menu a:hover, .navbar-menu a.is-active { background: var(--yellow); color: var(--ink); text-decoration: none; }
+  .navbar-menu a.is-active { border-style: inset; }
+
+  /* トップ */
+  .flyer-hero { padding-block: 18px 36px; }
+  .homepage-welcome { margin: 0 0 14px; text-align: center; color: var(--blue); font: 700 1rem/1.6 "MS PGothic", sans-serif; }
+  .hero-stage { position: relative; padding: 36px 210px 48px 32px; text-align: center; border: 3px solid var(--blue); border-radius: 28px; background: linear-gradient(var(--paper), var(--color-bg-light)); box-shadow: 6px 6px 0 var(--shade); }
+  .hero-title { margin: 0; color: var(--red); font-size: clamp(4.5rem, 15vw, 9.5rem); line-height: 1.1; -webkit-text-stroke-width: 3px; text-shadow: 8px 8px 0 var(--shade); transform: scaleY(1.3) skewX(-8deg); }
+  /* クリップアートは枠からはみ出して、少し傾けて貼る。 */
+  .grip-clipart { position: absolute; right: -28px; bottom: -64px; width: clamp(120px, 26vw, 240px); height: auto; transform: rotate(14deg); }
   .hero-stage.is-gripping .grip-clipart { animation: grip-squeeze 350ms ease-out; }
-  .concept { padding-block: 24px; background: var(--paper); border-bottom: 0; }
-  .concept-heading { color: var(--blue); text-shadow: none; }
-  .concept-body { font-size: 1rem; }
-  .values { background: var(--paper); border-block: 3px double var(--green); }
-  .section-title { align-items: center; padding: 8px 0; margin-bottom: 20px; border: 0; border-bottom: 3px double var(--green); background: transparent; }
-  .section-title h2 { color: var(--green); text-shadow: none; font-family: "MS PGothic", "Yu Gothic", sans-serif; font-weight: 900; }
-  .section-title p { color: var(--green); }
-  .values-item { background: var(--paper); border: 5px double var(--blue); box-shadow: 3px 3px 0 var(--ink-blue-wash); min-height: 210px; }
-  .values-item:nth-child(2) { background: var(--color-bg-light); border: 5px double var(--red); box-shadow: none; }
-  .values-item:nth-child(3) { background: var(--paper); border: 5px double var(--green); box-shadow: 3px 3px 0 var(--ink-green-wash); }
-  .values-mark { text-shadow: none; }
-  .brands { background: var(--paper); border-bottom: 0; }
-  .brands-roster { gap: 12px; }
-  .brand-entry { border: 2px solid var(--brand-color); background: var(--paper); box-shadow: 3px 3px 0 var(--ink-blue-wash); text-decoration: none; }
-  .brand-entry:nth-child(2) { border-color: var(--green); background: var(--paper); box-shadow: 3px 3px 0 var(--ink-green-wash); }
-  .brand-entry:nth-child(3) { border-color: var(--red); background: var(--paper); box-shadow: 3px 3px 0 var(--ink-red-wash); }
-  .brand-entry:nth-child(4) { border-color: var(--blue); background: var(--paper); }
-  .brand-entry:hover { background: var(--color-bg-light); transform: none; }
-  .brand-entry-name { text-decoration: none; text-shadow: none; }
-  .brand-entry-arrow { font-family: monospace; animation: arrow-nudge 1s steps(2, end) infinite alternate; }
-  .namaran-notice { border: 3px double var(--blue); background: var(--color-bg-light); }
-  .namaran-notice strong { color: var(--blue); font-style: italic; text-shadow: none; }
-  .cta { background: var(--paper); }
-  .cta .container { border: 6px double var(--green); background: var(--paper); }
-  .cta h2 { color: var(--green); text-shadow: none; }
-  .btn { border: 2px solid var(--blue); box-shadow: 3px 3px 0 var(--ink-blue-wash); font-family: "MS PGothic", sans-serif; text-decoration: underline; }
-  .btn:hover { transform: none; }
-  .btn:active { border-style: inset; transform: none; }
-  .btn-primary { background: var(--blue); color: var(--paper); }
-  .btn-primary:hover { color: var(--paper); }
-  .btn-secondary { background: var(--paper); color: var(--blue); }
-  .page-header { background: var(--paper); border-bottom: 0; margin-bottom: 0; }
-  .page-header h1 { color: var(--page-color, var(--green)); text-shadow: 2px 2px var(--paper), 4px 4px var(--yellow); }
+  .grip-console { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 12px; margin-top: 44px; font: 13px/1.5 "MS PGothic", sans-serif; }
+  .grip-count { padding: 3px 6px; color: var(--yellow); background: var(--ink); border: 3px inset var(--button-face); font: 700 22px/1 "Courier New", monospace; letter-spacing: .2em; }
+  /* パワポの「爆発1」。 */
+  .grip-button { min-height: 44px; padding: 26px 46px; border: 0; color: var(--red); font: 400 1.05rem/1 var(--font-family-heading); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100' preserveAspectRatio='none'%3E%3Cpolygon points='100,2 112,24 140,4 138,30 188,14 160,42 198,56 156,62 176,92 128,74 112,98 98,76 64,96 66,72 18,86 40,62 2,44 42,38 14,10 66,24 78,2 88,22' fill='%23ffdc32' stroke='%23d33120' stroke-width='3' stroke-linejoin='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center / 100% 100% no-repeat; transform: rotate(-4deg); }
+  .grip-button:active { transform: rotate(-4deg) scale(.95); }
+  .grip-console-message { color: var(--red); font-weight: 700; }
+
+  /* 見出しはパワポの「ホームベース」にグラデーション。 */
+  .section-title { margin-bottom: 26px; filter: drop-shadow(4px 4px 0 var(--shade)); }
+  .section-title h2, .content-section h2 {
+    display: table; padding: 6px 52px 6px 18px; border: 0; color: var(--paper); font: 400 1.5rem/1.4 var(--font-family-heading);
+    background: linear-gradient(color-mix(in srgb, var(--page-color, var(--green)) 70%, white), var(--page-color, var(--green)));
+    clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 50%, calc(100% - 28px) 100%, 0 100%);
+  }
+
+  /* 三つのこと：楕円・角丸四角形・メモを、揃えずに置く。 */
+  .values-list { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 24px 22px; padding: 0; list-style: none; }
+  .values-item { position: relative; flex: 0 1 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 190px; padding: 24px 28px; text-align: center; border: 3px solid var(--blue); background: linear-gradient(var(--paper), var(--ink-blue-wash)); box-shadow: 5px 5px 0 var(--shade); }
+  .values-item:nth-child(1) { border-radius: 50%; }
+  .values-item:nth-child(2) { margin-top: 40px; border-color: var(--red); border-radius: 22px; background: linear-gradient(var(--paper), var(--ink-red-wash)); transform: rotate(-3deg); }
+  .values-item:nth-child(3) { margin-top: 8px; border-color: var(--green); background: linear-gradient(var(--paper), var(--ink-green-wash)); transform: rotate(2deg); }
+  .values-item:nth-child(3)::after { content: ""; position: absolute; right: -3px; bottom: -3px; width: 34px; height: 34px; background: linear-gradient(to top left, var(--paper) calc(50% - 2px), var(--green) calc(50% - 2px) calc(50% + 1px), #cfe0d2 calc(50% + 1px)); }
+  .values-mark { margin-bottom: 10px; color: var(--blue); font: 900 3rem/1 var(--font-family-mincho); }
+  .values-item:nth-child(2) .values-mark { color: var(--red); }
+  .values-item:nth-child(3) .values-mark { color: var(--green); }
+  .values-item h3 { font: 700 1.1rem/1.6 var(--font-family-mincho); text-wrap: balance; }
+
+  /* 一太郎の罫線表。見出し行は網掛け。 */
+  .brand-table { width: 100%; border-collapse: collapse; border: 3px double var(--ink); background: var(--paper); }
+  .brand-table th, .brand-table td { padding: 8px 12px; border: 1px solid var(--ink); text-align: left; vertical-align: middle; }
+  .brand-table th { background: radial-gradient(#24252938 1px, transparent 1.4px) 0 0 / 4px 4px, var(--color-bg-light); }
+  .brand-table td:first-child { width: 48%; font-size: .9rem; }
+  .brand-table a { font-weight: 700; font-size: 1.1rem; }
+  .brand-table a::before { content: "▶"; display: inline-block; margin-right: 6px; color: var(--red); font-size: .75em; }
+
+  [data-page="index"] .cta { padding-block: 0 36px; }
+  [data-page="index"] .cta .container { padding: 0; border: 0; background: none; }
+  .cta .container { border: 3px double var(--blue); background: var(--paper); }
+  .cta h2 { color: var(--blue); }
+  .btn { min-width: 11em; font-weight: 700; }
+  .btn-primary, .btn-primary:hover { border-color: var(--blue); background: var(--blue); color: var(--paper); }
+  .btn-secondary { color: var(--blue); }
+
+  /* 下層ページ */
+  .page-header { padding-block: 36px 30px; }
+  .page-header h1 { margin-bottom: 26px; color: var(--page-color, var(--green)); -webkit-text-stroke-width: 2px; text-shadow: 6px 6px 0 var(--shade); transform: scaleY(1.25) skewX(-6deg); }
   .page-header::after { border-color: var(--page-color, var(--green)); }
-  .page-header-icon { border: 5px double var(--page-color, var(--green)); animation: grip-wiggle 3s ease-in-out infinite alternate; }
-  .content-section:nth-child(2n) { background: var(--paper); }
-  .content-section:nth-child(2n + 1) { background: var(--paper); }
-  .content-section h2 { border: 0; border-left: 6px solid var(--page-color, var(--green)); background: var(--color-bg-light); color: var(--ink); font: 900 1.5rem/1.4 "MS PGothic", sans-serif; }
-  .service-card, .responsibility-card, .philosophy-point { border: 1px solid var(--page-color, var(--green)); background: var(--paper); }
-  .philosophy-point { background: var(--paper); border-style: dashed; }
-  .section-note { background: var(--paper); border: 1px solid var(--ink); padding-top: 38px; position: relative; }
-  .section-note::before { content: ""; position: absolute; inset: 0 0 auto; height: 10px; background: repeating-linear-gradient(-45deg, var(--ink) 0 10px, var(--yellow) 10px 20px); background-size: 28px 28px; animation: roadworks 2s linear infinite; }
-  .contact-form { border: 5px double var(--green); background: var(--paper); }
-  .contact-form input, .contact-form select, .contact-form textarea { background: #fff; border: 1px solid var(--ink); }
-  .project-notice { border: 5px double var(--blue); background: var(--color-bg-light); }
+  .page-header-icon { width: 96px; height: 72px; display: grid; place-items: center; margin: 0 auto 20px; border: 3px solid var(--page-color, var(--green)); border-radius: 50%; background: linear-gradient(var(--paper), var(--color-bg-light)); box-shadow: 4px 4px 0 var(--shade); }
+  .service-card, .responsibility-card, .philosophy-point { border: 2px solid var(--page-color, var(--green)); border-radius: 14px; background: var(--paper); box-shadow: 4px 4px 0 var(--shade); }
+  .philosophy-point { border-style: dashed; }
+  /* 工事中。 */
+  .section-note { position: relative; padding-top: 38px; border: 1px solid var(--ink); background: var(--paper); }
+  .section-note::before { content: ""; position: absolute; inset: 0 0 auto; height: 10px; background: repeating-linear-gradient(-45deg, var(--ink) 0 10px, var(--yellow) 10px 20px); }
+  .contact-form { border: 3px double var(--green); background: var(--paper); box-shadow: 5px 5px 0 var(--shade); }
+  .contact-form input, .contact-form select, .contact-form textarea { background: #fff; border: 2px inset var(--button-face); }
+  .project-notice { border: 3px double var(--blue); background: var(--color-bg-light); }
   .genre-kokimiza, .genre-systems { color: var(--blue); background: var(--ink-blue-wash); }
   .genre-gutzgutz { color: var(--green); background: var(--ink-green-wash); }
   .genre-bpm { color: var(--red); background: var(--ink-red-wash); }
   .genre-jocarium { color: var(--ink); background: var(--color-bg-light); }
-  site-footer > footer { margin: 0; padding: 25px 28px; background: var(--paper); border-top: 5px double var(--green); color: var(--ink); }
-  .footer-wordmark { color: var(--green); text-shadow: none; }
+
+  site-footer > footer { margin: 0; padding: 22px 28px; border-top: 3px double var(--blue); background: var(--paper); color: var(--ink); }
+  .footer-wordmark { color: var(--green); font-size: 1.6rem; }
   .footer-links a { color: var(--blue); }
   .footer-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .web-badge { width: 88px; min-height: 31px; display: grid; place-items: center; border: 3px double var(--green); background: var(--paper); color: var(--green); font: 900 10px/1.1 "Courier New", monospace; text-align: center; white-space: pre-line; }
   .web-badge:nth-child(2) { background: var(--color-bg-light); color: var(--red); border-color: var(--red); }
-  .web-badge:nth-child(3) { background: var(--paper); color: var(--blue); border-color: var(--blue); }
-  .web-badge:nth-child(4) { background: var(--paper); color: var(--green); }
+  .web-badge:nth-child(3) { color: var(--blue); border-color: var(--blue); }
   .footer-copyright { color: var(--color-text-light); }
-  html[data-motion='paused'] *, html[data-motion='paused'] *::before, html[data-motion='paused'] *::after { animation-play-state: paused !important; }
-  @keyframes welcome-scroll { to { transform: translateX(-50%); } }
-  @keyframes star-turn { to { transform: rotate(360deg); } }
-  @keyframes letter-bob { from { translate: 0 -5px; rotate: -3deg; } to { translate: 0 5px; rotate: 3deg; } }
-  @keyframes sparkle-pop { from { scale: .65; rotate: -20deg; } to { scale: 1.15; rotate: 20deg; } }
-  @keyframes grip-wiggle { from { transform: rotate(-8deg); } to { transform: rotate(12deg); } }
+
   @keyframes grip-squeeze { 50% { transform: rotate(-14deg) scale(.83); } }
-  @keyframes new-blink { 0%, 100% { opacity: 1; } 65% { opacity: .25; } }
-  @keyframes arrow-nudge { to { translate: 4px -3px; } }
-  @keyframes roadworks { to { background-position: 28px 0; } }
+
   @media (max-width: 700px) {
     body { border-width: 0; margin: 0; box-shadow: none; }
-    .navbar-menu li:nth-child(even) { border: 0; }
-    site-header { border: 0; padding: 0; }
-    .navbar-brand-note { max-width: 170px; }
-    .welcome-track { font-size: 12px; }
-    .webmaster-strip { padding: 6px; }
-    .motion-toggle { padding-inline: 6px; font-size: 11px; }
-    .hero-title { text-shadow: 2px 2px var(--paper), 4px 4px var(--blue), 6px 6px var(--yellow); }
-    .hero-caption { gap: 8px; }
-    .harmless-stamp { border-width: 3px; padding: 5px; }
-    .homepage-welcome { letter-spacing: 0; }
-    .section-title { padding: 6px; gap: 4px; }
-    .section-title h2 { font-size: 1.35rem; }
-    .section-title p { font-size: .65rem; }
-    .values-item { min-height: 130px; }
-    .grip-console { gap: 8px; padding: 8px; }
-    .grip-count { font-size: 22px; }
-    .grip-button { padding: 6px 10px; }
-    .brand-entry { padding: 18px; }
-    .hero-sparkles span { font-size: 22px; }
+    .hero-stage { padding: 28px 16px 56px; }
+    .hero-title { font-size: clamp(3.8rem, 20vw, 6rem); -webkit-text-stroke-width: 2px; text-shadow: 5px 5px 0 var(--shade); }
+    .grip-clipart { right: -10px; bottom: -44px; width: 104px; }
+    .grip-console { margin-top: 48px; }
+    .section-title h2, .content-section h2 { font-size: 1.25rem; }
+    .values-item, .values-item:nth-child(2), .values-item:nth-child(3) { flex-basis: 100%; min-height: 150px; margin-top: 0; }
+    .values-item:nth-child(1) { flex-basis: 88%; }
+    .brand-table th, .brand-table td { padding: 6px 8px; }
     site-footer > footer { padding: 24px 18px; }
   }
 }

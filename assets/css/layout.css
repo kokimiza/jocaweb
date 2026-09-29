@@ -7,7 +7,6 @@
   .navbar-brand { font: 400 clamp(1.6rem, 4vw, 2.5rem)/1.2 var(--font-family-heading); letter-spacing: -.07em; }
   .navbar-brand a { color: var(--green); }
   .navbar-brand a:hover { text-decoration: none; color: var(--red); }
-  .navbar-brand-note { display: block; margin-top: 6px; color: var(--ink); font: 700 .7rem/1.5 var(--font-family-sans); letter-spacing: .16em; }
   .navbar-menu { grid-column: 1 / -1; display: flex; list-style: none; padding: 0; margin: 0; border: 3px double var(--green); }
   .navbar-menu li { flex: 1; min-width: 0; }
   .navbar-menu li + li { border-left: 1px solid var(--green); }
@@ -20,7 +19,6 @@
   .navbar-lang:has([aria-expanded="true"]) .navbar-lang-menu { visibility: visible; }
   .navbar-lang-option { width: 100%; min-height: 44px; border: 0; background: transparent; text-align: left; padding: 8px 12px; }
   .navbar-lang-option:hover, .navbar-lang-option[aria-pressed="true"] { background: var(--yellow); }
-  .header-stamp { color: var(--red); border: 3px double currentColor; padding: 3px 12px; font-family: var(--font-family-mincho); font-weight: 900; transform: rotate(5deg); }
   .skip-link { position: absolute; top: 8px; left: 8px; padding: 8px 16px; transform: translateY(-200%); background: var(--yellow); z-index: 20; }
   .skip-link:focus { transform: none; }
   main { padding-bottom: 20px; }
@@ -29,15 +27,12 @@
   site-footer .container { width: 100%; }
   .footer-band { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
   .footer-wordmark { font: 400 1.7rem var(--font-family-heading); color: var(--green); letter-spacing: -.07em; }
-  .footer-tagline { font-family: var(--font-family-mincho); font-weight: 900; flex: 1; }
   .footer-links { display: flex; gap: 24px; list-style: none; padding: 0; }
   .footer-copyright { margin-top: 20px; font-size: .75rem; }
   @media (max-width: 700px) {
     .container { width: calc(100% - 36px); }
     .navbar { padding-top: 18px; }
     .navbar > .container { grid-template-columns: 1fr auto auto; gap: 12px 8px; }
-    .navbar-brand-note { font-size: .6rem; letter-spacing: .03em; }
-    .header-stamp { display: none; }
     .navbar-toggle { display: flex; }
     .navbar-menu { display: none; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .navbar:has(.navbar-toggle[aria-expanded="true"]) .navbar-menu { display: grid; }
@@ -48,6 +43,5 @@
     section { padding-block: 28px; }
     site-footer > footer { margin-inline: 18px; }
     .footer-band { gap: 12px; }
-    .footer-tagline { flex-basis: 50%; }
   }
 }

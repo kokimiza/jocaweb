@@ -42,31 +42,6 @@ class ContactForm {
 }
 new ContactForm();
 
-// Persist the pause control across pages. OS reduced-motion preference wins.
-const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
-const motionButton = document.querySelector('.motion-toggle');
-let motionPaused = false;
-try { motionPaused = localStorage.getItem('jocarium-motion') === 'paused'; } catch {}
-function applyMotion() {
-  const paused = motionPreference.matches || motionPaused;
-  document.documentElement.dataset.motion = paused ? 'paused' : 'running';
-  if (!motionButton) return;
-  const key = motionPreference.matches ? 'reduced' : paused ? 'resume' : 'pause';
-  motionButton.dataset.i18n = `retro.${key}`;
-  motionButton.textContent = window.jocariumI18n?.text(`retro.${key}`) ?? {
-    reduced: '動きは停止中', resume: '動かす', pause: '動きを止める'
-  }[key];
-  motionButton.disabled = motionPreference.matches;
-  motionButton.setAttribute('aria-pressed', String(paused));
-}
-motionButton?.addEventListener('click', () => {
-  motionPaused = !motionPaused;
-  try { localStorage.setItem('jocarium-motion', motionPaused ? 'paused' : 'running'); } catch {}
-  applyMotion();
-});
-motionPreference.addEventListener('change', applyMotion);
-applyMotion();
-
 // An honest local interaction counter, not a fabricated visitor count.
 const gripConsole = document.querySelector('.grip-console');
 if (gripConsole) {

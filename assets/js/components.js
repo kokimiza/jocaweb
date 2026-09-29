@@ -83,7 +83,7 @@
 				{ href: `${base}/${site.rootPage}` },
 				site.name,
 			);
-			brand.append(brandLink, el("span", { class: "navbar-brand-note", "data-i18n": "nav.brandNote" }, "ヨカリウム ／ 奇を収蔵する容器"));
+			brand.append(brandLink);
 
 			// ハンバーガーボタン
 			const toggle = el("button", {
@@ -150,25 +150,11 @@
 			// 言語スイッチャー
 			const langSwitcher = this.#buildLangSwitcher(base);
 
-			const stamp = el("span", { class: "header-stamp", "data-i18n": "nav.stamp" }, "余暇の活動");
-			container.append(brand, stamp, langSwitcher, toggle, menu);
+			container.append(brand, langSwitcher, toggle, menu);
 			nav.append(container);
-			header.append(el("a", { class: "skip-link", href: "#main", "data-i18n": "nav.skip" }, "本文へ"), nav, this.#buildWelcome());
+			header.append(el("a", { class: "skip-link", href: "#main", "data-i18n": "nav.skip" }, "本文へ"), nav);
 			this.append(header);
 		}
-
-        #buildWelcome() {
-            const strip = el("div", { class: "webmaster-strip" });
-            const window = el("div", { class: "welcome-window", "aria-hidden": "true" });
-            const track = el("div", { class: "welcome-track" });
-            for (let i = 0; i < 2; i++) {
-                track.append(el("span", { "data-i18n": "retro.ticker" }, "★ 握る！ ★ 無害です。小競り合いは、少々。 ★ 余暇を、奇を、ぎゅっと。"));
-            }
-            window.append(track);
-            const toggle = el("button", { class: "motion-toggle", type: "button", "aria-pressed": "false", "data-i18n": "retro.pause" }, "動きを止める");
-            strip.append(window, toggle);
-            return strip;
-        }
 
 		#buildLangSwitcher(base) {
 			const wrapper = el("div", { class: "navbar-lang" });
@@ -265,7 +251,6 @@
 				{ class: "footer-wordmark", href: `${base}/${site.rootPage}` },
 				site.name,
 			);
-			const tagline = el("p", { class: "footer-tagline", "data-i18n": "footer.tagline" }, "握る！ 余暇を、奇を、ぎゅっと。");
 
 			// フッターリンク
 			const linkList = el("ul", { class: "footer-links" });
@@ -278,11 +263,10 @@
 			// Copyright
 			const copy = el("p", { class: "footer-copyright" }, `© ${site.copyright}`);
 
-			band.append(wordmark, tagline, linkList);
+			band.append(wordmark, linkList);
 			const badges = el("div", { class: "footer-badges" });
             badges.append(
                 el("a", { class: "web-badge", href: `${base}/${site.rootPage}` }, "JOCARIUM\nHOME"),
-                el("span", { class: "web-badge", lang: "ja" }, "握る！\n余暇リウム"),
                 el("a", { class: "web-badge", href: "https://namaran.jocarium.productions/" }, "NAMARAN"),
                 el("a", { class: "web-badge", href: `${base}/contact/index.html`, "data-i18n": "shared.getInTouch" }, "お問い合わせ")
             );

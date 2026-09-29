@@ -69,14 +69,6 @@
 			"ja": "メニューを閉じる",
 			"en": "Close menu"
 		},
-		"brandNote": {
-			"ja": "ヨカリウム ／ 奇を収蔵する容器",
-			"en": "Yokarium / A vessel for curiosities"
-		},
-		"stamp": {
-			"ja": "余暇の活動",
-			"en": "Made at leisure"
-		},
 		"skip": {
 			"ja": "本文へ",
 			"en": "Skip to content"
@@ -86,10 +78,6 @@
 		"copyright": {
 			"ja": "2026 jocarium.",
 			"en": "2026 jocarium."
-		},
-		"tagline": {
-			"ja": "握る！ 余暇を、奇を、ぎゅっと。",
-			"en": "GRASP! Hold leisure and curiosity close."
 		}
 	},
 	"shared": {
@@ -115,16 +103,6 @@
 		}
 	},
 	"index": {
-		"concept": {
-			"heading": {
-				"ja": "余暇を、ぎゅっと。",
-				"en": "Hold leisure close."
-			},
-			"body": {
-				"ja": "無害であり、ときには小競り合い。妙なものも、好きなものも、この容器に。jocarium は、余暇から生まれる「奇」を収蔵する、ヨカリウム（余暇リウム）です。",
-				"en": "Harmless, with the occasional little skirmish. A home for oddities and things we love. jocarium is Yokarium: a vessel for curiosities born of leisure."
-			}
-		},
 		"values": {
 			"virtue": {
 				"desc": {
@@ -143,103 +121,53 @@
 					"ja": "才気煥発",
 					"en": "Let brilliance burst."
 				}
-			},
-			"heading": {
-				"ja": "大事に握る、三つのこと。",
-				"en": "Three things to hold close."
 			}
 		},
 		"brands": {
 			"kokimiza": {
-				"desc": {
-					"ja": "意図あるビジュアルと、意味あるモーション。",
-					"en": "Intentional visuals. Meaningful motion."
-				},
 				"type": {
 					"ja": "映像・アニメーション",
 					"en": "Animation & Visual"
 				}
 			},
 			"gutzgutz": {
-				"desc": {
-					"ja": "何度でも遊びたくなる、ゲームプレイ中心の体験。",
-					"en": "Gameplay-first experiences you'll want to play again and again."
-				},
 				"type": {
 					"ja": "ゲーム開発",
 					"en": "Game Development"
 				}
 			},
 			"bpm": {
-				"desc": {
-					"ja": "jocarium を音で満たす、インハウス・レーベル。",
-					"en": "The in-house label filling jocarium with sound."
-				},
 				"type": {
 					"ja": "音楽レーベル",
 					"en": "Music Label"
 				}
 			},
 			"systems": {
-				"desc": {
-					"ja": "クリエイティブを支える技術基盤。Namaran も運営しています。",
-					"en": "The technology behind our creativity. Also operating Namaran."
-				},
 				"type": {
 					"ja": "ソフトウェア・技術基盤",
 					"en": "Software & Infrastructure"
 				}
 			},
-			"heading": {
-				"ja": "容器の中の、あれこれ。",
-				"en": "Inside the vessel."
-			},
 			"label": {
 				"ja": "ブランド一覧",
 				"en": "Creative brands"
-			}
-		},
-		"cta": {
-			"desc": {
-				"ja": "各ブランドの近況はこちら。お問い合わせも、お気軽に。",
-				"en": "Updates from our brands. Get in touch, too."
 			},
-			"heading": {
-				"ja": "お知らせと、おたより。",
-				"en": "News & correspondence."
-			}
-		},
-		"hero": {
-			"edition": {
-				"ja": "余暇と、奇と、ちょっとした小競り合い。",
-				"en": "Leisure, curiosities, and little skirmishes."
+			"colType": {
+				"ja": "分野",
+				"en": "Field"
 			},
-			"caption": {
-				"ja": "奇を収蔵する容器。",
-				"en": "A vessel for curiosities."
+			"colName": {
+				"ja": "名前",
+				"en": "Name"
 			},
-			"harmless": {
-				"ja": "無害です。",
-				"en": "Harmless."
-			},
-			"skirmish": {
-				"ja": "小競り合いは、少々。",
-				"en": "A few little skirmishes."
-			},
-			"reading": {
-				"ja": "jocarium と書いて、ヨカリウム。",
-				"en": "Written jocarium. Pronounced Yokarium."
-			},
-			"explore": {
-				"ja": "中身をのぞく ↓",
-				"en": "Look inside ↓"
+			"namaran": {
+				"type": {
+					"ja": "Webサービス（運営：jocarium Systems）",
+					"en": "Web service (run by jocarium Systems)"
+				}
 			}
 		},
 		"namaran": {
-			"desc": {
-				"ja": "も、この容器から。運営：jocarium Systems",
-				"en": "is part of the vessel, too. Operated by jocarium Systems."
-			},
 			"link": {
 				"ja": "Namaran を開く ↗",
 				"en": "Visit Namaran ↗"
@@ -818,22 +746,6 @@
 		"welcome": {
 			"ja": "ようこそ！jocarium のホームページへ！",
 			"en": "Welcome to the jocarium homepage!"
-		},
-		"ticker": {
-			"ja": "★ 握る！ ★ 無害です。小競り合いは、少々。 ★ 余暇を、奇を、ぎゅっと。",
-			"en": "★ GRASP! ★ Harmless, with a few little skirmishes. ★ Hold leisure and curiosity close."
-		},
-		"pause": {
-			"ja": "動きを止める",
-			"en": "Pause motion"
-		},
-		"resume": {
-			"ja": "動かす",
-			"en": "Play motion"
-		},
-		"reduced": {
-			"ja": "動きは停止中",
-			"en": "Motion is off"
 		},
 		"counter": {
 			"ja": "このブラウザで握った回数",
