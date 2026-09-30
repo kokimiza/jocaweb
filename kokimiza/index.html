@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>kokimiza – Animation &amp; Visual | jocarium</title>
+  <title>小気味座 — 映像・アニメーション | jocarium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap">
@@ -11,92 +11,33 @@
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
   <link rel="stylesheet" href="../assets/css/theme.css">
-  <link rel="stylesheet" href="../assets/css/kokimiza.css">
   <link rel="stylesheet" href="../assets/css/retro.css">
+  <link rel="stylesheet" href="../assets/css/brand-print.css">
+  <link rel="stylesheet" href="../assets/css/kokimiza.css">
   <script src="../assets/js/config.js" defer></script>
   <script src="../assets/js/components.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
   <script src="../assets/js/i18n.js" defer></script>
 </head>
-<body data-page="kokimiza">
+<body data-page="kokimiza" class="brand-page">
   <site-header base=".."></site-header>
-
   <main id="main" tabindex="-1">
-    <section class="page-header">
-      <div class="container">
-        <div class="page-header-icon">
-          <img src="../assets/icons/clapperboard.svg" width="48" height="48" alt="" aria-hidden="true" class="icon-accent">
-        </div>
-        <h1>kokimiza</h1>
-        <p data-i18n="kokimiza.header.desc">意図あるビジュアル、意味あるモーション。</p>
+    <article class="koki-handbill" aria-labelledby="brand-title">
+      <div class="koki-topline"><span data-i18n="kokimiza.flyer.kind">映像・アニメーション</span><span>jocarium</span></div>
+      <div class="koki-stage">
+        <p class="koki-side" data-i18n="kokimiza.flyer.side">絵が動く。それをつくる。</p>
+        <h1 id="brand-title" lang="ja">小気味座</h1>
+        <div class="koki-seal" data-i18n="kokimiza.flyer.seal">仕度中</div>
+        <span class="koki-roman" aria-hidden="true">K O K I M I Z A</span>
       </div>
-    </section>
-
-    <section class="content-section">
-      <div class="container">
-        <h2 data-i18n="sections.work">つくるもの</h2>
-        <div class="services-grid">
-          <article class="service-card">
-            <h3>Animation</h3>
-            <p data-i18n="kokimiza.services.animation.desc">各フレームに意図を込めた、キャラクター・UI・環境のアニメーション制作。</p>
-          </article>
-          <article class="service-card">
-            <h3>Short Films</h3>
-            <p data-i18n="kokimiza.services.shortFilms.desc">視覚的インパクトと感情的な深さを持つ、完結した短編映像。</p>
-          </article>
-          <article class="service-card">
-            <h3>Motion Design</h3>
-            <p data-i18n="kokimiza.services.motionDesign.desc">UI・ブランド・空間のための、動きの美学。</p>
-          </article>
-          <article class="service-card">
-            <h3>Visual Storytelling</h3>
-            <p data-i18n="kokimiza.services.storytelling.desc">映像言語で複雑なアイデアと感情を伝える。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="container">
-        <h2 data-i18n="sections.philosophy">大切にしていること</h2>
-        <div class="philosophy-points">
-          <article class="philosophy-point">
-            <h3 data-i18n="kokimiza.philosophy.p1.title">満足度</h3>
-            <p data-i18n="kokimiza.philosophy.p1.desc">磨き抜かれた、完成度の高い作品だけを出す。</p>
-          </article>
-          <article class="philosophy-point">
-            <h3 data-i18n="kokimiza.philosophy.p2.title">表現力</h3>
-            <p data-i18n="kokimiza.philosophy.p2.desc">技術と芸術のバランスの中で、感情と意図を映像に宿す。</p>
-          </article>
-          <article class="philosophy-point">
-            <h3 data-i18n="kokimiza.philosophy.p3.title">心地よさ</h3>
-            <p data-i18n="kokimiza.philosophy.p3.desc">テンポ・色彩・タイミング、すべてが調和した体験。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="container">
-        <h2 data-i18n="sections.works">作品のお知らせ</h2>
-        <p class="section-note">
-          <img src="../assets/icons/play.svg" width="16" height="16" alt="" aria-hidden="true" class="icon-inline icon-muted">
-          <span data-i18n="kokimiza.works.note">ポートフォリオ準備中</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <h2 data-i18n="kokimiza.cta.heading">Let's Make Something.</h2>
-        <div class="cta-buttons">
-          <a href="../contact/index.html" class="btn btn-primary" data-i18n="shared.getInTouch">お問い合わせ</a>
-          <a href="../press/index.html" class="btn btn-secondary" data-i18n="shared.press">お知らせ</a>
-        </div>
-      </div>
-    </section>
+      <section class="koki-program" aria-labelledby="program-title">
+        <h2 id="program-title" data-i18n="kokimiza.flyer.program">本日の演目</h2>
+        <p data-i18n="kokimiza.flyer.status">お見せできる作品は、まだありません。</p>
+        <p class="koki-small" data-i18n="kokimiza.flyer.next">できあがったら、こちらに。</p>
+      </section>
+      <div class="koki-bottom"><span data-i18n="kokimiza.flyer.credit">映像制作　小気味座</span><a href="../press/index.html?genre=kokimiza" data-i18n="kokimiza.flyer.link">小気味座のお知らせ →</a></div>
+    </article>
   </main>
-
   <site-footer base=".."></site-footer>
 </body>
 </html>

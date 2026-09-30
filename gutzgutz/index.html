@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gutzgutz – Game Development | jocarium</title>
+  <title>グツグツソフトウェア — ゲーム制作 | jocarium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap">
@@ -11,93 +11,39 @@
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
   <link rel="stylesheet" href="../assets/css/theme.css">
-  <link rel="stylesheet" href="../assets/css/gutzgutz.css">
   <link rel="stylesheet" href="../assets/css/retro.css">
+  <link rel="stylesheet" href="../assets/css/brand-print.css">
+  <link rel="stylesheet" href="../assets/css/gutzgutz.css">
   <script src="../assets/js/config.js" defer></script>
   <script src="../assets/js/components.js" defer></script>
   <script src="../assets/js/main.js" defer></script>
   <script src="../assets/js/i18n.js" defer></script>
 </head>
-<body data-page="gutzgutz">
+<body data-page="gutzgutz" class="brand-page">
   <site-header base=".."></site-header>
-
   <main id="main" tabindex="-1">
-    <section class="page-header">
-      <div class="container">
-        <div class="page-header-icon">
-          <img src="../assets/icons/gamepad.svg" width="48" height="48" alt="" aria-hidden="true" class="icon-accent">
-        </div>
-        <h1>Gutzgutz</h1>
-        <p data-i18n="gutzgutz.header.desc">静かに沸き立つ衝動を、遊びに変える。</p>
+    <article class="gutz-handbill" aria-labelledby="brand-title">
+      <p class="gutz-ribbon" data-i18n="gutzgutz.flyer.ribbon">◆　ゲームをつくるところ　◆</p>
+      <h1 id="brand-title"><span lang="ja">グツグツ</span><span class="gutz-subtitle" lang="ja">ソフトウェア</span></h1>
+      <div class="gutz-playground">
+        <div class="gutz-burst"><span data-i18n="gutzgutz.flyer.burst">まだまだ<br>煮込み中！</span></div>
+        <svg class="gutz-controller" viewBox="0 0 340 220" aria-hidden="true">
+          <path d="M170 58V30q0-20 25-20h24" fill="none" stroke="currentColor" stroke-width="8"/>
+          <path d="M77 61h186q29 0 40 32l22 74q9 33-17 39-16 4-35-17l-26-28H93l-26 28q-19 21-35 17-26-6-17-39l22-74q11-32 40-32Z" fill="#fff9cd" stroke="currentColor" stroke-width="9"/>
+          <path d="M70 91h23v23h23v23H93v23H70v-23H47v-23h23Z" fill="currentColor"/>
+          <circle cx="257" cy="106" r="17" fill="currentColor"/><circle cx="287" cy="140" r="17" fill="currentColor"/>
+          <path d="M143 142h17m19 0h17" stroke="currentColor" stroke-width="8"/>
+        </svg>
+        <p class="gutz-caption" data-i18n="gutzgutz.flyer.caption">遊べるものは、これから。</p>
       </div>
-    </section>
-
-    <section class="content-section">
-      <div class="container">
-        <h2 data-i18n="sections.games">つくる遊び</h2>
-        <div class="game-categories">
-          <article class="service-card">
-            <h3>Original Titles</h3>
-            <p data-i18n="gutzgutz.services.original.desc">コンセプトからリリースまで、一貫して自社IPを育てる。</p>
-          </article>
-          <article class="service-card">
-            <h3>Engine-Agnostic Craft</h3>
-            <p data-i18n="gutzgutz.services.engines.desc">Unity、Unreal Engine、Bevy。プロジェクトに最も適した技術を選ぶ。</p>
-          </article>
-          <article class="service-card">
-            <h3>Offline First</h3>
-            <p data-i18n="gutzgutz.services.offline.desc">Windows、Linux、macOS、iOS。オフラインの体験だけを、まっすぐに磨く。</p>
-          </article>
-          <article class="service-card">
-            <h3>Any Genre</h3>
-            <p data-i18n="gutzgutz.services.genre.desc">ジャンルは決めない。面白さの本質だけを追いかける。</p>
-          </article>
-        </div>
+      <div class="gutz-memo">
+        <h2 data-i18n="gutzgutz.flyer.label">ただいまの状況</h2>
+        <p data-i18n="gutzgutz.flyer.status">公開中のゲームはありません。</p>
+        <a href="../press/index.html?genre=gutzgutz" data-i18n="gutzgutz.flyer.link">制作のお知らせをのぞく →</a>
       </div>
-    </section>
-
-    <section class="content-section">
-      <div class="container">
-        <h2 data-i18n="sections.doctrine">遊びの心得</h2>
-        <div class="philosophy-points">
-          <article class="philosophy-point">
-            <h3 data-i18n="gutzgutz.philosophy.p1.title">沸点</h3>
-            <p data-i18n="gutzgutz.philosophy.p1.desc">静かに滾る情熱を、遊びへと注ぎ込む。派手さではなく、熱量で語る。</p>
-          </article>
-          <article class="philosophy-point">
-            <h3 data-i18n="gutzgutz.philosophy.p2.title">面白さの先</h3>
-            <p data-i18n="gutzgutz.philosophy.p2.desc">面白さは前提条件。目指すのは、その先にある忘れがたい手触り。</p>
-          </article>
-          <article class="philosophy-point">
-            <h3 data-i18n="gutzgutz.philosophy.p3.title">残る記憶</h3>
-            <p data-i18n="gutzgutz.philosophy.p3.desc">ふと思い出したときに、「あれは楽しかったな」と思える体験を届ける。</p>
-          </article>
-          <article class="philosophy-point">
-            <h3 data-i18n="gutzgutz.philosophy.p4.title">静かな爪痕</h3>
-            <p data-i18n="gutzgutz.philosophy.p4.desc">声高に語らずとも、遊んだ人の中に、そして社会に、小さな爪痕を残したい。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="container">
-        <h2 data-i18n="sections.titles">ゲームのお知らせ</h2>
-        <p class="section-note" data-i18n="gutzgutz.portfolio.note">ゲームプロジェクト準備中</p>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <h2 data-i18n="gutzgutz.cta.heading">Play With Us.</h2>
-        <div class="cta-buttons">
-          <a href="../contact/index.html" class="btn btn-primary" data-i18n="shared.getInTouch">お問い合わせ</a>
-          <a href="../press/index.html" class="btn btn-secondary" data-i18n="shared.press">お知らせ</a>
-        </div>
-      </div>
-    </section>
+      <p class="gutz-imprint">GUTZGUTZ SOFTWARE ／ jocarium</p>
+    </article>
   </main>
-
   <site-footer base=".."></site-footer>
 </body>
 </html>
