@@ -15,132 +15,55 @@ function init() {
 
 	if (loadingEl) loadingEl.remove();
 	renderList(allItems);
-	initFilter(allItems);
-	initListEvents();
-	initModal();
+	initFilter();
 }
 
 // --------------------------------------------------------------------------
 // Filter
 // --------------------------------------------------------------------------
 
-function initFilter(allItems) {
+// Filtering keeps the same disclosure elements, preserving articles already opened.
+function initFilter() {
 	const radios = document.querySelectorAll('input[name="genre-filter"]');
+	const entries = document.querySelectorAll(".news-item");
+	const empty = document.getElementById("news-empty");
 	const requestedGenre = new URLSearchParams(window.location.search).get("genre")?.toLowerCase();
-	radios.forEach((radio) => {
-		radio.addEventListener("change", () => {
-			const genre = radio.value;
-			const filtered =
-				genre === "all"
-					? allItems
-					: allItems.filter((item) => item.genre === genre);
-			renderList(filtered);
-		});
-	});
 	const requested = Array.from(radios).find((radio) => radio.value.toLowerCase() === requestedGenre);
-	if (requested) {
-		requested.checked = true;
-		requested.dispatchEvent(new Event("change"));
-	}
+	if (requested) requested.checked = true;
+
+	const applyFilter = () => {
+		const genre = document.querySelector('input[name="genre-filter"]:checked')?.value ?? "all";
+		let visibleCount = 0;
+		entries.forEach((entry) => {
+			entry.hidden = genre !== "all" && entry.dataset.genre !== genre;
+			if (!entry.hidden) visibleCount++;
+		});
+		if (empty) empty.hidden = visibleCount > 0;
+	};
+
+	radios.forEach((radio) => radio.addEventListener("change", applyFilter));
+	applyFilter();
 }
 
 // --------------------------------------------------------------------------
-// List rendering
+// News is read in the document flow. Native details handles mouse and keyboard.
 // --------------------------------------------------------------------------
 
 function renderList(items) {
 	const list = document.getElementById("news-list");
 	if (!list) return;
 
-	if (!items.length) {
-		list.innerHTML =
-			'<p class="section-note">該当するお知らせはありません。</p>';
-		return;
-	}
-
-	list.innerHTML = items
-		.map(
-			(item, i) => `
-    <article
-      class="news-item"
-      role="button"
-      tabindex="0"
-      data-index="${i}"
-    >
-      <span class="news-genre-badge genre-${esc(item.genre.toLowerCase())}">${escHtml(item.genre)}</span>
-      <time class="news-date" datetime="${esc(item.date)}">${formatDate(item.date)}</time>
-      <h3 class="news-title">${escHtml(item.title)}</h3>
-    </article>
-  `,
-		)
-		.join("");
-
-	// フィルター後のアイテム配列をリストに紐付ける
-	list._items = items;
-}
-
-// イベントは init() 時に一度だけ登録
-function initListEvents() {
-	const list = document.getElementById("news-list");
-	if (!list) return;
-
-	list.addEventListener("click", onItemActivate);
-	list.addEventListener("keydown", (e) => {
-		if (e.key === "Enter" || e.key === " ") {
-			e.preventDefault();
-			onItemActivate(e);
-		}
-	});
-}
-
-function onItemActivate(e) {
-	const list = document.getElementById("news-list");
-	const el = e.target.closest(".news-item");
-	if (!el || !list._items) return;
-	const item = list._items[Number(el.dataset.index)];
-	if (item) openModal(item);
-}
-
-// --------------------------------------------------------------------------
-// Modal
-// --------------------------------------------------------------------------
-
-function initModal() {
-	const modal = document.getElementById("news-modal");
-	if (!modal) return;
-
-	modal.addEventListener("click", (e) => {
-		if (e.target === modal) modal.close();
-	});
-
-	// 閉じるボタン — Invoker API 非対応ブラウザ向けフォールバック
-	const closeBtn = modal.querySelector(".news-modal-close");
-	if (closeBtn && !("command" in closeBtn)) {
-		closeBtn.addEventListener("click", () => modal.close());
-	}
-
-	// モーダル close イベントで inert を解除（Escape キー含む全パス対応）
-	modal.addEventListener("close", () => {
-		document.querySelector("main")?.removeAttribute("inert");
-	});
-}
-
-function openModal(item) {
-	const modal = document.getElementById("news-modal");
-	const bodyEl = document.getElementById("modal-body");
-	const genreEl = document.getElementById("modal-genre");
-	const dateEl = document.getElementById("modal-date");
-	const titleEl = document.getElementById("modal-title");
-
-	genreEl.textContent = item.genre;
-	genreEl.className = `news-genre-badge genre-${item.genre.toLowerCase()}`;
-	dateEl.textContent = formatDate(item.date);
-	dateEl.setAttribute("datetime", item.date);
-	titleEl.textContent = item.title;
-	bodyEl.innerHTML = parseMarkdown(item.body ?? "");
-
-	document.querySelector("main")?.setAttribute("inert", "");
-	modal.showModal();
+	list.innerHTML = items.map((item) => `
+    <details class="news-item" data-genre="${esc(item.genre)}" lang="ja">
+      <summary class="news-summary">
+        <span class="news-toggle" aria-hidden="true"></span>
+        <time class="news-date" datetime="${esc(item.date)}">${formatDate(item.date)}</time>
+        <span class="news-genre-badge genre-${esc(item.genre.toLowerCase())}">${escHtml(item.genre)}</span>
+        <span class="news-title">${escHtml(item.title)}</span>
+      </summary>
+      <div class="news-body">${parseMarkdown(item.body ?? "")}</div>
+    </details>
+  `).join("") + '<p id="news-empty" class="section-note" data-i18n="press.empty" role="status" hidden>該当するお知らせはありません。</p>';
 }
 
 // --------------------------------------------------------------------------
