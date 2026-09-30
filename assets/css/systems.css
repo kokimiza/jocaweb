@@ -1,0 +1,35 @@
+@layer brandPrint {
+  .sys-document { padding: 24px 36px 16px; border: 1px solid #344d70; color: #344d70; background: #f7f9fa; font-family: var(--font-family-mincho); }
+  .sys-routing { display: flex; align-items: center; gap: 20px; font: 700 .85rem/1.5 var(--font-family-sans); }
+  .sys-circulate { padding: 5px 14px; border: 3px double currentColor; font-size: 1.1rem; letter-spacing: .3em; }
+  .sys-number { margin-left: auto; font: .8rem/1.5 "Courier New", monospace; }
+  .sys-heading { margin: 32px 0 24px; padding-bottom: 24px; border-bottom: 6px double currentColor; }
+  .sys-heading > p { margin-bottom: 14px; text-align: center; font-weight: 700; letter-spacing: .25em; }
+  .sys-heading h1 { width: fit-content; margin-inline: auto; font: 400 2.6rem/1.05 "Courier New", monospace; letter-spacing: -.06em; }
+  .sys-heading h1 strong { font-size: 1.9em; font-weight: 400; }
+  .sys-intro { max-width: 36em; margin: 0 auto 30px; line-height: 2; }
+  .sys-service { border: 2px solid currentColor; }
+  .sys-service h2 { padding: 8px 16px; border-bottom: 1px solid currentColor; background: repeating-linear-gradient(-45deg, transparent 0 3px, #344d7015 3px 4px); font: 700 1.1rem/1.6 var(--font-family-mincho); }
+  .sys-service h2 > span:first-child { margin-right: 14px; }
+  .sys-service-body { padding: 18px 24px; }
+  .sys-service h3 { margin-bottom: 6px; font: 700 2rem/1.4 "Courier New", monospace; }
+  .sys-service a { color: #344d70; margin-top: 10px; }
+  .sys-ledger { margin-top: 26px; border-block: 1px solid currentColor; }
+  .sys-ledger > div { display: grid; grid-template-columns: 7em 1fr; }
+  .sys-ledger > div + div { border-top: 1px solid currentColor; }
+  .sys-ledger dt, .sys-ledger dd { display: flex; align-items: center; padding: 10px 16px; }
+  .sys-ledger dt { border-right: 1px solid currentColor; font-weight: 700; }
+  .sys-ledger dd a { color: #344d70; padding: 0; }
+  .sys-end { margin-top: 18px; text-align: right; }
+  @media (max-width: 700px) {
+    .sys-document { padding: 16px; }
+    .sys-routing { gap: 10px; font-size: .7rem; flex-wrap: wrap; }
+    .sys-circulate { padding: 4px 8px; font-size: .9rem; }
+    .sys-number { font-size: .7rem; }
+    .sys-heading h1 { font-size: clamp(1.6rem, 7vw, 2.6rem); }
+    .sys-heading > p { letter-spacing: .05em; font-size: .9rem; }
+    .sys-service-body { padding: 16px; }
+    .sys-ledger > div { grid-template-columns: 5em 1fr; }
+    .sys-ledger dt, .sys-ledger dd { padding: 10px; font-size: .85rem; }
+  }
+}

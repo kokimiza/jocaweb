@@ -25,7 +25,9 @@ function init() {
 // --------------------------------------------------------------------------
 
 function initFilter(allItems) {
-	document.querySelectorAll('input[name="genre-filter"]').forEach((radio) => {
+	const radios = document.querySelectorAll('input[name="genre-filter"]');
+	const requestedGenre = new URLSearchParams(window.location.search).get("genre")?.toLowerCase();
+	radios.forEach((radio) => {
 		radio.addEventListener("change", () => {
 			const genre = radio.value;
 			const filtered =
@@ -35,6 +37,11 @@ function initFilter(allItems) {
 			renderList(filtered);
 		});
 	});
+	const requested = Array.from(radios).find((radio) => radio.value.toLowerCase() === requestedGenre);
+	if (requested) {
+		requested.checked = true;
+		requested.dispatchEvent(new Event("change"));
+	}
 }
 
 // --------------------------------------------------------------------------

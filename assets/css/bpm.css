@@ -1,1 +1,30 @@
-@layer bpm { body[data-page="bpm"] { --page-color: var(--red); } }
+@layer brandPrint {
+  .bpm-handbill { padding: 18px 28px 0; background: #ffd4a1; color: #30281f; border: 1px solid currentColor; overflow: hidden; }
+  .bpm-topline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-bottom: 10px; border-bottom: 2px solid currentColor; font: 700 .85rem/1.5 var(--font-family-sans); }
+  .bpm-handbill h1 { margin-top: 12px; }
+  .bpm-handbill h1 abbr { display: block; font: 900 clamp(6rem, 19vw, 12rem)/.95 "Arial Black", Impact, sans-serif; letter-spacing: -.075em; text-decoration: none; }
+  .bpm-handbill h1 > span { display: block; margin-top: 8px; padding-block: 8px; border-block: 5px solid currentColor; font: 900 clamp(.9rem, 2.6vw, 1.6rem)/1.3 "Arial Black", sans-serif; letter-spacing: .12em; }
+  .bpm-sound { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 28px; padding: 28px 0; }
+  .bpm-record { display: grid; place-items: center; width: min(100%, 290px); aspect-ratio: 1; border: 8px solid #30281f; border-radius: 50%; background: repeating-radial-gradient(circle, #30281f 0 3px, #5b4c3d 4px, #30281f 5px 8px); transform: rotate(-14deg); }
+  .bpm-record-label { display: grid; place-content: center; width: 43%; aspect-ratio: 1; border-radius: 50%; color: #30281f; background: #ffd4a1; text-align: center; font: 900 clamp(.6rem, 1.5vw, .9rem)/1.15 "Arial Black", sans-serif; }
+  .bpm-record-label span { margin-top: 8px; }
+  .bpm-headline { margin-bottom: 18px; font: 900 clamp(1.7rem, 4vw, 2.8rem)/1.5 var(--font-family-mincho); white-space: pre-line; }
+  .bpm-copy > p + p { font-size: .9rem; }
+  .brand-page .bpm-release { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; border-block: 2px solid currentColor; padding: 12px 0; }
+  .bpm-release h2 { font: 700 1rem/1.5 var(--font-family-sans); }
+  .bpm-release a { color: #30281f; font-size: .85rem; }
+  .bpm-bottom { margin: 14px -28px 0; padding: 9px; background: #30281f; color: #ffd4a1; font: 700 .75rem/1.5 "Courier New", monospace; text-align: center; letter-spacing: .15em; }
+  @media (max-width: 700px) {
+    .bpm-handbill { padding: 14px 16px 0; }
+    .bpm-topline { font-size: .7rem; }
+    .bpm-handbill h1 abbr { font-size: clamp(5rem, 27vw, 10rem); }
+    .bpm-handbill h1 > span { letter-spacing: .05em; }
+    .bpm-sound { gap: 14px; padding-block: 24px; }
+    .bpm-headline { font-size: 1.5rem; }
+    .bpm-record { border-width: 4px; }
+    .bpm-record-label { width: 52%; font-size: .55rem; }
+    .bpm-copy > p + p { font-size: .8rem; }
+    .brand-page .bpm-release { grid-template-columns: 1fr; gap: 5px; }
+    .bpm-bottom { margin-inline: -16px; }
+  }
+}

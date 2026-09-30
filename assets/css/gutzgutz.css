@@ -1,1 +1,25 @@
-@layer gutzgutz { body[data-page="gutzgutz"] { --page-color: var(--green); } }
+@layer brandPrint {
+  .gutz-handbill { padding: 22px 32px 12px; border: 3px solid #255339; background: #f4f2b8; color: #255339; box-shadow: 7px 7px 0 #255339; }
+  .gutz-ribbon { border-block: 3px double currentColor; padding: 6px; text-align: center; font-weight: 700; letter-spacing: .18em; }
+  .gutz-handbill h1 { margin: 28px 0 6px; text-align: center; font: 400 clamp(3.4rem, 9vw, 6rem)/1.25 "Mochiy Pop One", sans-serif; letter-spacing: -.04em; text-shadow: 3px 3px 0 #fffef7, 5px 5px 0 #255339; transform: rotate(-3deg); }
+  .gutz-subtitle { display: block; margin-top: 8px; font-size: .43em; letter-spacing: .2em; text-shadow: none; }
+  .gutz-playground { position: relative; display: grid; justify-items: center; padding: 26px 0 24px; }
+  .gutz-controller { width: 330px; max-width: 65%; transform: rotate(9deg); margin: 15px 0 12px 16%; }
+  .gutz-burst { position: absolute; z-index: 1; top: 6px; left: 1%; display: grid; place-items: center; width: 180px; height: 160px; padding: 22px; background: #255339; color: #fffbd0; clip-path: polygon(50% 0,60% 14%,78% 3%,80% 22%,100% 23%,88% 43%,100% 60%,82% 66%,86% 91%,64% 83%,51% 100%,40% 85%,16% 97%,20% 73%,0 66%,13% 49%,0 27%,23% 26%,25% 5%,41% 16%); transform: rotate(-12deg); text-align: center; font: 700 1.25rem/1.5 var(--font-family-sans); white-space: pre-line; }
+  .gutz-caption { margin-top: 10px; font: 700 1.4rem/1.6 var(--font-family-sans); text-align: center; }
+  .gutz-memo { display: grid; grid-template-columns: auto 1fr; column-gap: 24px; align-items: center; padding: 16px 22px; background: #fffef0; border: 2px dashed #255339; }
+  .gutz-memo h2 { grid-row: span 2; padding-right: 22px; border-right: 3px double #255339; font: 700 1rem/1.8 var(--font-family-sans); }
+  .gutz-memo a { color: #255339; font-size: .9rem; }
+  .gutz-imprint { margin-top: 18px; text-align: right; font: 700 .75rem/1.5 "Courier New", monospace; letter-spacing: .08em; }
+  @media (max-width: 700px) {
+    .gutz-handbill { padding: 14px 14px 12px; box-shadow: 4px 4px 0 #255339; }
+    .gutz-ribbon { font-size: .8rem; letter-spacing: 0; }
+    .gutz-handbill h1 { font-size: clamp(2.7rem, 12vw, 5rem); }
+    .gutz-playground { padding-top: 65px; }
+    .gutz-burst { top: 16px; left: -6px; width: 123px; height: 110px; font-size: .95rem; }
+    .gutz-controller { max-width: 85%; margin-left: 10%; }
+    .gutz-caption { font-size: 1.15rem; }
+    .gutz-memo { grid-template-columns: 1fr; padding: 12px; }
+    .gutz-memo h2 { grid-row: auto; margin-bottom: 8px; border-right: 0; padding: 0; }
+  }
+}

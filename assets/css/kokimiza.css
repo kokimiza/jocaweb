@@ -1,1 +1,34 @@
-@layer kokimiza { body[data-page="kokimiza"] { --page-color: var(--blue); } }
+@font-face {
+  font-family: "Kokimiza Mincho";
+  src: url("../fonts/ZenAntiqueSoft-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@layer brandPrint {
+  .koki-handbill { border: 6px double #79332b; padding: 16px 28px 8px; color: #362922; background: #fffaf0; }
+  .koki-topline, .koki-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: .85rem; }
+  .koki-topline { padding-bottom: 10px; border-bottom: 1px solid #79332b; letter-spacing: .15em; }
+  .koki-stage { position: relative; display: grid; grid-template-columns: 1fr 1.3fr 1fr; align-items: center; justify-items: center; min-height: 420px; padding: 24px 0 36px; }
+  .koki-stage h1 { grid-column: 2; grid-row: 1; writing-mode: vertical-rl; font: 400 clamp(4rem, 8vw, 5.6rem)/1.25 "Kokimiza Mincho", serif; letter-spacing: .13em; }
+  .koki-side { grid-column: 3; grid-row: 1; writing-mode: vertical-rl; font: 700 1.2rem/1.8 var(--font-family-mincho); letter-spacing: .22em; }
+  .koki-seal { grid-column: 1; grid-row: 1; padding: 18px 8px; border: 3px double #a7382d; color: #a7382d; writing-mode: vertical-rl; font: 700 1.65rem/1.5 var(--font-family-mincho); letter-spacing: .2em; transform: rotate(-7deg); }
+  .koki-roman { position: absolute; bottom: 5px; font: 12px/2 Georgia, serif; letter-spacing: .25em; }
+  .brand-page .koki-program { margin: 16px 0 18px; border-block: 1px solid #79332b; padding: 18px 0; text-align: center; }
+  .koki-program h2 { margin-bottom: 12px; font: 700 1.15rem/1.5 var(--font-family-mincho); letter-spacing: .3em; }
+  .koki-small { margin-top: 5px; font-size: .85rem; }
+  .koki-bottom a { color: #79332b; }
+  html[lang="en"] .koki-side { writing-mode: horizontal-tb; text-align: center; font-size: 1.1rem; letter-spacing: 0; }
+  html[lang="en"] .koki-seal { writing-mode: horizontal-tb; max-width: 140px; font-size: 1rem; text-align: center; letter-spacing: 0; }
+  @media (max-width: 700px) {
+    .koki-handbill { padding: 12px 14px 6px; }
+    .koki-topline { font-size: .7rem; letter-spacing: .03em; }
+    .koki-stage { grid-template-columns: 1fr 1.6fr 1fr; min-height: 370px; }
+    .koki-stage h1 { font-size: 4rem; }
+    .koki-side { font-size: 1rem; }
+    .koki-seal { font-size: 1.25rem; }
+    .koki-bottom { flex-direction: column; gap: 0; }
+    html[lang="en"] .koki-stage { grid-template-columns: 1fr 1.5fr; gap: 12px; }
+    html[lang="en"] .koki-side { grid-column: 1; align-self: start; margin-top: 24px; }
+    html[lang="en"] .koki-seal { align-self: end; margin-bottom: 40px; }
+  }
+}

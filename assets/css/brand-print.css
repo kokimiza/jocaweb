@@ -1,0 +1,20 @@
+/* Shared paper margins only. Each brand owns its composition and typography. */
+@layer brandPrint {
+  .brand-page main { padding: 30px 36px 42px; }
+  .brand-page main article { overflow-wrap: anywhere; }
+  .brand-page main a { display: inline-block; padding-block: 10px; font-weight: 700; }
+  .brand-page main a:focus-visible { outline-offset: 3px; }
+  .brand-page main section { padding: 0; }
+  .brand-page .footer-badges { display: none; }
+  .brand-page .footer-copyright { margin-top: 8px; }
+  @media (max-width: 700px) {
+    .brand-page main { padding: 20px 18px 28px; }
+  }
+  @media print {
+    html { background: white; }
+    .brand-page { margin: 0; border: 0; box-shadow: none; min-height: 0; }
+    .brand-page site-header, .brand-page site-footer { display: none; }
+    .brand-page main { padding: 0; }
+    .brand-page main article { break-inside: avoid; print-color-adjust: exact; }
+  }
+}

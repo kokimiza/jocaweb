@@ -33,25 +33,25 @@
 		},
 		"kokimiza": {
 			"title": {
-				"ja": "kokimiza – Animation & Visual | jocarium",
+				"ja": "小気味座 — 映像・アニメーション | jocarium",
 				"en": "kokimiza – Animation & Visual | jocarium"
 			}
 		},
 		"gutzgutz": {
 			"title": {
-				"ja": "Gutzgutz – Game Development | jocarium",
+				"ja": "グツグツソフトウェア — ゲーム制作 | jocarium",
 				"en": "Gutzgutz – Game Development | jocarium"
 			}
 		},
 		"bpm": {
 			"title": {
-				"ja": "BURNING PIZZA METHODS – Music Label | jocarium",
+				"ja": "BPM — BURNING PIZZA METHODS | jocarium",
 				"en": "BURNING PIZZA METHODS – Music Label | jocarium"
 			}
 		},
 		"systems": {
 			"title": {
-				"ja": "jocarium Systems – Engineering | jocarium",
+				"ja": "jocarium systems — 道具としくみ",
 				"en": "jocarium Systems – Engineering | jocarium"
 			}
 		}
@@ -301,398 +301,146 @@
 		}
 	},
 	"kokimiza": {
-		"header": {
-			"desc": {
-				"ja": "意図あるビジュアル、意味あるモーション。",
-				"en": "Intentional visuals. Meaningful motion."
-			}
-		},
-		"services": {
-			"animation": {
-				"desc": {
-					"ja": "各フレームに意図を込めた、キャラクター・UI・環境のアニメーション制作。",
-					"en": "Character, UI, and environment animation crafted with intention in every frame."
-				}
+		"flyer": {
+			"kind": {
+				"ja": "映像・アニメーション",
+				"en": "Film & animation"
 			},
-			"shortFilms": {
-				"desc": {
-					"ja": "視覚的インパクトと感情的な深さを持つ、完結した短編映像。",
-					"en": "Self-contained short-form films with visual impact and emotional depth."
-				}
+			"side": {
+				"ja": "絵が動く。それをつくる。",
+				"en": "Making pictures move."
 			},
-			"motionDesign": {
-				"desc": {
-					"ja": "UI・ブランド・空間のための、動きの美学。",
-					"en": "The aesthetics of movement for UI, branding, and space."
-				}
+			"seal": {
+				"ja": "仕度中",
+				"en": "In preparation"
 			},
-			"storytelling": {
-				"desc": {
-					"ja": "映像言語で複雑なアイデアと感情を伝える。",
-					"en": "Communicating complex ideas and emotions through the language of film."
-				}
-			}
-		},
-		"philosophy": {
-			"p1": {
-				"title": {
-					"ja": "満足度",
-					"en": "Satisfaction"
-				},
-				"desc": {
-					"ja": "磨き抜かれた、完成度の高い作品だけを出す。",
-					"en": "Only polished, fully realized work goes out."
-				}
+			"program": {
+				"ja": "本日の演目",
+				"en": "Today's programme"
 			},
-			"p2": {
-				"title": {
-					"ja": "表現力",
-					"en": "Expressiveness"
-				},
-				"desc": {
-					"ja": "技術と芸術のバランスの中で、感情と意図を映像に宿す。",
-					"en": "Embedding emotion and intent in visuals at the intersection of technique and art."
-				}
+			"status": {
+				"ja": "お見せできる作品は、まだありません。",
+				"en": "No films to show just yet."
 			},
-			"p3": {
-				"title": {
-					"ja": "心地よさ",
-					"en": "Comfort"
-				},
-				"desc": {
-					"ja": "テンポ・色彩・タイミング、すべてが調和した体験。",
-					"en": "An experience where tempo, color, and timing all converge in harmony."
-				}
-			}
-		},
-		"works": {
-			"note": {
-				"ja": "ポートフォリオ準備中",
-				"en": "Portfolio coming soon"
-			}
-		},
-		"cta": {
-			"heading": {
-				"ja": "Let's Make Something.",
-				"en": "Let's Make Something."
+			"next": {
+				"ja": "できあがったら、こちらに。",
+				"en": "They’ll appear here when they’re ready."
+			},
+			"credit": {
+				"ja": "映像制作　小気味座",
+				"en": "Films by kokimiza"
+			},
+			"link": {
+				"ja": "小気味座のお知らせ →",
+				"en": "News from kokimiza →"
 			}
 		}
 	},
 	"gutzgutz": {
-		"header": {
-			"desc": {
-				"ja": "静かに沸き立つ衝動を、遊びに変える。",
-				"en": "Turning a quiet, simmering impulse into play."
-			}
-		},
-		"services": {
-			"original": {
-				"desc": {
-					"ja": "コンセプトからリリースまで、一貫して自社IPを育てる。",
-					"en": "Nurturing original IP in-house, from concept through release."
-				}
+		"flyer": {
+			"ribbon": {
+				"ja": "◆　ゲームをつくるところ　◆",
+				"en": "◆ A place for making games ◆"
 			},
-			"engines": {
-				"desc": {
-					"ja": "Unity、Unreal Engine、Bevy。プロジェクトに最も適した技術を選ぶ。",
-					"en": "Unity, Unreal Engine, Bevy — choosing whatever technology best serves the project."
-				}
+			"burst": {
+				"ja": "まだまだ\n煮込み中！",
+				"en": "Still\ncooking!"
 			},
-			"offline": {
-				"desc": {
-					"ja": "Windows、Linux、macOS、iOS。オフラインの体験だけを、まっすぐに磨く。",
-					"en": "Windows, Linux, macOS, iOS. Focused solely on refining the offline experience."
-				}
+			"caption": {
+				"ja": "遊べるものは、これから。",
+				"en": "Something to play is still to come."
 			},
-			"genre": {
-				"desc": {
-					"ja": "ジャンルは決めない。面白さの本質だけを追いかける。",
-					"en": "No fixed genre. Just the pursuit of what makes play worthwhile."
-				}
-			}
-		},
-		"philosophy": {
-			"p1": {
-				"title": {
-					"ja": "沸点",
-					"en": "Boiling Point"
-				},
-				"desc": {
-					"ja": "静かに滾る情熱を、遊びへと注ぎ込む。派手さではなく、熱量で語る。",
-					"en": "A quietly simmering passion, poured into every game — spoken through intensity, not spectacle."
-				}
+			"label": {
+				"ja": "ただいまの状況",
+				"en": "Current status"
 			},
-			"p2": {
-				"title": {
-					"ja": "面白さの先",
-					"en": "Beyond Fun"
-				},
-				"desc": {
-					"ja": "面白さは前提条件。目指すのは、その先にある忘れがたい手触り。",
-					"en": "Fun is the baseline, not the goal. What we're after is what lingers beyond it."
-				}
+			"status": {
+				"ja": "公開中のゲームはありません。",
+				"en": "No games released yet."
 			},
-			"p3": {
-				"title": {
-					"ja": "残る記憶",
-					"en": "A Memory That Stays"
-				},
-				"desc": {
-					"ja": "ふと思い出したときに、「あれは楽しかったな」と思える体験を届ける。",
-					"en": "Games that come back to mind someday, with a quiet \"that was fun.\""
-				}
-			},
-			"p4": {
-				"title": {
-					"ja": "静かな爪痕",
-					"en": "A Quiet Mark"
-				},
-				"desc": {
-					"ja": "声高に語らずとも、遊んだ人の中に、そして社会に、小さな爪痕を残したい。",
-					"en": "Without shouting about it, we hope to leave a small mark — in the people who play, and in the world beyond."
-				}
-			}
-		},
-		"portfolio": {
-			"note": {
-				"ja": "ゲームプロジェクト準備中",
-				"en": "Game projects coming soon"
-			}
-		},
-		"cta": {
-			"heading": {
-				"ja": "Play With Us.",
-				"en": "Play With Us."
+			"link": {
+				"ja": "制作のお知らせをのぞく →",
+				"en": "See development news →"
 			}
 		}
 	},
 	"bpm": {
-		"header": {
+		"flyer": {
+			"kind": {
+				"ja": "jocarium 音楽係",
+				"en": "Music from jocarium"
+			},
+			"headline": {
+				"ja": "音楽も、\nつくります。",
+				"en": "We make\nmusic, too."
+			},
 			"desc": {
-				"ja": "jocarium を音で満たす、インハウス・レーベル。",
-				"en": "The in-house label filling jocarium with sound."
-			}
-		},
-		"services": {
-			"original": {
-				"desc": {
-					"ja": "プロジェクトのビジョンに合わせた、オーダーメイドの楽曲制作。",
-					"en": "Bespoke music composed to match the vision of each project."
-				}
+				"ja": "映像やゲームの音楽、効果音。",
+				"en": "Music and sound effects for films and games."
 			},
-			"bgm": {
-				"desc": {
-					"ja": "映像・ゲームの世界観を深める背景音楽。",
-					"en": "Background music that deepens the world of film and games."
-				}
+			"release": {
+				"ja": "レコード棚",
+				"en": "Record shelf"
 			},
-			"sfx": {
-				"desc": {
-					"ja": "UI音・環境音・インタラクティブ音響のデザイン。",
-					"en": "UI sounds, ambient audio, and interactive sound design."
-				}
+			"status": {
+				"ja": "まだ空っぽです。",
+				"en": "Nothing on the shelf yet."
 			},
-			"production": {
-				"desc": {
-					"ja": "録音・ミックス・マスタリングまで、一気通貫の音響制作。",
-					"en": "End-to-end audio production from recording through mixing and mastering."
-				}
-			}
-		},
-		"philosophy": {
-			"p1": {
-				"title": {
-					"ja": "一体性",
-					"en": "Unity"
-				},
-				"desc": {
-					"ja": "ビジュアルとサウンドが溶け合う体験をつくる。",
-					"en": "Creating experiences where visuals and sound dissolve into one."
-				}
-			},
-			"p2": {
-				"title": {
-					"ja": "感情的な深さ",
-					"en": "Emotional Depth"
-				},
-				"desc": {
-					"ja": "和音・テンポ・音色が、感情に直接届く。",
-					"en": "Harmony, tempo, and timbre that speak directly to emotion."
-				}
-			},
-			"p3": {
-				"title": {
-					"ja": "職人技",
-					"en": "Craftsmanship"
-				},
-				"desc": {
-					"ja": "各音・各フレーズに、意図と意味がある。",
-					"en": "Every note, every phrase carries intention and meaning."
-				}
-			},
-			"p4": {
-				"title": {
-					"ja": "多様性",
-					"en": "Versatility"
-				},
-				"desc": {
-					"ja": "クラシックからエレクトロニック、実験音響まで。ジャンルに縛られない。",
-					"en": "From classical to electronic, experimental to ambient — never bound by genre."
-				}
-			}
-		},
-		"collaborations": {
-			"kokimiza": {
-				"ja": "アニメーション・ビジュアルへの音楽付け",
-				"en": "Scoring animation and visual projects"
-			},
-			"gutzgutz": {
-				"ja": "ゲームのサウンドデザイン",
-				"en": "Sound design for games"
-			},
-			"systems": {
-				"ja": "技術的な音響実装",
-				"en": "Technical audio implementation"
-			}
-		},
-		"catalog": {
-			"note": {
-				"ja": "カタログ・プレイリスト準備中",
-				"en": "Catalog and playlist coming soon"
-			}
-		},
-		"cta": {
-			"heading": {
-				"ja": "Sound Good?",
-				"en": "Sound Good?"
+			"link": {
+				"ja": "音のお知らせ →",
+				"en": "Music news →"
 			}
 		}
 	},
 	"systems": {
-		"header": {
+		"flyer": {
+			"circulate": {
+				"ja": "回覧",
+				"en": "Circular"
+			},
+			"department": {
+				"ja": "jocarium ／ 技術係",
+				"en": "jocarium / Technical desk"
+			},
+			"notice": {
+				"ja": "道具としくみのご案内",
+				"en": "Tools & systems bulletin"
+			},
 			"desc": {
-				"ja": "クリエイティブを支える、見えない技術基盤。",
-				"en": "The invisible technical foundation supporting creativity."
-			}
-		},
-		"responsibilities": {
-			"internal": {
-				"desc": {
-					"ja": "プロジェクト管理・資産管理・財務システムなど、事業基盤の構築・運用。",
-					"en": "Building and operating the business foundation: project management, asset management, financial systems."
-				}
+				"ja": "自分たちで使うソフトウェアや、Webサービスをつくる係です。",
+				"en": "We build software for our own use, and services for the web."
 			},
-			"software": {
-				"desc": {
-					"ja": "各ブランドが使うソフトウェア・ツールの設計・実装・保守。",
-					"en": "Designing, implementing, and maintaining software and tools used across brands."
-				}
-			},
-			"infra": {
-				"desc": {
-					"ja": "CI/CD・テスト環境・デプロイ基盤の構築と管理。",
-					"en": "Building and managing CI/CD pipelines, test environments, and deployment infrastructure."
-				}
-			},
-			"devsecops": {
-				"desc": {
-					"ja": "自動化・セキュリティ強化・信頼性向上の継続的な推進。",
-					"en": "Continuously advancing automation, security hardening, and reliability."
-				}
-			},
-			"oss": {
-				"desc": {
-					"ja": "内部成果のオープンソース化による、コミュニティへの還元。",
-					"en": "Giving back to the community by open-sourcing internal work."
-				}
-			}
-		},
-		"philosophy": {
-			"p1": {
-				"title": {
-					"ja": "技術は手段",
-					"en": "Technology as a Tool"
-				},
-				"desc": {
-					"ja": "クリエイターのビジョンを実現するために存在する。邪魔をしない。",
-					"en": "It exists to realize the creator's vision. Nothing more."
-				}
-			},
-			"p2": {
-				"title": {
-					"ja": "長期的な視点",
-					"en": "Long-Term Thinking"
-				},
-				"desc": {
-					"ja": "保守性・拡張性・持続性を重視した、長く使えるシステムを作る。",
-					"en": "Building systems that last, with maintainability, scalability, and sustainability in mind."
-				}
-			},
-			"p3": {
-				"title": {
-					"ja": "信頼性と安全性",
-					"en": "Reliability & Safety"
-				},
-				"desc": {
-					"ja": "クリエイティブ作業を止めない。セキュリティと可用性が最優先。",
-					"en": "Creative work must never stop. Security and availability come first."
-				}
-			},
-			"p4": {
-				"title": {
-					"ja": "シンプルさ",
-					"en": "Simplicity"
-				},
-				"desc": {
-					"ja": "複雑さを排除し、理解しやすい設計を追求する。",
-					"en": "Eliminating complexity and pursuing designs that are easy to understand."
-				}
-			}
-		},
-		"techFocus": {
-			"cloud": {
-				"ja": "スケーラブルで信頼性の高い環境",
-				"en": "Scalable and reliable environments"
-			},
-			"containerization": {
-				"ja": "Docker / Kubernetes",
-				"en": "Docker / Kubernetes"
-			},
-			"cicd": {
-				"ja": "高速で安定したデプロイメント",
-				"en": "Fast and stable deployments"
-			},
-			"data": {
-				"ja": "DB・キャッシング・分析",
-				"en": "Databases, caching, and analytics"
-			},
-			"api": {
-				"ja": "サービス間統合",
-				"en": "Inter-service integration"
-			},
-			"security": {
-				"ja": "暗号化・認証・アクセス管理",
-				"en": "Encryption, authentication, and access control"
-			},
-			"observability": {
-				"ja": "監視・ロギング・障害検出",
-				"en": "Monitoring, logging, and incident detection"
-			}
-		},
-		"projects": {
-			"heading": {
-				"ja": "運営しているサービス",
-				"en": "Our services"
+			"service": {
+				"ja": "Webサービス",
+				"en": "Web service"
 			},
 			"namaran": {
-				"ja": "jocarium Systems が運営する Web サービスです。",
-				"en": "A web service operated by jocarium Systems."
-			}
-		},
-		"cta": {
-			"heading": {
-				"ja": "Build Together.",
-				"en": "Build Together."
+				"ja": "jocarium systems が運営しています。",
+				"en": "Operated by jocarium systems."
+			},
+			"open": {
+				"ja": "Namaran を開く ↗",
+				"en": "Open Namaran ↗"
+			},
+			"workLabel": {
+				"ja": "そのほか",
+				"en": "Also"
+			},
+			"work": {
+				"ja": "制作に使う道具・内部のしくみづくり。",
+				"en": "Tools for making things, and internal systems."
+			},
+			"contactLabel": {
+				"ja": "連絡先",
+				"en": "Contact"
+			},
+			"contact": {
+				"ja": "お問い合わせフォーム →",
+				"en": "Contact form →"
+			},
+			"end": {
+				"ja": "以上",
+				"en": "End of bulletin"
 			}
 		}
 	},
