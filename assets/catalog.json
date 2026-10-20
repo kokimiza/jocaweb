@@ -54,6 +54,12 @@
 				"ja": "jocarium systems — 道具としくみ",
 				"en": "jocarium Systems – Engineering | jocarium"
 			}
+		},
+		"notFound": {
+			"title": {
+				"ja": "404 ページが見つかりません – jocarium",
+				"en": "404 Not Found – jocarium"
+			}
 		}
 	},
 	"nav": {
@@ -506,6 +512,32 @@
 		"squeeze": {
 			"ja": "ぎゅっ！",
 			"en": "Squeeze!"
+		}
+	},
+	"notFound": {
+		"lead": {
+			"ja": "お探しのページは見つかりませんでした。",
+			"en": "The page you are looking for cannot be found."
+		},
+		"titlebar": {
+			"ja": "jocarium - エラー",
+			"en": "jocarium - Error"
+		},
+		"message": {
+			"ja": "このページは表示できません。",
+			"en": "This page cannot be displayed."
+		},
+		"detail": {
+			"ja": "ページが移動または削除されたか、アドレスが間違っている可能性があります。",
+			"en": "The page may have been moved or deleted, or the address may be wrong."
+		},
+		"home": {
+			"ja": "OK（トップへ）",
+			"en": "OK (Home)"
+		},
+		"contact": {
+			"ja": "お問い合わせ",
+			"en": "Contact"
 		}
 	}
 }
