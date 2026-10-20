@@ -124,6 +124,20 @@
   .genre-bpm { color: var(--red); background: var(--ink-red-wash); }
   .genre-jocarium { color: var(--ink); background: var(--color-bg-light); }
 
+  /* 404：Windows 98 のエラーダイアログ。 */
+  [data-page="notFound"] { --page-color: var(--red); }
+  .error-dialog { max-width: 520px; margin: 0 auto 12px; border: 3px outset var(--button-face); background: var(--button-face); box-shadow: 6px 6px 0 var(--shade); font: 13px/1.6 "MS PGothic", sans-serif; }
+  .error-dialog-titlebar { display: flex; align-items: center; justify-content: space-between; padding: 3px 4px 3px 8px; background: linear-gradient(90deg, #000080, #1084d0); color: #fff; font-weight: 700; }
+  .error-dialog-close { width: 20px; height: 18px; display: grid; place-items: center; border: 2px outset var(--button-face); background: var(--button-face); color: var(--ink); font: 700 12px/1 sans-serif; }
+  .error-dialog-body { display: flex; align-items: flex-start; gap: 16px; padding: 20px 18px 8px; }
+  .error-dialog-body p { margin: 0 0 6px; }
+  .error-dialog-icon { flex: none; width: 40px; height: 40px; display: grid; place-items: center; border: 2px solid #800000; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ff6b5a, var(--red) 60%); color: #fff; font: 900 26px/1 sans-serif; box-shadow: 2px 2px 0 var(--shade); }
+  .error-dialog-message { font-weight: 700; }
+  .error-dialog-code { color: var(--color-text-light); font-family: "Courier New", monospace; }
+  .error-dialog-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 8px 18px 18px; }
+  .error-dialog .btn { min-width: 9em; min-height: 32px; padding: 4px 14px; font-size: 13px; }
+  .error-dialog .btn:first-child { outline: 1px dotted var(--ink); outline-offset: -6px; }
+
   site-footer > footer { margin: 0; padding: 22px 28px; border-top: 3px double var(--blue); background: var(--paper); color: var(--ink); }
   .footer-wordmark { color: var(--green); font-size: 1.6rem; }
   .footer-links a { color: var(--blue); }
