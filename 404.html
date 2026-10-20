@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>404 – jocarium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap">
+  <!-- 404 は任意の深さのパスで返るため、アセットは絶対パスで参照する -->
+  <link rel="stylesheet" href="/assets/css/reset.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/retro.css">
+  <script src="/assets/js/config.js" defer></script>
+  <script src="/assets/js/components.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</head>
+<body data-page="notFound">
+  <site-header base=""></site-header>
+
+  <main id="main" tabindex="-1">
+    <section class="page-header">
+      <div class="container">
+        <h1>404</h1>
+        <p data-i18n="notFound.lead">お探しのページは見つかりませんでした。</p>
+      </div>
+    </section>
+    <section class="content-section">
+      <div class="container">
+        <!-- Windows 98 のエラーダイアログ。 -->
+        <div class="error-dialog" role="alert" aria-labelledby="error-dialog-message">
+          <div class="error-dialog-titlebar"><span data-i18n="notFound.titlebar">jocarium - エラー</span><span class="error-dialog-close" aria-hidden="true">×</span></div>
+          <div class="error-dialog-body">
+            <span class="error-dialog-icon" aria-hidden="true">×</span>
+            <div>
+              <p id="error-dialog-message" class="error-dialog-message" data-i18n="notFound.message">このページは表示できません。</p>
+              <p data-i18n="notFound.detail">ページが移動または削除されたか、アドレスが間違っている可能性があります。</p>
+              <p class="error-dialog-code">HTTP 404 - Not Found</p>
+            </div>
+          </div>
+          <div class="error-dialog-buttons"><a href="/" class="btn" data-i18n="notFound.home">OK（トップへ）</a><a href="/contact/" class="btn" data-i18n="notFound.contact">お問い合わせ</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <site-footer base=""></site-footer>
+</body>
+</html>
