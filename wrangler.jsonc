@@ -2,6 +2,7 @@
   "name": "jocaweb",
   "compatibility_date": "2026-06-30",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "not_found_handling": "404-page"
   }
 }
